@@ -1,0 +1,271 @@
+/* ============================================================================
+   Refresher — design tokens + reset + shared utilities.
+   Imported once, by BaseLayout. Everything else is a scoped <style> block.
+
+   THEME: three states, no JavaScript.
+     :root                              -> complete LIGHT palette
+     @media (prefers-color-scheme:dark)
+       :root:not([data-theme="light"])  -> dark tokens
+     :root[data-theme="dark"]           -> dark tokens (reserved for a future toggle)
+   Components read tokens only. Never declare a colour solely inside a media or
+   [data-theme] block — it would be undefined in the un-stamped state.
+   ============================================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces — AppColors.swift light palette (primaryBgLight … secondaryTextLight) */
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-raise: #e4e7ef;
+  --color-ink: #1a2332;
+  --color-ink-2: #64748b;
+  --color-ink-3: #8a97a8;
+  --color-rule: rgba(26, 35, 50, 0.14);
+  --color-rule-soft: rgba(26, 35, 50, 0.07);
+  --color-tint: rgba(26, 35, 50, 0.028);
+
+  /* Techniques — the shipped *Light variants */
+  --t-box: #1a8c80;
+  --t-478: #b87e08;
+  --t-coherent: #c05218;
+  --t-wim: #b82424;
+  --t-sigh: #1e7fa8;
+  --t-nostril: #5a4fb0;
+  --t-extended: #2a5fa8;
+  --t-timer: #8b5e3c;
+  --t-builder: #7c3aed;
+
+  /* Phases — DERIVED for light. The app ships no light variant for these four;
+     the dark values are too pale on #f5f7fa. Hue preserved, luminance dropped. */
+  --phase-inhale: #2563c9;
+  --phase-hold: #1e9e56;
+  --phase-exhale: #6d4fd0;
+  --phase-pause: #556173;
+
+  --color-brand: #7c3aed;
+  --btn-bg: #1a2332;
+  --btn-ink: #ffffff;
+  --shadow: 0 1px 2px rgba(26, 35, 50, 0.06), 0 8px 24px rgba(26, 35, 50, 0.07);
+
+  /* The orb corona is the icon. It does not change between themes. */
+  --orb-cyan: #20d3da;
+  --orb-teal: #1fa8e0;
+  --orb-magenta: #ce02f7;
+  --orb-violet: #6b16b9;
+  --orb-purple: #9010d8;
+
+  /* Type. No webfont beyond Plex Mono — the app itself ships zero custom fonts
+     and is SF Pro with design:.rounded, so the system stack IS the brand voice. */
+  --font-display: ui-rounded, "SF Pro Rounded", "Hiragino Maru Gothic ProN",
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  /* Scale — mirrors UIConstants.swift */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 72px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --max-width: 1140px;
+  --max-width-prose: 760px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #0a0a0f;
+    --color-surface: #1a1a1f;
+    --color-raise: #2a2a2f;
+    --color-ink: #ffffff;
+    --color-ink-2: #9ca3af;
+    --color-ink-3: #6f6f7d;
+    --color-rule: rgba(255, 255, 255, 0.12);
+    --color-rule-soft: rgba(255, 255, 255, 0.06);
+    --color-tint: rgba(255, 255, 255, 0.025);
+    --t-box: #55cec0;
+    --t-478: #ecc52e;
+    --t-coherent: #f09240;
+    --t-wim: #e84848;
+    --t-sigh: #57c7e6;
+    --t-nostril: #7c6fd6;
+    --t-extended: #4a8fe0;
+    --t-timer: #c4956a;
+    --t-builder: #a855f7;
+    --phase-inhale: #60a5fa;
+    --phase-hold: #4ade80;
+    --phase-exhale: #a78bfa;
+    --phase-pause: #94a3b8;
+    --color-brand: #a855f7;
+    --btn-bg: #ffffff;
+    --btn-ink: #0a0a0f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 14px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0a0a0f;
+  --color-surface: #1a1a1f;
+  --color-raise: #2a2a2f;
+  --color-ink: #ffffff;
+  --color-ink-2: #9ca3af;
+  --color-ink-3: #6f6f7d;
+  --color-rule: rgba(255, 255, 255, 0.12);
+  --color-rule-soft: rgba(255, 255, 255, 0.06);
+  --color-tint: rgba(255, 255, 255, 0.025);
+  --t-box: #55cec0;
+  --t-478: #ecc52e;
+  --t-coherent: #f09240;
+  --t-wim: #e84848;
+  --t-sigh: #57c7e6;
+  --t-nostril: #7c6fd6;
+  --t-extended: #4a8fe0;
+  --t-timer: #c4956a;
+  --t-builder: #a855f7;
+  --phase-inhale: #60a5fa;
+  --phase-hold: #4ade80;
+  --phase-exhale: #a78bfa;
+  --phase-pause: #94a3b8;
+  --color-brand: #a855f7;
+  --btn-bg: #ffffff;
+  --btn-ink: #0a0a0f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- reset ---------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- utilities ------------------------------------------------------------ */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-lg); }
+.prose { max-width: var(--max-width-prose); }
+.tnum { font-variant-numeric: tabular-nums; }
+
+.lbl {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: var(--radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+.scroll-x { overflow-x: auto; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* --- the orb: the app icon. Rounded like the springboard mark it is. ------- */
+.orb { position: relative; aspect-ratio: 1; flex: 0 0 auto; }
+.orb img {
+  width: 100%;
+  height: auto;
+  border-radius: 22.4%; /* iOS icon corner radius */
+}
+
+/* Large marks get a corona and the app's own ~9s intensity cycle. */
+.orb-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--orb-magenta) 45%, transparent) 0%,
+    color-mix(in srgb, var(--orb-violet) 28%, transparent) 42%,
+    transparent 70%
+  );
+  filter: blur(44px);
+  animation: breathe 9s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.94); opacity: 0.55; }
+  50% { transform: scale(1.04); opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

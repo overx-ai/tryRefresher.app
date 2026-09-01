@@ -1,0 +1,714 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
+import Orb from '../components/Orb.astro';
+import { APP, TECHNIQUES } from '../app';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
+
+const phases = [
+  { key: 'inhale', label: 'Inhale', value: '4s', body: 'The pacer expands. Nothing to read, nothing to count.' },
+  { key: 'hold',   label: 'Hold',   value: '7s', body: "Held exactly, every round. Fewer rounds if you'd rather; the seven seconds stay." },
+  { key: 'exhale', label: 'Exhale', value: '8s', body: "The long phase. On 4-7-8 it's twice the inhale." },
+  { key: 'pause',  label: 'Then',   value: 'Reading', body: 'Heart rate before and after, kept in your history. Needs an Apple Watch.' },
+];
+
+const platforms = [
+  { label: 'iPhone',      title: 'The instrument',  body: 'Every technique, and a voice that counts each phase in your language. Or none at all.' },
+  { label: 'Apple Watch', title: 'On the wrist',    body: 'Once installed it runs a session and takes the heart rate reading without the phone in reach.' },
+  { label: 'Lock Screen', title: 'Live Activities', body: 'The session stays visible while it runs. Widgets and Siri start the next one.' },
+  { label: 'iPad',        title: 'Full size',       body: 'Universal, with the same history and the same numbers as the phone.' },
+];
+
+const evidence = [
+  ['Measured on Apple Watch.', "The delta lands on the completion screen and stays in your history. When there's no reading, the app shows nothing rather than a zero."],
+  ['Your HRV alongside the days you practise.', "A 30-day trend, read from Apple Health. It's not a per-session number, and the reason is below."],
+  ['Written to Apple Health.', 'Each session goes in as mindfulness minutes. Your history syncs through your own iCloud, not through us.'],
+  ['No account needed.', 'Nothing to create and nothing to log into. No ads and no ad SDKs. Purchases are handled by Apple.'],
+];
+
+// Answers stay under 60 words: short enough for an AI engine to lift whole.
+const faqs = [
+  {
+    q: 'What is a breathing pacer?',
+    a: 'A pacer sets the timing of each phase so you follow a rhythm instead of counting. Refresher expands and contracts a visual through inhale, hold, exhale and pause, on the exact timings you set. You watch it rather than tracking numbers in your head.',
+  },
+  {
+    q: 'Which technique should I start with?',
+    a: "Box breathing at 4-4-4-4 if you want equal phases with a hold at both ends. 4-7-8 if you want the longest exhale of the fixed patterns. Coherent, at a 5.5 second inhale and a 5.5 second exhale, if you want one steady pace with no holds.",
+  },
+  {
+    q: 'Do I need an Apple Watch?',
+    a: 'Not for the pacer. You do need one for the heart rate reading and the HRV trend, because an iPhone has no heart rate sensor. Heart rate tracking is a separate switch in Settings and it stays off until you turn it on.',
+  },
+  {
+    q: 'Is box breathing the same as square breathing?',
+    a: 'Yes. Both name the same 4-4-4-4 pattern: four seconds in, four held, four out, four held. Refresher lists it as Box.',
+  },
+  {
+    q: 'How long should a session be?',
+    a: 'As long as you like. Two minutes is the span the app is built around. The shipped defaults run nearer five minutes, and you set the round count yourself on every technique.',
+  },
+];
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MobileApplication',
+  name: APP.fullName,
+  alternateName: ['Refresher', 'Refresher Breathing App'],
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'iOS 18.0 or later, watchOS 10.0 or later',
+  url: `${site}/`,
+  image: `${site}/og-image.jpg`,
+  downloadUrl: APP.appStoreUrl,
+  installUrl: APP.appStoreUrl,
+  sameAs: [APP.appStoreUrl],
+  identifier: APP.appStoreId,
+  author: { '@type': 'Person', name: APP.developer, url: APP.publisherUrl },
+  datePublished: '2026-09-01',
+  dateModified: '2026-09-02',
+  publisher: { '@type': 'Organization', name: APP.publisher, url: APP.publisherUrl },
+  isAccessibleForFree: true,
+  featureList: [
+    'Box breathing at 4-4-4-4, 4-7-8, coherent breathing at 5.5 breaths per minute, and the Wim Hof method',
+    'A pacer with no drift between phases',
+    'Heart rate before and after each session, measured on Apple Watch',
+    'A 30-day HRV trend read from Apple Health',
+    'HealthKit mindfulness-minute logging and iCloud sync',
+    'Apple Watch app, Live Activities, and Home Screen widgets',
+    'No ads, no account required',
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'en-US',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+// The phase strip is already a four-step procedure, so it gets marked up as one.
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to run a 4-7-8 breathing session with a pacer',
+  description: 'Follow a paced 4-7-8 cycle: inhale for four seconds, hold for seven, exhale for eight, then read your heart rate.',
+  totalTime: 'PT5M',
+  tool: [{ '@type': 'HowToTool', name: 'Refresher for iPhone' }, { '@type': 'HowToTool', name: 'Apple Watch, for the heart rate reading' }],
+  step: [
+    { '@type': 'HowToStep', name: 'Inhale', text: "Breathe in for four seconds while the pacer expands. There's nothing to read and nothing to count." },
+    { '@type': 'HowToStep', name: 'Hold', text: 'Hold for seven seconds. The app holds it exactly, every round. You choose how many rounds; the hold itself stays at seven.' },
+    { '@type': 'HowToStep', name: 'Exhale', text: 'Breathe out for eight seconds. On 4-7-8 the exhale is twice the inhale.' },
+    { '@type': 'HowToStep', name: 'Read the number', text: "Check your heart rate before and after the session. It's measured on Apple Watch and kept in your history." },
+  ],
+};
+---
+
+<BaseLayout
+  title="Breathing pacer app, accurate to the second"
+  description="A breathing pacer app for iPhone, iPad and Apple Watch: box at 4-4-4-4, 4-7-8, coherent at 5.5 breaths per minute and Wim Hof, each phase timed exactly."
+  slug=""
+  structuredData={[appSchema, faqSchema, howToSchema]}
+>
+  <!-- HERO -->
+  <section class="hero container">
+   <div class="hero-copy">
+    <div class="meta">
+      <span>Platform <i>iPhone · Watch · iPad</i></span>
+      <span>Requires <i>iOS 18</i></span>
+      <span>Health <i>HealthKit</i></span>
+      <span>Trial <i>7 days</i></span>
+    </div>
+    <h1>A breathing pacer accurate to the second.</h1>
+    <p class="lede">
+      Box at 4-4-4-4. 4-7-8. Coherent at 5.5 breaths per minute. Wim Hof. Two minutes,
+      and a number at the end.
+    </p>
+    <p class="answer">
+      Refresher is a breathing pacer for iPhone, iPad and Apple Watch. It runs box breathing
+      at 4-4-4-4, 4-7-8, coherent at a 5.5 second inhale and a 5.5 second exhale, the Wim Hof
+      method and five more. With an Apple Watch it brackets each session with a heart rate
+      reading, and it writes your mindfulness minutes to Apple Health.
+    </p>
+    <div class="cta">
+      <AppStoreBadge />
+      <span class="fine">7-day free trial</span>
+    </div>
+   </div>
+   <Orb size="min(320px, 32vw)" glow class="hero-orb" />
+  </section>
+
+  <!-- THE SPINE: one breath cycle, and the four cells below sit under its crests -->
+  <p class="spine-head">Four <span class="c-in">in</span>. Seven <span class="c-ho">hold</span>. Eight <span class="c-ex">out</span>.</p>
+
+  <svg class="spine" viewBox="0 0 1200 168" preserveAspectRatio="none" role="img"
+       aria-label="One breath cycle: inhale, hold, exhale, then the reading afterwards">
+    <defs>
+      <linearGradient id="wg" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="4%" class="g-in" />
+        <stop offset="33%" class="g-ho" />
+        <stop offset="66%" class="g-ex" />
+        <stop offset="96%" class="g-pa" />
+      </linearGradient>
+    </defs>
+    <path class="trace" d="M0 112 C 92 112 112 38 208 38 L392 38 C 488 38 508 130 604 130 L788 130 C 884 130 904 58 1000 58 L1140 58 C 1178 58 1188 104 1200 108" />
+    <circle cx="208" cy="38" r="5.5" class="d-in" />
+    <circle cx="604" cy="130" r="5.5" class="d-ho" />
+    <circle cx="1000" cy="58" r="5.5" class="d-ex" />
+  </svg>
+
+  <div class="phases">
+    {phases.map((p) => (
+      <div class="ph" style={`--c: var(--phase-${p.key})`}>
+        <span class="ph-l">{p.label}</span>
+        <span class="ph-v tnum">{p.value}</span>
+        <p>{p.body}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- THE DATASHEET -->
+  <section class="sec container" id="techniques">
+    <div class="sec-head">
+      <span class="lbl">The techniques</span>
+      <h2>What each pattern is for.</h2>
+      <p>
+        Eight of them run on a pacer that holds each phase exactly. Timer is a plain countdown
+        with a bell. With an Apple Watch, every session is bracketed by a heart rate reading, and
+        the minutes go to Apple Health. Five are there from the start. Three open up as
+        you go, with one free try each. Premium adds Builder and the tuning: your own timings
+        on coherent and extended exhale, and on Wim Hof the breaths per round, their speed,
+        every retention and the round count.
+      </p>
+    </div>
+
+    <div class="sheet">
+      <div class="scroll-x">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Technique</th>
+              <th scope="col">Pattern</th>
+              <th scope="col" class="col-access">Access</th>
+              <th scope="col" class="col-ratio">Phase ratio</th>
+              <th scope="col" class="col-when">Reach for it when</th>
+            </tr>
+          </thead>
+          <tbody>
+            {TECHNIQUES.map((t) => (
+              <tr>
+                <td>
+                  <span class="tname" style={`--c: var(--t-${t.key})`}><em></em>{t.name}</span>
+                  <span class="tfor-m" aria-hidden="true">{t.when}<b class="acc-m">{t.access}</b></span>
+                </td>
+                <td class="tpat">{t.pattern}</td>
+                <td class="cell-access">
+                  <span class={`acc acc-${t.access === 'Included' ? 'in' : t.access === 'Premium' ? 'pro' : 'try'}`}>{t.access}</span>
+                </td>
+                <td class="cell-ratio">
+                  <span class="ratio">
+                    {t.ratio.map(([phase, weight]) => (
+                      <i
+                        style={`flex:${weight}; background: var(--phase-${String(phase).replace('-soft', '')})`}
+                        class={String(phase).endsWith('-soft') ? 'soft' : undefined}
+                      ></i>
+                    ))}
+                  </span>
+                </td>
+                <td class="tfor cell-when">{t.when}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="legend">
+        <span><i style="background: var(--phase-inhale)"></i>Inhale</span>
+        <span><i style="background: var(--phase-hold)"></i>Hold</span>
+        <span><i style="background: var(--phase-exhale)"></i>Exhale</span>
+        <span><i style="background: var(--phase-pause)"></i>Pause</span>
+        <span class="scale">Bars show relative phase length</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE NUMBER AT THE END -->
+  <section class="sec container" id="evidence">
+    <div class="sec-head">
+      <span class="lbl">The number at the end</span>
+      <h2>Your heart rate, before and after.</h2>
+      <p>
+        With an Apple Watch on, a session opens with a reading and closes with another. Heart
+        rate tracking is a switch in Settings, and it starts off. The delta is the point.
+        It turns two minutes into something you can check.
+      </p>
+    </div>
+
+    <div class="evid">
+      <div class="panel">
+        <div class="panel-h">
+          <span class="lbl">Session readout</span>
+          <span class="lbl">Example</span>
+        </div>
+        <div class="panel-b">
+          <span class="lbl">Heart rate · before → after</span>
+          <div class="delta">
+            <span class="a">78</span>
+            <span class="arw">→</span>
+            <span class="b">69</span>
+            <span class="d">−9</span>
+          </div>
+          <svg class="ecg" viewBox="0 0 320 56" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 18 L32 18 L38 6 L44 33 L50 18 L78 18 L84 7 L90 34 L96 18 L128 18 L134 9 L140 33 L146 19 L182 19 L188 13 L194 31 L200 21 L236 21 L242 16 L248 30 L254 23 L320 23" />
+          </svg>
+        </div>
+        <div class="mini2">
+          <div class="mini"><span class="lbl">Pace</span><span class="mv tnum">5.5<u>br/min</u></span></div>
+          <div class="mini"><span class="lbl">Duration</span><span class="mv tnum">2:00</span></div>
+        </div>
+      </div>
+
+      <ul class="claims">
+        {evidence.map(([head, rest]) => (
+          <li><s></s><span><b>{head}</b> {rest}</span></li>
+        ))}
+      </ul>
+    </div>
+
+    <aside class="note">
+      <span class="lbl">{APP.developer}, developer of Refresher</span>
+      <p>
+        I refused to put a per-session HRV number on the completion screen. Two minutes of
+        breathing can't produce one honestly, and the person who wants HRV is exactly the person
+        who'd catch it. So you get a measured heart rate at both ends and a 30-day trend, with
+        nothing invented in between.
+      </p>
+      <p>
+        It's the same reason the app's completion screen isn't in the shots below. Its hero is a
+        lotus, and a session running tells you more than a mood does.
+      </p>
+    </aside>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="sec container" id="screens">
+    <div class="sec-head">
+      <span class="lbl">The screens</span>
+      <h2>A session, the patterns, and what you have done.</h2>
+    </div>
+    <div class="shots">
+      <figure>
+        <img src="/screenshots/01-session.png" width="600" height="1300" loading="lazy" decoding="async"
+             alt="A coherent breathing session running in Refresher, the pacer mid-inhale with the phase timer beneath it" />
+        <figcaption>A session running</figcaption>
+      </figure>
+      <figure>
+        <img src="/screenshots/02-techniques.png" width="600" height="1300" loading="lazy" decoding="async"
+             alt="The Refresher technique picker listing box breathing, 4-7-8, coherent, Wim Hof and the rest with their patterns" />
+        <figcaption>Every technique and its pattern</figcaption>
+      </figure>
+      <figure>
+        <img src="/screenshots/03-statistics.png" width="600" height="1300" loading="lazy" decoding="async"
+             alt="Refresher statistics: streak, total practice hours and how sessions split across techniques" />
+        <figcaption>What you have done so far</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="sec container">
+    <div class="sec-head">
+      <span class="lbl">Where it runs</span>
+      <h2>One app, four places.</h2>
+    </div>
+    <div class="plat">
+      {platforms.map((p) => (
+        <div>
+          <span class="lbl">{p.label}</span>
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec container" id="faq">
+    <div class="sec-head">
+      <span class="lbl">Questions</span>
+      <h2>What people ask before installing.</h2>
+    </div>
+    <div class="faq">
+      {faqs.map((f, i) => (
+        <details open={i === 0}>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <div class="container">
+      <h2>Pick the pattern, not the mood.</h2>
+      <p>
+        If you already know which technique you want, the app's job is to run it exactly and
+        hand you a number afterwards. That's the whole product.
+      </p>
+      <AppStoreBadge />
+      <div class="fine">7-day free trial · No ads · No account</div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* --- hero --- */
+  .hero {
+    padding-top: var(--space-3xl);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+  .hero-copy { min-width: 0; }
+  /* .hero-orb sits on an element rendered by Orb.astro, so it is outside this
+     file's style scope — :global() is required or the rules are silently dead. */
+  .hero :global(.hero-orb) { justify-self: end; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero :global(.hero-orb) { justify-self: start; }
+  }
+  .meta { display: flex; gap: 26px; flex-wrap: wrap; margin-bottom: var(--space-lg); }
+  .meta span {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+  .meta i { font-style: normal; color: var(--color-ink-2); }
+
+  h1 { font-size: clamp(34px, 5vw, 62px); line-height: 1.02; letter-spacing: -0.04em; max-width: 19ch; }
+  .c-in { color: var(--phase-inhale); }
+  .c-ho { color: var(--phase-hold); }
+  .c-ex { color: var(--phase-exhale); }
+
+  .lede { margin: var(--space-lg) 0 0; max-width: 54ch; font-size: 16.5px; color: var(--color-ink-2); line-height: 1.62; }
+  .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: var(--space-xl); }
+  .fine {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  /* --- spine --- */
+  .spine { width: 100%; height: clamp(96px, 13vw, 168px); margin-top: var(--space-xl); }
+  .spine .trace { fill: none; stroke: url(#wg); stroke-width: 3.5; stroke-linecap: round; }
+  /* SVG gradient stops and fills are driven from CSS, not presentation
+     attributes — var() in an attribute value is not reliably supported. */
+  .spine .g-in { stop-color: var(--phase-inhale); }
+  .spine .g-ho { stop-color: var(--phase-hold); }
+  .spine .g-ex { stop-color: var(--phase-exhale); }
+  .spine .g-pa { stop-color: var(--phase-pause); }
+  .spine .d-in { fill: var(--phase-inhale); }
+  .spine .d-ho { fill: var(--phase-hold); }
+  .spine .d-ex { fill: var(--phase-exhale); }
+
+  /* --- phase strip --- */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-rule);
+    border-block: 1px solid var(--color-rule);
+  }
+  .ph { background: var(--color-bg); padding: 24px 22px 26px; position: relative; }
+  .ph::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--c); }
+  .ph-l {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c);
+    margin-bottom: 11px;
+  }
+  .ph-v { display: block; font-family: var(--font-mono); font-size: 23px; margin-bottom: 7px; }
+  .ph p { margin: 0; font-size: 13px; color: var(--color-ink-2); line-height: 1.5; }
+
+  /* --- sections --- */
+  .sec { padding-top: var(--space-3xl); }
+  .sec-head { margin-bottom: var(--space-xl); }
+  .sec-head h2 { font-size: clamp(24px, 3vw, 34px); margin: 12px 0; max-width: 24ch; }
+  .sec-head p { margin: 0; max-width: 60ch; color: var(--color-ink-2); font-size: 15px; line-height: 1.62; }
+
+  /* --- datasheet --- */
+  .sheet {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+  }
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 13px; min-width: 640px; }
+  th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+    padding: 13px 22px;
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-tint);
+  }
+  td { padding: 14px 22px; border-bottom: 1px solid var(--color-rule-soft); vertical-align: middle; }
+  tr:last-child td { border-bottom: 0; }
+  tr:hover td { background: var(--color-tint); }
+  .tname { display: flex; align-items: center; gap: 12px; white-space: nowrap; font-weight: 500; color: var(--color-ink); }
+  .tname em { width: 3px; height: 18px; border-radius: 2px; background: var(--c); font-style: normal; }
+  .tpat { color: var(--color-ink-2); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tfor { color: var(--color-ink-3); font-size: 12.5px; font-family: var(--font-body); letter-spacing: 0; }
+  .tfor-m { display: none; }
+  .ratio { display: flex; gap: 2px; height: 8px; min-width: 120px; }
+  .ratio i { display: block; border-radius: 1px; height: 100%; }
+  .ratio i.soft { opacity: 0.5; }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 16px 22px;
+    border-top: 1px solid var(--color-rule);
+    background: var(--color-tint);
+  }
+  .legend span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+  .legend i { width: 11px; height: 11px; border-radius: 2px; }
+  .legend .scale { margin-left: auto; }
+
+  /* Narrow screens: two columns instead of a sideways scroll. The ratio bars go
+     (the pattern column states the same numbers) and "reach for it when" moves
+     under the technique name, where it still reads. */
+  @media (max-width: 700px) {
+    table { min-width: 0; }
+    .col-ratio, .cell-ratio, .col-when, .cell-when, .legend { display: none; }
+    .col-access, .cell-access { display: none; }
+    th, td { padding-inline: 14px; }
+    td { vertical-align: top; }
+    .tpat { white-space: nowrap; font-size: 12px; letter-spacing: 0.02em; }
+    .acc-m {
+      display: block;
+      margin-top: 6px;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--color-ink-3);
+    }
+    .tfor-m {
+      display: block;
+      margin-top: 5px;
+      padding-left: 15px;
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      letter-spacing: 0;
+      color: var(--color-ink-3);
+      line-height: 1.4;
+    }
+  }
+
+  /* --- readout --- */
+  .evid { display: grid; grid-template-columns: 1fr 0.92fr; gap: var(--space-xl); align-items: start; }
+  .panel {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .panel-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-tint);
+  }
+  .panel-b { padding: 20px; }
+  .delta {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    margin-top: 11px;
+  }
+  .delta .a { font-size: 27px; color: var(--color-ink-3); }
+  .delta .arw { font-size: 15px; color: var(--color-ink-3); }
+  .delta .b { font-size: 38px; font-weight: 500; letter-spacing: -0.02em; }
+  .delta .d { margin-left: auto; font-size: 20px; color: var(--phase-hold); font-weight: 500; }
+  .ecg { height: 56px; width: 100%; margin-top: 14px; }
+  .ecg path { fill: none; stroke: var(--phase-hold); stroke-width: 1.7; stroke-linejoin: round; }
+
+  .mini2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--color-rule); border-top: 1px solid var(--color-rule); }
+  .mini { background: var(--color-surface); padding: 16px 20px; }
+  .mv { display: block; font-family: var(--font-mono); font-size: 22px; letter-spacing: -0.01em; margin-top: 8px; }
+  .mv u { text-decoration: none; font-size: 12px; color: var(--color-ink-3); margin-left: 4px; }
+
+  .claims { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .claims li { display: flex; gap: 13px; font-size: 14.5px; color: var(--color-ink-2); line-height: 1.55; }
+  .claims b { color: var(--color-ink); font-weight: 600; }
+  .claims s { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); margin-top: 8px; text-decoration: none; }
+
+  /* --- platforms --- */
+  .plat {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-rule);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .plat > div { background: var(--color-surface); padding: 22px 20px; }
+  .plat h3 { font-size: 15px; margin: 10px 0 6px; letter-spacing: -0.01em; }
+  .plat p { margin: 0; font-size: 13px; color: var(--color-ink-2); line-height: 1.5; }
+
+  /* --- close --- */
+  .close {
+    margin-top: var(--space-3xl);
+    padding: var(--space-3xl) 0;
+    border-top: 1px solid var(--color-rule);
+    text-align: center;
+  }
+  .close h2 { font-size: clamp(26px, 3.6vw, 42px); margin-bottom: 14px; }
+  .close p { margin: 0 auto var(--space-lg); max-width: 46ch; color: var(--color-ink-2); font-size: 15.5px; }
+  .close .fine { margin-top: 18px; }
+
+  /* the quotable block: what an AI engine lifts if it stops reading here */
+  .answer {
+    margin: var(--space-md) 0 0;
+    max-width: 62ch;
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--color-ink-2);
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-rule);
+  }
+
+  .spine-head {
+    margin: var(--space-2xl) 0 0;
+    max-width: var(--max-width);
+    padding: 0 var(--space-lg);
+    margin-inline: auto;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  /* access column */
+  .acc {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .acc-in { color: var(--color-ink-3); }
+  .acc-try { color: var(--phase-hold); }
+  .acc-pro { color: var(--color-brand); }
+
+  /* FAQ */
+  .faq {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+  }
+  .faq details { border-bottom: 1px solid var(--color-rule-soft); }
+  .faq details:last-child { border-bottom: 0; }
+  .faq summary {
+    cursor: pointer;
+    padding: 16px 22px;
+    font-weight: 600;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-family: var(--font-mono); color: var(--color-ink-3); }
+  .faq details[open] summary::after { content: '\2212'; }
+  .faq summary:hover { background: var(--color-tint); }
+  .faq p {
+    margin: 0;
+    padding: 0 22px 18px;
+    max-width: 68ch;
+    color: var(--color-ink-2);
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+
+  /* first-person note: sits under the readout, where the HRV argument is being made */
+  .note {
+    margin-top: var(--space-xl);
+    border: 1px solid var(--color-rule);
+    border-left: 3px solid var(--color-brand);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: 20px 24px 22px;
+  }
+  .note p { margin: 11px 0 0; max-width: 72ch; font-size: 14.5px; line-height: 1.62; color: var(--color-ink-2); }
+
+  .shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+  .shots figure { margin: 0; }
+  .shots img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+  .shots figcaption {
+    margin-top: 11px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  @media (max-width: 880px) {
+    .evid { grid-template-columns: 1fr; }
+    .phases { grid-template-columns: 1fr 1fr; }
+    .plat { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .plat { grid-template-columns: 1fr; }
+    .shots { grid-template-columns: minmax(0, 1fr); max-width: 260px; }
+  }
+</style>

@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Orb from '../components/Orb.astro';
+import { APP, TECHNIQUES } from '../app';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
+
+const facts = [
+  ['Name', APP.fullName],
+  ['Subtitle', `${APP.subtitle} (Vagus is the App Store search term, not a technique name)`],
+  ['Category', 'Health & Fitness'],
+  ['Platforms', 'iPhone, iPad, Apple Watch'],
+  ['Requires', 'iOS 18 or later, watchOS 10 or later'],
+  ['App Store', `id${APP.appStoreId}`],
+  ['Price', 'Free to use. Premium comes with a 7-day free trial'],
+  ['Heart rate', 'Before and after each session, measured on Apple Watch'],
+  ['HRV', 'A 30-day trend read from Apple Health. Not a per-session figure'],
+  ['Languages', 'English, German, Spanish, French, Dutch, Portuguese, Russian'],
+  ['Developer', APP.developer],
+  ['Publisher', APP.publisher],
+];
+
+const shots = [
+  { file: '01-session.png',    caption: 'An active coherent breathing session' },
+  { file: '02-techniques.png', caption: 'The technique picker' },
+  { file: '03-statistics.png', caption: 'Statistics, streaks and practice hours' },
+  { file: '04-builder.png',    caption: 'Building a custom pattern' },
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'Press', item: `${site}/press` },
+  ],
+};
+---
+<BaseLayout
+  title="Press kit"
+  description="Boilerplate, app facts, icon and screenshots for Refresher, a breathing pacer for iPhone, iPad and Apple Watch."
+  slug="press"
+  structuredData={[breadcrumb]}
+>
+  <div class="container press">
+    <span class="lbl">Press kit</span>
+    <h1>Refresher, in the words we use.</h1>
+
+    <section class="block">
+      <h2>Boilerplate</h2>
+      <p class="boiler">
+        Refresher is a breathing pacer. It runs box breathing at 4-4-4-4, 4-7-8, coherent
+        breathing at a 5.5 second inhale and a 5.5 second exhale, the Wim Hof method and five
+        more, holding every phase to the second. Each session records your heart rate before
+        and after, measured on Apple Watch, and shows your HRV alongside the days you
+        practise. It runs on iPhone, iPad and Apple Watch, writes to Apple Health, and needs
+        no account.
+      </p>
+      <p class="boiler short">
+        <b>One line:</b> A breathing pacer accurate to the second, with your heart rate before
+        and after every session.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>App facts</h2>
+      <div class="sheet scroll-x">
+        <table>
+          <tbody>
+            {facts.map(([k, v]) => (
+              <tr><th scope="row">{k}</th><td>{v}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Techniques</h2>
+      <p class="cap-intro">Five are available from the start. Three open up later, with one free try each. Builder is part of Premium.</p>
+      <ul class="tlist">
+        {TECHNIQUES.map((t) => (
+          <li style={`--c: var(--t-${t.key})`}><em></em><b>{t.name}</b><span>{t.pattern}</span><i class="acc">{t.access}</i></li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Icon</h2>
+      <div class="icons">
+        <Orb size="128px" />
+        <div class="dl">
+          <p>The mark is a breath wave on a plasma orb. Use it on a dark ground where possible, and do not recolour or crop it.</p>
+          <div class="links">
+            <a href="/icon-1024.png" download>1024 px</a>
+            <a href="/icon-512.png" download>512 px</a>
+            <a href="/apple-touch-icon.png" download>180 px</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Screenshots</h2>
+      <p class="cap-intro">Unretouched captures. Never repainted, because these screens are mostly numbers.</p>
+      <div class="shots">
+        {shots.map((s) => (
+          <figure>
+            <img src={`/screenshots/${s.file}`} alt={s.caption} width="300" height="650" loading="lazy" />
+            <figcaption>{s.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Contact</h2>
+      <p class="boiler">Press enquiries: <a href={`mailto:${APP.supportEmail}`}>{APP.supportEmail}</a></p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .press { padding-block: var(--space-2xl) var(--space-3xl); max-width: 900px; }
+  h1 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 var(--space-xl); }
+  .block { padding-top: var(--space-2xl); }
+  .block h2 { font-size: 19px; margin-bottom: var(--space-md); }
+
+  .boiler { margin: 0 0 var(--space-md); color: var(--color-ink-2); max-width: 68ch; line-height: 1.65; }
+  .boiler b { color: var(--color-ink); font-weight: 600; }
+  .boiler a { color: var(--color-brand); }
+  .short { font-size: 15px; }
+
+  .sheet { border: 1px solid var(--color-rule); border-radius: var(--radius-lg); background: var(--color-surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+    font-weight: 500;
+    padding: 12px 18px;
+    white-space: nowrap;
+    width: 1%;
+  }
+  td { padding: 12px 18px; color: var(--color-ink-2); }
+  tr { border-bottom: 1px solid var(--color-rule-soft); }
+  tr:last-child { border-bottom: 0; }
+
+  .tlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); overflow: hidden; }
+  .tlist li { background: var(--color-surface); padding: 12px 18px; display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .tlist em { width: 3px; height: 16px; border-radius: 2px; background: var(--c); flex: 0 0 auto; }
+  .tlist b { font-weight: 600; min-width: 11rem; }
+  .tlist span { font-family: var(--font-mono); font-size: 12.5px; color: var(--color-ink-2); font-variant-numeric: tabular-nums; }
+  .tlist .acc {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .icons { display: flex; gap: var(--space-lg); align-items: center; flex-wrap: wrap; }
+  .dl { flex: 1 1 300px; }
+  .dl p { margin: 0 0 var(--space-md); color: var(--color-ink-2); font-size: 14px; }
+  .links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .links a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-ink-2);
+  }
+  .links a:hover { color: var(--color-ink); border-color: var(--color-ink-3); }
+
+  .cap-intro { margin: 0 0 var(--space-md); color: var(--color-ink-3); font-size: 13.5px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg); }
+  figure { margin: 0; }
+  figure img { border-radius: var(--radius-lg); border: 1px solid var(--color-rule); width: 100%; height: auto; }
+  figcaption { margin-top: 10px; font-size: 12.5px; color: var(--color-ink-3); }
+</style>

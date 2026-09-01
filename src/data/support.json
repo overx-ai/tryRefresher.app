@@ -1,0 +1,55 @@
+{
+  "pageTitle": "Support",
+  "subtitle": "How can we help?",
+  "contactTitle": "Contact Us",
+  "contactDescription": "Have a question, found a bug, or want to suggest a feature? Reach out to us.",
+  "developerEmail": "support@overx.ai",
+  "responseTime": "We typically respond within 24 hours.",
+  "faqTitle": "Frequently Asked Questions",
+  "faqItems": [
+    {
+      "question": "How do I cancel or change my subscription?",
+      "answer": "Open the <strong>App Store</strong>, tap your profile icon, go to <strong>Subscriptions → Refresher</strong>, then select a new plan or cancel. Changes take effect at the end of your current billing period."
+    },
+    {
+      "question": "How do I restore my purchases?",
+      "answer": "Open Refresher, go to <strong>Settings</strong>, scroll to the subscription section, and tap <strong>Restore Purchases</strong>. Make sure you're signed in with the correct Apple ID."
+    },
+    {
+      "question": "How do I delete my account and data?",
+      "answer": "Open Refresher, go to <strong>Settings → Privacy &amp; Data → Delete my data</strong>, then confirm. This removes your email subscription (if you opted in), any leaderboard entries, and any referral records, and rotates your anonymous analytics ID. Your locally stored session history is preserved by default — an optional checkbox on the confirmation screen lets you delete it at the same time. If your device is offline when you confirm, the deletion request is queued and completes automatically the next time your device reconnects."
+    },
+    {
+      "question": "What should I do if the app isn't working properly?",
+      "answer": "Try restarting the app, checking notification permissions, updating from the App Store, or restarting your device."
+    },
+    {
+      "question": "How do I request a refund?",
+      "answer": "Visit <a href=\"https://reportaproblem.apple.com\" target=\"_blank\" rel=\"noopener\">reportaproblem.apple.com</a>, sign in with your Apple ID, find the Refresher purchase, and report the problem. Most requests are reviewed within 48 hours."
+    }
+  ],
+  "formTitle": "Send Us a Message",
+  "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+  "nameLabel": "Name",
+  "namePlaceholder": "Your name",
+  "emailLabel": "Email",
+  "emailPlaceholder": "you@example.com",
+  "subjectLabel": "Subject",
+  "subjectPlaceholder": "Brief description of your issue",
+  "categoryLabel": "Category",
+  "categories": {
+    "general": "General Question",
+    "bug": "Bug Report",
+    "subscription": "Subscription / Billing",
+    "feature": "Feature Request",
+    "other": "Other"
+  },
+  "messageLabel": "Message",
+  "messagePlaceholder": "Describe your issue or question in detail...",
+  "submitLabel": "Send Message",
+  "submittingLabel": "Sending...",
+  "successTitle": "Message Sent!",
+  "successMessage": "Thank you for reaching out. We will review your message and respond within 24 hours.",
+  "errorMessage": "Something went wrong. Please try again or email us directly.",
+  "legalTitle": "Legal"
+}

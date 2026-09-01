@@ -1,0 +1,109 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  content: {
+    pageTitle: string;
+    lastUpdated: string;
+    disclaimerTitle: string;
+    disclaimerText: string;
+    sections: { title: string; content: string }[];
+  };
+}
+const { title, description, slug, content } = Astro.props;
+---
+<BaseLayout title={title} description={description} slug={slug}>
+  <article class="container prose legal">
+    <p class="lbl">{content.lastUpdated}</p>
+    <h1>{content.pageTitle}</h1>
+
+    <aside class="disclaimer">
+      <h2>{content.disclaimerTitle}</h2>
+      <div set:html={content.disclaimerText} />
+    </aside>
+
+    {content.sections.map((s, i) => (
+      <section class="sec">
+        <h2><span class="num">{i + 1}</span>{s.title}</h2>
+        <div class="body" set:html={s.content} />
+      </section>
+    ))}
+  </article>
+</BaseLayout>
+
+<style>
+  .legal { padding-block: var(--space-2xl) var(--space-3xl); }
+  .legal h1 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 var(--space-lg); }
+
+  .disclaimer {
+    border: 1px solid var(--color-rule);
+    border-left: 3px solid var(--color-brand);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+  .disclaimer h2 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    margin-bottom: var(--space-sm);
+  }
+
+  .sec { padding-top: var(--space-xl); }
+  .sec h2 {
+    font-size: 19px;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    margin-bottom: var(--space-sm);
+  }
+  .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-ink-3);
+    letter-spacing: 0;
+    flex: 0 0 auto;
+  }
+
+  .legal :global(p) { color: var(--color-ink-2); margin: 0 0 var(--space-md); }
+  .legal :global(p:last-child) { margin-bottom: 0; }
+  .legal :global(ul) { color: var(--color-ink-2); padding-left: 20px; margin: 0 0 var(--space-md); }
+  .legal :global(li) { margin-bottom: 6px; }
+  .legal :global(strong) { color: var(--color-ink); font-weight: 600; }
+  .legal :global(a) { color: var(--color-brand); }
+  /* §12 of the privacy policy ships an HTML table of rights. Let the section
+     body scroll rather than widen the page on a narrow screen. */
+  .sec .body { overflow-x: auto; }
+  .legal :global(table) {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 0 0 var(--space-md);
+  }
+  .legal :global(th) {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+    font-weight: 500;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .legal :global(td) {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-rule-soft);
+    color: var(--color-ink-2);
+    vertical-align: top;
+  }
+</style>

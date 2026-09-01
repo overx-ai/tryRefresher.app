@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { APP } from '../app';
+import content from '../data/support.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'en-US',
+  mainEntity: content.faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'Support', item: `${site}/support` },
+  ],
+};
+---
+<BaseLayout
+  title="Support"
+  description="Help with Refresher: subscriptions, restoring purchases, deleting your data, refunds, and how to reach us."
+  slug="support"
+  structuredData={[faqSchema, breadcrumb]}
+>
+  <div class="container prose support">
+    <span class="lbl">{content.pageTitle}</span>
+    <h1>{content.subtitle}</h1>
+
+    <div class="contact">
+      <p class="c-desc">{content.contactDescription}</p>
+      <a class="btn" href={`mailto:${APP.supportEmail}`}>{APP.supportEmail}</a>
+      <p class="c-time">{content.responseTime}</p>
+    </div>
+
+    <h2 class="faq-h">{content.faqTitle}</h2>
+    <div class="faq">
+      {content.faqItems.map((f, i) => (
+        <details open={i === 0}>
+          <summary>{f.question}</summary>
+          <div class="answer" set:html={f.answer} />
+        </details>
+      ))}
+    </div>
+
+    <h2 class="faq-h">{content.legalTitle}</h2>
+    <div class="legal-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .support { padding-block: var(--space-2xl) var(--space-3xl); }
+  h1 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 var(--space-xl); }
+
+  .contact {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+    padding: var(--space-lg);
+  }
+  .c-desc { margin: 0 0 var(--space-md); color: var(--color-ink-2); }
+  .c-time {
+    margin: var(--space-md) 0 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .faq-h { font-size: 20px; margin: var(--space-3xl) 0 var(--space-md); }
+
+  .faq { border: 1px solid var(--color-rule); border-radius: var(--radius-lg); overflow: hidden; }
+  details { border-bottom: 1px solid var(--color-rule-soft); }
+  details:last-child { border-bottom: 0; }
+  summary {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-family: var(--font-mono);
+    color: var(--color-ink-3);
+    flex: 0 0 auto;
+  }
+  details[open] summary::after { content: '−'; }
+  summary:hover { background: var(--color-tint); }
+  .answer { padding: 0 20px 18px; color: var(--color-ink-2); font-size: 14.5px; line-height: 1.6; }
+  .answer :global(strong) { color: var(--color-ink); font-weight: 600; }
+  .answer :global(a) { color: var(--color-brand); }
+
+  .legal-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .legal-links a {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-rule);
+    padding-bottom: 3px;
+  }
+  .legal-links a:hover { color: var(--color-ink); border-bottom-color: var(--color-brand); }
+</style>

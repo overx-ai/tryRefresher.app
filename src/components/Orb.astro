@@ -1,0 +1,17 @@
+---
+// The app icon itself, not a CSS approximation — at hero size a hand-built
+// gradient reads as a flat donut, and this is the mark people will match
+// against the App Store cell.
+export interface Props {
+  /** CSS length. Above ~120px the 360px source is used, below it the 64px one. */
+  size?: string;
+  /** Large marks get a soft corona and the app's ~9s breathing cycle. */
+  glow?: boolean;
+  class?: string;
+}
+const { size = '26px', glow = false, class: cls = '' } = Astro.props;
+const src = glow ? '/icon-360.webp' : '/icon-64.webp';
+---
+<div class={`orb ${glow ? 'orb-glow' : ''} ${cls}`} style={`width:${size}`}>
+  <img src={src} alt="" width="360" height="360" loading={glow ? 'eager' : 'lazy'} decoding="async" />
+</div>
