@@ -4,7 +4,10 @@
 //
 // English-only today. When a second locale lands, widen this to
 // { slug, locales[] } rather than a boolean; see CLAUDE.md.
-export const SITE_PAGES = ['', 'support', 'privacy', 'terms', 'press'] as const;
+export const SITE_PAGES = [
+  '', 'support', 'privacy', 'terms', 'press',
+  'box-breathing-app', 'coherent-breathing-app', 'hrv-breathing-app', '4-7-8-breathing-app',
+] as const;
 
 export type Slug = (typeof SITE_PAGES)[number];
 

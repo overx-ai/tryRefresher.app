@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import Orb from '../components/Orb.astro';
 import { APP, TECHNIQUES } from '../app';
+import { appSchema as sharedAppSchema, faqSchema as sharedFaqSchema } from '../schema';
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
 
@@ -22,7 +23,7 @@ const platforms = [
 
 const evidence = [
   ['Measured on Apple Watch.', "The delta lands on the completion screen and stays in your history. When there's no reading, the app shows nothing rather than a zero."],
-  ['Your HRV alongside the days you practise.', "A 30-day trend, read from Apple Health. It's not a per-session number, and the reason is below."],
+  ['Your HRV alongside the days you practise.', "A 30-day trend, read from Apple Health. It's not a per-session number, and the reason is below.", '/hrv-breathing-app'],
   ['Written to Apple Health.', 'Each session goes in as mindfulness minutes. Your history syncs through your own iCloud, not through us.'],
   ['No account needed.', 'Nothing to create and nothing to log into. No ads and no ad SDKs. Purchases are handled by Apple.'],
 ];
@@ -51,45 +52,9 @@ const faqs = [
   },
 ];
 
-const appSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MobileApplication',
-  name: APP.fullName,
-  alternateName: ['Refresher', 'Refresher Breathing App'],
-  applicationCategory: 'HealthApplication',
-  operatingSystem: 'iOS 18.0 or later, watchOS 10.0 or later',
-  url: `${site}/`,
-  image: `${site}/og-image.jpg`,
-  downloadUrl: APP.appStoreUrl,
-  installUrl: APP.appStoreUrl,
-  sameAs: [APP.appStoreUrl],
-  identifier: APP.appStoreId,
-  author: { '@type': 'Person', name: APP.developer, url: APP.publisherUrl },
-  datePublished: '2026-09-01',
-  dateModified: '2026-09-02',
-  publisher: { '@type': 'Organization', name: APP.publisher, url: APP.publisherUrl },
-  isAccessibleForFree: true,
-  featureList: [
-    'Box breathing at 4-4-4-4, 4-7-8, coherent breathing at 5.5 breaths per minute, and the Wim Hof method',
-    'A pacer with no drift between phases',
-    'Heart rate before and after each session, measured on Apple Watch',
-    'A 30-day HRV trend read from Apple Health',
-    'HealthKit mindfulness-minute logging and iCloud sync',
-    'Apple Watch app, Live Activities, and Home Screen widgets',
-    'No ads, no account required',
-  ],
-};
+const appSchema = sharedAppSchema(site);
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  inLanguage: 'en-US',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
+const faqSchema = sharedFaqSchema(faqs);
 
 // The phase strip is already a four-step procedure, so it gets marked up as one.
 const howToSchema = {
@@ -202,7 +167,7 @@ const howToSchema = {
             {TECHNIQUES.map((t) => (
               <tr>
                 <td>
-                  <span class="tname" style={`--c: var(--t-${t.key})`}><em></em>{t.name}</span>
+                  <span class="tname" style={`--c: var(--t-${t.key})`}><em></em>{'page' in t ? <a href={t.page}>{t.name}</a> : t.name}</span>
                   <span class="tfor-m" aria-hidden="true">{t.when}<b class="acc-m">{t.access}</b></span>
                 </td>
                 <td class="tpat">{t.pattern}</td>
@@ -272,8 +237,8 @@ const howToSchema = {
       </div>
 
       <ul class="claims">
-        {evidence.map(([head, rest]) => (
-          <li><s></s><span><b>{head}</b> {rest}</span></li>
+        {evidence.map(([head, rest, href]) => (
+          <li><s></s><span><b>{href ? <a href={href}>{head}</a> : head}</b> {rest}</span></li>
         ))}
       </ul>
     </div>
@@ -443,12 +408,6 @@ const howToSchema = {
   .ph-v { display: block; font-family: var(--font-mono); font-size: 23px; margin-bottom: 7px; }
   .ph p { margin: 0; font-size: 13px; color: var(--color-ink-2); line-height: 1.5; }
 
-  /* --- sections --- */
-  .sec { padding-top: var(--space-3xl); }
-  .sec-head { margin-bottom: var(--space-xl); }
-  .sec-head h2 { font-size: clamp(24px, 3vw, 34px); margin: 12px 0; max-width: 24ch; }
-  .sec-head p { margin: 0; max-width: 60ch; color: var(--color-ink-2); font-size: 15px; line-height: 1.62; }
-
   /* --- datasheet --- */
   .sheet {
     border: 1px solid var(--color-rule);
@@ -473,6 +432,8 @@ const howToSchema = {
   tr:last-child td { border-bottom: 0; }
   tr:hover td { background: var(--color-tint); }
   .tname { display: flex; align-items: center; gap: 12px; white-space: nowrap; font-weight: 500; color: var(--color-ink); }
+  .tname a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--color-rule); }
+  .tname a:hover { border-color: currentColor; }
   .tname em { width: 3px; height: 18px; border-radius: 2px; background: var(--c); font-style: normal; }
   .tpat { color: var(--color-ink-2); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .tfor { color: var(--color-ink-3); font-size: 12.5px; font-family: var(--font-body); letter-spacing: 0; }
@@ -574,6 +535,8 @@ const howToSchema = {
   .claims { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .claims li { display: flex; gap: 13px; font-size: 14.5px; color: var(--color-ink-2); line-height: 1.55; }
   .claims b { color: var(--color-ink); font-weight: 600; }
+  .claims b a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--color-rule); }
+  .claims b a:hover { border-color: currentColor; }
   .claims s { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); margin-top: 8px; text-decoration: none; }
 
   /* --- platforms --- */
@@ -621,85 +584,6 @@ const howToSchema = {
     font-size: clamp(20px, 2.4vw, 28px);
     font-weight: 700;
     letter-spacing: -0.03em;
-  }
-
-  /* access column */
-  .acc {
-    display: inline-block;
-    font-size: 10.5px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-    border: 1px solid currentColor;
-    white-space: nowrap;
-  }
-  .acc-in { color: var(--color-ink-3); }
-  .acc-try { color: var(--phase-hold); }
-  .acc-pro { color: var(--color-brand); }
-
-  /* FAQ */
-  .faq {
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: var(--color-surface);
-    box-shadow: var(--shadow);
-  }
-  .faq details { border-bottom: 1px solid var(--color-rule-soft); }
-  .faq details:last-child { border-bottom: 0; }
-  .faq summary {
-    cursor: pointer;
-    padding: 16px 22px;
-    font-weight: 600;
-    font-size: 15px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: center;
-  }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: '+'; font-family: var(--font-mono); color: var(--color-ink-3); }
-  .faq details[open] summary::after { content: '\2212'; }
-  .faq summary:hover { background: var(--color-tint); }
-  .faq p {
-    margin: 0;
-    padding: 0 22px 18px;
-    max-width: 68ch;
-    color: var(--color-ink-2);
-    font-size: 14.5px;
-    line-height: 1.62;
-  }
-
-  /* first-person note: sits under the readout, where the HRV argument is being made */
-  .note {
-    margin-top: var(--space-xl);
-    border: 1px solid var(--color-rule);
-    border-left: 3px solid var(--color-brand);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
-    padding: 20px 24px 22px;
-  }
-  .note p { margin: 11px 0 0; max-width: 72ch; font-size: 14.5px; line-height: 1.62; color: var(--color-ink-2); }
-
-  .shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
-  .shots figure { margin: 0; }
-  .shots img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
-  }
-  .shots figcaption {
-    margin-top: 11px;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--color-ink-3);
   }
 
   @media (max-width: 880px) {

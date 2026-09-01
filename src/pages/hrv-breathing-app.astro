@@ -1,0 +1,92 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="hrv-breathing-app"
+  technique="coherent"
+  crumb="HRV"
+  query="HRV breathing app"
+  title="HRV breathing app that shows what it can measure"
+  description="An HRV breathing app for iPhone and Apple Watch: paced breathing at 5.5 a minute, heart rate before and after, and a 30-day HRV trend from Apple Health."
+  lede="Paced breathing at 5.5 a minute, your heart rate before and after, and your HRV as a 30-day trend from Apple Health. There's no score per session, because there isn't one to be had."
+  answer="Refresher is an HRV breathing app for iPhone and Apple Watch. It paces coherent breathing at 5.5 breaths per minute and reads your heart rate before and after each session on Apple Watch. Your HRV appears as a 30-day trend from Apple Health, alongside the days you practised. It never invents a per-session HRV number."
+  sections={[
+    {
+      h2: 'What HRV breathing is',
+      paras: [
+        "Heart rate variability is the small change in the time between one heartbeat and the next. The Cleveland Clinic describes it as the amount of time between your heartbeats fluctuating slightly, driven by the two halves of the autonomic nervous system. It isn't your heart rate. Two people with a resting pulse of 60 can have very different HRV, and what counts as normal for one of them may not be normal for the other.",
+        "HRV breathing means breathing slowly and evenly, at about five to six breaths a minute, because that's where the heart rate swings most with each breath. Lehrer and Gevirtz, reviewing HRV biofeedback in 2014, put the average at about 5.5 breaths per minute, varying by person around 0.1 Hz. Concretely, it's coherent breathing: 5.5 seconds in, 5.5 out, no holds.",
+        "So an HRV breathing app has two jobs. Pace you at that rhythm, to the second. And show you HRV without lying about what a phone and a watch can actually measure. The pacing is the easy half. The second half is this page.",
+      ],
+    },
+    {
+      h2: 'What Refresher measures, and what it reads',
+      paras: [
+        "Heart rate is measured. With an Apple Watch on and heart rate tracking switched on in Settings, the app keeps the first reading of the session and the last. The difference is on the completion screen and in your history. The reading needs both ends and at least three samples. Without them the row is left out.",
+        "HRV is read from Apple Health. Apple Watch computes it and writes a handful of samples a day into Apple Health. Refresher draws the last 30 days of those, live from HealthKit, with the days you practised marked on the same chart. The chart doesn't appear at all until there are two days of data. There's no empty state and no nag to connect a Watch.",
+        "The Cleveland Clinic notes that most wrist-worn trackers aren't sensitive enough to detect HRV accurately, and that chest straps do better. That's one more reason the app shows HRV as a slow trend. A number built on a few daily samples from a wrist sensor is something to watch over weeks.",
+      ],
+      aside: [
+        "I refused to put a per-session HRV number on the completion screen. Apple Watch emits a few SDNN samples a day, not a stream, so a before-and-after HRV delta for one session can't be produced honestly, and the person who wants HRV is the person who would catch it. So you get a measured heart rate delta and a 30-day HRV trend.",
+        "HRV also never leaves the device. It isn't in the iCloud-synced store, and it doesn't go to our analytics. The one sentence I let the app say about it is the caption on the chart, and it makes no claim.",
+      ],
+    },
+    {
+      h2: 'What it will not claim',
+      paras: [
+        "The app never says what breathing does to your HRV. There's an audit script in the codebase that searches every listing, in every interface language, for a causal verb next to a variability noun, and blocks the release if it finds one. The chart draws two series on one axis, your Apple Health SDNN and your session days, and computes no correlation between them. That is the whole of what the app says about the two.",
+        "It's a pacer with a chart and makes no medical claim. It paces breathing and shows you numbers that Apple Watch and Apple Health already hold. If a doctor is tracking your HRV, their equipment is the one to read.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do HRV breathing with Refresher',
+    description: 'Coherent breathing at 5.5 seconds in and 5.5 seconds out, with the heart rate reading switched on. About five minutes at the default round count.',
+    totalTime: 'PT4M57S',
+    steps: [
+      { name: 'Turn on heart rate tracking', text: 'Settings, then the heart rate switch. It starts off and is a separate consent from Apple Health permission. You need an Apple Watch; an iPhone has no heart rate sensor.' },
+      { name: 'Pick Coherent', text: 'The default is 5.5 seconds each way. If you know your resonant pace, move the slider; it runs 3 to 10 seconds in half-second steps.' },
+      { name: 'Inhale', seconds: 5.5, text: 'In through the nose while the pacer expands. Steady and ordinary in size.' },
+      { name: 'Exhale', seconds: 5.5, text: 'Out as the pacer contracts, the same length. No pause at the bottom.' },
+      { name: 'Read the delta, then wait for the trend', text: 'The heart rate before and after is on the completion screen. The HRV chart in Statistics fills in from Apple Health over the following days; it needs Premium after your tenth qualifying session.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Can a phone app measure HRV?',
+      a: "Not on its own. An iPhone has no heart rate sensor. Apple Watch computes HRV and writes a few samples a day to Apple Health; an app can read those. Refresher reads the last 30 days and charts them with your sessions marked. It doesn't measure HRV itself and doesn't claim to.",
+    },
+    {
+      q: 'How do I do HRV breathing?',
+      a: "Breathe slowly and evenly, about 5.5 seconds in and 5.5 seconds out, with no holds, for a few minutes. That's coherent breathing at roughly 5.5 breaths per minute, the rhythm HRV biofeedback uses. Refresher paces it and lets you move the pace if yours sits elsewhere.",
+    },
+    {
+      q: 'Does Refresher show my HRV after each session?',
+      a: 'Not a number the session produced. The completion screen shows your heart rate before and after, measured on Apple Watch, and your latest HRV reading from Apple Health, labelled Today or Latest reading and hidden once it is more than 30 days old. The 30-day trend in Statistics is where you watch it over weeks.',
+    },
+    {
+      q: 'Does Refresher claim breathing changes HRV?',
+      a: "No. The release audit blocks any listing that pairs a causal verb with heart rate variability, in every interface language. Slow paced breathing is the method HRV biofeedback uses, and that's as far as the app goes. The 30-day chart shows your HRV and your session days on one axis and leaves the reading to you.",
+    },
+    {
+      q: 'Is there an app that can help with resonant breathing?',
+      a: 'Resonant breathing and coherent breathing are the same pace: about 5.5 breaths a minute, where Lehrer and Gevirtz put the average resonance frequency. Refresher paces it at 5.5 s in and out by default, and the slider runs 3 to 10 s in half-second steps if your own frequency sits elsewhere.',
+    },
+    {
+      q: 'Is HRV breathing free in Refresher?',
+      a: 'Coherent breathing and the heart rate reading on the completion screen are free. The 30-day HRV chart sits in the advanced statistics, which stay open through your tenth qualifying session and then need Premium. The pace slider is free for five sessions. Premium has a 7-day free trial; the App Store sets the price per country.',
+    },
+  ]}
+  siblings={[
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute, the pace behind this page' },
+    { slug: 'box-breathing-app', anchor: 'Box breathing at 4-4-4-4, equal phases with a hold at both ends' },
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, the longest exhale of the fixed patterns' },
+  ]}
+  sources={[
+    { url: 'https://my.clevelandclinic.org/health/symptoms/21773-heart-rate-variability-hrv', supports: 'the definition of HRV, the autonomic nervous system, that normal varies by person, and that most wrist-worn trackers are not sensitive enough to detect HRV accurately, and that chest-band devices are the more accurate consumer option' },
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/', supports: 'Lehrer and Gevirtz, 2014: resonance at about 0.1 Hz, about 5.5 breaths per minute on average, varying by individual; HRV biofeedback as slow breathing at that frequency' },
+  ]}
+  closeH2="A number you can check."
+  closeP="Turn on the heart rate switch, breathe 27 rounds at 5.5, and read what Apple Watch recorded. The chart fills in on its own schedule."
+/>

@@ -1,0 +1,86 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="box-breathing-app"
+  technique="box"
+  query="Box breathing app"
+  title="Box breathing app with a 4-4-4-4 pacer"
+  description="A box breathing app for iPhone and Apple Watch. Four in, four held, four out, four held, timed to the second, with your heart rate before and after."
+  lede="Four seconds in. Four held. Four out. Four held. Refresher runs the box on a pacer that keeps every phase at four, for as many rounds as you set."
+  answer="Refresher is a box breathing app for iPhone, iPad and Apple Watch. It paces the 4-4-4-4 pattern visually, one phase at a time, for as many rounds as you set. Box is free from the first session. With an Apple Watch, each session opens and closes with a heart rate reading, and the minutes go to Apple Health."
+  sections={[
+    {
+      h2: 'What box breathing is',
+      paras: [
+        "Box breathing is one pattern: inhale for four seconds, hold for four, exhale for four, hold for four. The four equal sides are the box. You'll also see it called square breathing, four-square breathing, 4×4 breathing and equal breathing. They're all the same thing.",
+        "It's the technique with a hold at both ends, and that's what makes it different from 4-7-8, which holds once and then exhales for twice as long as it inhaled. If you want the second one, it's on a separate page.",
+        "The Cleveland Clinic describes it as used by the United States Navy SEALs, and most box breathing pages lead with that. It's true, and it's also the least useful thing about the technique. What matters is that a count of four is simple enough to hold when you're rattled, which is what the SEAL story is really about.",
+      ],
+    },
+    {
+      h2: 'How Refresher runs the box',
+      paras: [
+        "The pacer is a shape that expands on the inhale, holds, contracts on the exhale and holds again. You watch it. There's no number to count in your head and nothing to read, which is the point of a pacer: the app keeps the time so you don't have to.",
+        "Every phase is four seconds and stays four seconds. What you set is the round count, from 1 to 200, and there's an infinite toggle for when you don't want an end. The default is 18 rounds, which is 4:48. A voice can count the phases in your language, or you can switch it off and breathe to the shape alone.",
+        "On Apple Watch the session runs on your wrist, and with heart rate tracking switched on in Settings the app keeps the first reading of the session and the last. The difference lands on the completion screen and stays in your history. If either end is missing, the row is left out. It never shows a zero.",
+      ],
+      aside: [
+        "I fixed box at 4-4-4-4 and left no slider for the phases. The pattern is the technique; a 3-5-3-5 box is a different exercise with a borrowed name. What you can change is the round count, and the default is 18 because 18 rounds of 16 seconds lands at 4:48, close to five minutes without pretending to be five on the dot.",
+        "If you want to build your own ratio, that's what Builder is for, with Premium. Box stays box.",
+      ],
+    },
+    {
+      h2: 'When to reach for it',
+      paras: [
+        "Before something you need to be sharp for. A meeting, a call you've been putting off, the minute before you walk on stage. The count is short enough to run at 2 in the afternoon and be done before anyone notices.",
+        "Three to four rounds, once or twice a day, is the common prescription, and the advice that comes with it is not to strain. In Refresher that's a 1-minute session. Two minutes is the span the app is built around. If four seconds feels long, the fix is fewer rounds, not a shorter box.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do box breathing with a pacer',
+    description: 'One round of box breathing is four phases of four seconds. Refresher times each one and counts the rounds for you.',
+    totalTime: 'PT4M48S',
+    steps: [
+      { name: 'Inhale', seconds: 4, text: 'Breathe in through the nose while the pacer expands. Fill without forcing.' },
+      { name: 'Hold', seconds: 4, text: 'Lungs full. The pacer holds still. Keep the throat soft, not clamped.' },
+      { name: 'Exhale', seconds: 4, text: 'Let it out as the pacer contracts. Four seconds, no rush at the end.' },
+      { name: 'Hold', seconds: 4, text: 'Lungs empty. This is the phase people skip when counting in their head. The app does not skip it.' },
+      { name: 'Repeat, then read', text: 'The app counts the rounds and ends the session. Nothing to tap between rounds.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Is there a free box breathing app?',
+      a: 'Refresher runs box breathing free, with no session limit and no level gate. The round count and the infinite toggle are free too. Premium covers Builder and Wim Hof tuning, and keeps the coherent pace slider after your first five free sessions, following a 7-day trial.',
+    },
+    {
+      q: 'Do Navy SEALs actually use box breathing?',
+      a: 'The Cleveland Clinic describes box breathing as employed by the United States Navy SEALs. It gets used wherever someone needs a steady head under pressure, because a count of four is simple enough to hold when everything else is loud.',
+    },
+    {
+      q: 'Is box breathing the same as square breathing?',
+      a: 'Yes. Square breathing, four-square breathing, 4×4 breathing and equal breathing all name the same 4-4-4-4 pattern: four seconds in, four held, four out, four held. Refresher lists it as Box.',
+    },
+    {
+      q: 'Is box breathing safe?',
+      a: 'It is slow, gentle breathing with short holds. The Cleveland Clinic advises staying at a comfortable pace and not straining. Refresher is a timer for breathing and nothing more; if you have a heart or lung condition, ask your doctor before adding breath holds.',
+    },
+    {
+      q: 'Does the box breathing pacer work on Apple Watch?',
+      a: 'Yes. Refresher has its own Watch app. Once installed it runs the session on the wrist without the phone in reach, and it is the Watch that supplies the heart rate readings at the start and end. An iPhone has no heart rate sensor.',
+    },
+  ]}
+  siblings={[
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, the longest exhale of the fixed patterns' },
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute' },
+    { slug: 'hrv-breathing-app', anchor: 'HRV breathing, and what the app will and will not show you' },
+  ]}
+  sources={[
+    { url: 'https://health.clevelandclinic.org/box-breathing-benefits', supports: 'the alternative names, the Navy SEAL description, three to four rounds once or twice a day, and the advice not to strain' },
+  ]}
+  closeH2="Eighteen rounds. Four seconds each."
+  closeP="Open Refresher, pick Box, and the pacer takes the count. Eighteen rounds by default, one to two hundred if you want them."
+/>

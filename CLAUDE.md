@@ -66,6 +66,17 @@ From `JustBreathe/docs/074-positioning-the-instrument.md` and
 - **No em dashes in published copy.** The `/seo` rubric scores this under its 35-point
   human-sounding dimension. Periods, commas, or restructure.
 
+## Technique pages
+`/box-breathing-app`, `/coherent-breathing-app`, `/hrv-breathing-app`, `/4-7-8-breathing-app`
+all render through **`src/layouts/TechniqueLayout.astro`**. A page file is props only: copy,
+FAQ, HowTo steps, siblings, sources. Layout, CSS and schema live in the layout; the
+`MobileApplication` / `FAQPage` / `BreadcrumbList` objects are in **`src/schema.ts`** and the
+homepage uses the same ones. Section, FAQ and access-pill styles are in `global.css`, not in
+pages. Siblings are assigned from `seo/clusters.md`. Each page carries one first-person item
+from `seo/experience.md` "Decisions per technique" and a sources list that was fetched, not
+remembered. New technique page: add the slug to `src/site-pages.ts`, add `page:` on the
+technique in `src/app.ts` so the homepage datasheet links to it, run `/seo` on the copy.
+
 ## Design
 - **Dark and light are both first-class**, selected by `prefers-color-scheme`, no JS.
   `docs/074` rule 6 says the dark UI *is* the positioning — dark is the intended default,

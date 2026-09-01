@@ -106,3 +106,23 @@ rate variability` · `Struggling with anxiety, racing thoughts, or poor sleep?`
   claim with no source. Say what the app is built around, not what breathing does to you.
 - **Bar charts that are not to scale.** `TECHNIQUES.ratio` is a schematic, not data: Wim Hof's
   three bars cannot represent 3 rounds of 30 breaths. Label it "relative", never "to scale".
+
+## Added 2026-09-02 (technique pages, four judge rounds)
+
+- **Denying a shipped feature to sound principled.** "The app shows no HRV after a session" was
+  false: the completion card shows the latest Apple Health reading with its date. Check the
+  screen before writing what it doesn't do.
+- **Hedged causality is still causality.** "Slow breathing may move your HRV over time" and
+  "what it does for you over weeks is what the chart shows" pass the regex and fail the fence.
+  The chart draws two series on one axis and computes no correlation; say that instead.
+- **Efficacy in sibling anchors.** "the one for staying sharp", "the one for winding down" are
+  outcome claims. Anchor on structure: "equal phases with a hold at both ends".
+- **A negated banned word is still the word.** "does not treat anything" ships `treat`.
+- **"before the first inhale / after the last exhale."** The code keeps the first and last
+  sample of the session window. Say that.
+- **Quoting one source by name in every paragraph.** Cite it once in the body and in the sources
+  list; the third "The Cleveland Clinic says" reads as a crutch.
+- **"Premium adds X, Y and Z after five sessions"** reads as if all three are gated at five.
+  Only the coherent pace slider is.
+- **Step timing that lives in the UI but not in the HowTo schema.** Fold seconds into the step
+  name so the machine copy matches the visible one.

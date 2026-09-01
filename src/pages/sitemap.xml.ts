@@ -6,7 +6,7 @@ import { SITE_PAGES, pathFor } from '../site-pages';
 export const GET: APIRoute = ({ site }) => {
   const origin = (site?.toString() ?? 'https://tryrefresher.app').replace(/\/$/, '');
   const urls = SITE_PAGES.map((slug) => {
-    const priority = slug === '' ? '1.0' : slug === 'support' ? '0.7' : '0.5';
+    const priority = slug === '' ? '1.0' : slug.endsWith('-app') ? '0.8' : slug === 'support' ? '0.7' : '0.5';
     return `  <url>\n    <loc>${origin}${pathFor(slug)}</loc>\n    <priority>${priority}</priority>\n  </url>`;
   }).join('\n');
 

@@ -1,0 +1,85 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="coherent-breathing-app"
+  technique="coherent"
+  query="Coherent breathing app"
+  title="Coherent breathing app at 5.5 breaths per minute"
+  description="A coherent breathing app for iPhone and Apple Watch: 5.5 seconds in, 5.5 out, adjustable from 3 to 10, and your heart rate before and after."
+  lede="Five and a half seconds in, five and a half out, no holds. Refresher paces coherent breathing at 5.5 breaths per minute by default, and lets you move the pace to wherever your own rhythm sits."
+  answer="Refresher is a coherent breathing app for iPhone, iPad and Apple Watch. It paces an equal inhale and exhale at 5.5 seconds each, and the pace slides from 3 to 10 seconds in half-second steps. Coherent is free from the first session. With an Apple Watch and heart rate tracking switched on, you get heart rate before and after."
+  sections={[
+    {
+      h2: 'What coherent breathing is',
+      paras: [
+        "Coherent breathing is slow, even breathing with no holds: the inhale and the exhale are the same length, and the pace is somewhere around five to six breaths a minute. At 5.5 seconds each way that's 5.5 breaths per minute, and that number isn't arbitrary. Lehrer and Gevirtz, reviewing the biofeedback literature in 2014, put the average frequency for the largest heart rate oscillations at about 5.5 breaths a minute.",
+        "You'll see the same technique called resonance breathing, resonant frequency breathing, or just paced breathing at six a minute. Strictly, resonance frequency is personal: the paper notes it varies from individual to individual, around 0.1 Hz. Coherent breathing is the practical version, one steady pace that's close enough for most people, with room to move it.",
+        "It's the technique with nothing to hold and nothing to count except the pace, which is why it's the one I'd hand to someone who wants a metronome and nothing else. Box breathing has two holds. 4-7-8 has one long hold and an exhale twice its inhale. Coherent has neither. It's a metronome.",
+      ],
+    },
+    {
+      h2: 'How Refresher runs it',
+      paras: [
+        "One shape expands for 5.5 seconds and contracts for 5.5 seconds, and that's the whole session. There are no holds to time and no number to track in your head. A voice can count the phases in your language, or you can switch it off.",
+        "The pace is one slider, 3 to 10 seconds in half-second steps, and it drives the inhale and the exhale together so they stay equal. It's free for your first five qualifying sessions, a minute or longer, and part of Premium after that. The round count is always free, 1 to 200 or infinite, and the default is 27 rounds, which is 4:57.",
+        "On Apple Watch the session runs on the wrist, and with heart rate tracking switched on the app keeps the first heart rate reading of the session and the last. The difference is on the completion screen and in your history. Coherent is the technique that gets asked about HRV, and it's the one where the app is most careful about that number.",
+      ],
+      aside: [
+        "The default is 5.5 in and 5.5 out because that's where Lehrer and Gevirtz put the average resonance, and the slider runs 3 to 10 because resonance varies by person. It's the one phase setting I made adjustable. Box and 4-7-8 don't get a slider, because their ratio is the technique. Coherent's pace is a starting point, not a rule.",
+        "I also rewrote the in-app description of coherent breathing to remove a causal claim about HRV. No single session can show that honestly, and the app's own audit script now blocks a release if a causal HRV claim comes back.",
+      ],
+    },
+    {
+      h2: 'Coherent breathing and HRV',
+      paras: [
+        "Coherent breathing is the pace used in HRV biofeedback, which is where most of the interest in it comes from. So the obvious question is whether the app shows your HRV going up. It shows heart rate before and after a session, measured on Apple Watch. For HRV it shows a 30-day trend read from Apple Health, alongside the days you practised, and nothing per session.",
+        "The reason is that Apple Health holds only a few HRV samples a day, not a stream. A before-and-after HRV number for one two-minute session would be invented, and the person who wants HRV is the person who would notice. The HRV page explains what the app will and won't show.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do coherent breathing with a pacer',
+    description: 'One round is 5.5 seconds in and 5.5 seconds out. Refresher holds the pace and counts the rounds; you watch the shape.',
+    totalTime: 'PT4M57S',
+    steps: [
+      { name: 'Set the pace', text: 'Start at 5.5 seconds. If it feels rushed, slow it toward 6 or 6.5. If it feels like a stretch, bring it in to 5. Half-second steps, 3 to 10.' },
+      { name: 'Inhale', seconds: 5.5, text: 'Breathe in through the nose while the pacer expands. Keep it steady and ordinary in size. The rhythm is what matters here.' },
+      { name: 'Exhale', seconds: 5.5, text: 'Let it out as the pacer contracts, the same length as the inhale. No pause at the bottom.' },
+      { name: 'Repeat, then read', text: 'The app counts the rounds. The default 27 rounds is 4:57. On Apple Watch, the heart rate before and after is on the completion screen.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Is coherent breathing the same as resonance breathing?',
+      a: 'Nearly. Resonance frequency breathing means breathing at your own resonant pace, which varies by person around 0.1 Hz, or six breaths a minute. Coherent breathing fixes one even pace, about 5.5 breaths per minute, instead of measuring yours. Refresher starts there and lets you move it.',
+    },
+    {
+      q: 'Is there an app that helps with resonant breathing?',
+      a: 'Refresher paces an equal inhale and exhale at any length from 3 to 10 seconds, in half-second steps, so you can sit at your own resonant pace instead of a fixed one. Coherent is free from the first session; the pace slider is part of Premium after five sessions.',
+    },
+    {
+      q: 'How many breaths per minute is coherent breathing?',
+      a: 'About 5.5. That is 5.5 seconds in and 5.5 seconds out, with no holds. Lehrer and Gevirtz put the average resonance frequency at roughly 5.5 breaths per minute, with individuals ranging on either side of it.',
+    },
+    {
+      q: 'Does the app show my HRV going up?',
+      a: 'Not per session, because a single session cannot produce an honest HRV number. Apple Watch writes a few HRV samples a day. Refresher shows heart rate before and after each session, measured on Apple Watch, and a 30-day HRV trend read from Apple Health alongside the days you practised.',
+    },
+    {
+      q: 'Is coherent breathing free in Refresher?',
+      a: 'Yes. Coherent, box, 4-7-8, Wim Hof and the timer are there from the first session. The pace slider is free for five sessions and then part of Premium, which has a 7-day free trial. The App Store shows the price for your country.',
+    },
+  ]}
+  siblings={[
+    { slug: 'hrv-breathing-app', anchor: 'HRV breathing, and what the app will and will not show you' },
+    { slug: 'box-breathing-app', anchor: 'Box breathing at 4-4-4-4, equal phases with a hold at both ends' },
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, the longest exhale of the fixed patterns' },
+  ]}
+  sources={[
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/', supports: 'Lehrer and Gevirtz, 2014: maximum heart rate oscillations at about 0.1 Hz, refined to about 5.5 breaths per minute on average, varying by individual' },
+  ]}
+  closeH2="One pace, held."
+  closeP="Pick Coherent, set the rounds, and watch one shape. Everything else on this page is already in the app."
+/>

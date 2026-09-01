@@ -7,15 +7,16 @@
   site, no listicles, no Calm/Headspace, no Reddit), and "pacer" is literally the product noun.
   The app already ranks #63 for `breathing pacer` and #57 for `paced breathing` in the US store.
 
-Supporting pages, none built yet:
+Supporting pages (all judged ≥80 before publish):
 | slug | target | status |
 |---|---|---|
-| `/coherent-breathing-app` | coherent breathing app | planned |
-| `/hrv-breathing-app` | hrv breathing app | planned |
-| `/box-breathing-app` | box breathing app | planned |
-| `/4-7-8-breathing-app` | 4-7-8 breathing app | planned |
+| `/coherent-breathing-app` | coherent breathing app | live 2026-09-02 |
+| `/hrv-breathing-app` | hrv breathing app | live 2026-09-02 |
+| `/box-breathing-app` | box breathing app | live 2026-09-02 |
+| `/4-7-8-breathing-app` | 4-7-8 breathing app | live 2026-09-02 |
 
 ## Cluster: technique explainers (none built)
+Next candidates: `wim hof method app` (best-owned store term, needs its own SERP check).
 Informational intent, feeds the pillar.
 - resonance frequency breathing — what it is, how to find yours
 - Apple Watch breathing apps that record heart rate

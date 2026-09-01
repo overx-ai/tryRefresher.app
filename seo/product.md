@@ -131,6 +131,26 @@ Never mention these as available, planned, or hedged:
 - **Adjustable hold on 4-7-8 or Box.** `customPhaseDurations` is nil for every technique except
   coherent and extended exhale. Only the round count is the user's.
 
+## Per-technique facts for the landing pages (verified 2026-09-02)
+- Box, 4-7-8 and coherent are **free from the start and never level-gated**. Only sigh, nostril
+  and extended exhale carry the level gate (`BreathingTechnique.swift:96-101`).
+- Rounds: 1 to 200 on all three. Defaults: box 18 (4:48), 4-7-8 16 (5:04), coherent 27 (4:57).
+  Round count is free for everyone; there is also an infinite toggle (`StandardCustomizationView.swift:392-394`).
+- Coherent pace: 3 to 10 s per phase, 0.5 s steps, one slider drives both. Free for the first 5
+  qualifying sessions, then Premium. Free users run at 5.5 (`UserPreferences.swift:823-828`).
+- The completion card shows the **latest HRV reading from Apple Health with its date** (`CompletionView.swift:395-419`),
+  never a session delta. Never write "the app shows no HRV after a session".
+- The 30-day HRV chart is **inside the advanced-statistics gate**: free through the 10th qualifying
+  session, then Premium (`StatisticsView.swift:85-275`, `AppState.swift:199,227-229`). The completion-card
+  HRV row is not gated. Never write "the HRV chart is free".
+- The HRV chart is 30 days from HealthKit, hidden below two days of data. HRV is device-only,
+  not in the iCloud store. The HR delta needs ≥3 samples at both ends or the row is omitted.
+- Never write "resets to 5.5": the in-sheet reset sets 5.0 while the model default is 5.5.
+- Never reuse `technique_coherent_info_benefits` ("Maximizes heart rate variability"): it is a
+  causal claim the audit script would fail.
+- Navy SEALs: the in-app box overview says it. On the site, only with a source, and not as
+  the lede.
+
 ## Author
 - Name: Yauheni Malashchytski
 - Bio line: Developer of Refresher. Publisher: OverX AI.
