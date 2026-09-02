@@ -35,8 +35,9 @@ Three files carry the weight:
 - **`src/styles/global.css`** — the token system. Light palette on bare `:root`, dark
   swapped under `prefers-color-scheme`, with `[data-theme]` reserved for a future toggle.
 
-`src/data/*.json` is extracted from the overx.ai refresher site's English legal and support
-content. Regenerate rather than hand-edit.
+`src/data/*.json` began as an extraction from the overx.ai refresher site's English legal and
+support content, but this repo owns it as of 2026-09-03 — it names `tryrefresher.app` and carries
+an HRV clause the old site lacks. Edit it here; re-extracting would undo both.
 
 **`seo/` is the copy pipeline's config**, and `seo/product.md` is the source of truth for every
 product claim on the site. Marketing copy changes go through `/seo`: ground against
@@ -114,5 +115,7 @@ repointing the App Store Connect URLs away from `refresher.overx.ai`.
 
 ## Not in scope (yet)
 
-Blog · the five SEO landing pages from the overx.ai site · locales beyond English · AASA and
-`/r/[code]` universal links · a support contact form · a price table.
+Blog · the five SEO landing pages from the overx.ai site · locales beyond English · a support
+contact form · a price table.
+
+(AASA and `/r/<code>` landed 2026-09-03.)

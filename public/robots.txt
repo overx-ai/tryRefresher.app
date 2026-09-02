@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# The referral interstitial is a runtime handoff, not a page.
+Disallow: /r/
 
 # Answer engines get explicit permission — this site is written to be quoted.
 User-agent: GPTBot

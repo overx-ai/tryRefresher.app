@@ -1,7 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    }
+  ],
   "redirects": [
-    { "source": "/download", "destination": "https://apps.apple.com/app/id6759679041", "permanent": false }
+    { "source": "/download", "destination": "https://apps.apple.com/app/id6759679041", "permanent": false },
+    { "source": "/share/:id", "destination": "/download", "permanent": false },
+    { "source": "/start/:technique", "destination": "/download", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/r/:code([A-Z0-9]{4,16})", "destination": "/r" }
   ]
 }

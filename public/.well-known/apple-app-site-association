@@ -1,0 +1,31 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["26SAAF256Q.ai.overx.refresher"],
+        "components": [
+          {
+            "/": "/r/*",
+            "comment": "Referral codes — S-011 (stashed into UserPreferences.pendingReferralCode for later redemption)"
+          },
+          {
+            "/": "/share/*",
+            "comment": "Shared session detail links — currently no-op, reserved for future share deep-link handler"
+          },
+          {
+            "/": "/start/*",
+            "comment": "Direct technique launch: /start/<raw> where raw is box | 478 | coherent | wimhof | timer | builder"
+          },
+          {
+            "/": "/challenge/7day",
+            "comment": "7-Day Reset App Store event landing flow"
+          },
+          {
+            "/": "/",
+            "comment": "Root domain — falls through to default home tab"
+          }
+        ]
+      }
+    ]
+  }
+}

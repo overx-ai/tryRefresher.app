@@ -1,0 +1,82 @@
+---
+// The referral interstitial. Reached only through the vercel.json rewrite
+// /r/:code -> /r, so the code is NOT in the served HTML — a static build cannot
+// prerender an unbounded code space, and the page reads it from
+// location.pathname instead. Deliberately absent from src/site-pages.ts: no
+// canonical, no sitemap entry, and robots.txt disallows /r/.
+//
+// This is the only page on the site with client JavaScript, and the exception
+// is structural: the page's entire job is a runtime handoff to the app or the
+// store. Every indexable page stays at zero JS.
+//
+// Ported from the old Next.js site (overx.ai/sites/refresher/src/pages/r/[code].tsx).
+// The two timings and the regex are load-bearing — the regex matches
+// AppDelegate.referralCodeFromURL, and a code the app would reject must 404
+// here rather than deep-link into a dead redemption.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { APP } from '../app';
+
+const CODE_RE = String.raw`^\/r\/([A-Z0-9]{4,16})\/?$`;
+
+// Runs during head parsing so Safari sees app-argument before it decides
+// whether to draw the Smart App Banner. Best effort only: the store redirect
+// below fires at 1.5s, so the banner is barely on screen either way.
+const headScript = `(function(){
+  var m = location.pathname.match(new RegExp(${JSON.stringify(CODE_RE)}));
+  if (!m) return;
+  var t = document.querySelector('meta[name="apple-itunes-app"]');
+  if (t) t.setAttribute('content',
+    'app-id=${APP.appStoreId}, app-argument=https://tryrefresher.app/r/' + m[1]);
+})();`;
+
+const bodyScript = `(function(){
+  var m = location.pathname.match(new RegExp(${JSON.stringify(CODE_RE)}));
+  var el = document.getElementById('code');
+  var hint = document.getElementById('hint');
+  if (!m) {
+    el.textContent = 'No code';
+    hint.textContent = 'This link is missing its referral code. Ask whoever sent it to resend the invite.';
+    return;
+  }
+  var code = m[1];
+  el.textContent = code;
+  el.addEventListener('click', function(){
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(code).then(function(){
+      hint.textContent = 'Copied. Paste it in Refresher under Invite a friend.';
+    }, function(){});
+  });
+  setTimeout(function(){ location.href = 'justbreathe://r/' + code; }, 100);
+  setTimeout(function(){ location.replace(${JSON.stringify(APP.appStoreUrl)}); }, 1500);
+})();`;
+---
+
+<BaseLayout title="Your referral code" description="Apply this code in Refresher." noindex>
+  <script is:inline slot="head" set:html={headScript} />
+
+  <div class="container ref">
+    <span class="lbl">Referral</span>
+    <h1>Apply this code in Refresher.</h1>
+    <p class="code" id="code">&mdash;</p>
+    <p class="hint" id="hint">Opening Refresher. If nothing happens, you go to the App Store.</p>
+    <a class="btn" href={APP.appStoreUrl}>Get Refresher</a>
+    <noscript>
+      <p class="hint">Install Refresher from the App Store, then enter the code from your invite.</p>
+    </noscript>
+  </div>
+
+  <script is:inline set:html={bodyScript} />
+</BaseLayout>
+
+<style>
+  .ref { padding-block: var(--space-3xl); max-width: 60ch; }
+  h1 { font-size: clamp(28px, 4vw, 42px); margin: 10px 0 var(--space-lg); }
+  .code {
+    font-family: var(--font-mono);
+    font-size: clamp(32px, 7vw, 56px);
+    letter-spacing: 0.12em;
+    margin: 0 0 var(--space-md);
+    cursor: pointer;
+  }
+  .hint { color: var(--color-ink-2); margin: 0 0 var(--space-xl); }
+</style>

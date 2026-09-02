@@ -1,12 +1,12 @@
 {
   "pageTitle": "Terms of Service",
-  "lastUpdated": "Last Updated: March 30, 2026",
+  "lastUpdated": "Last Updated: September 3, 2026",
   "disclaimerTitle": "Important Notice",
   "disclaimerText": "<p><strong>Refresher is not a medical device.</strong> These breathing techniques are wellness practices, not medical treatments. If you have cardiovascular disease, respiratory conditions, epilepsy, or are pregnant, <strong>consult your doctor before use</strong>. <strong>NEVER practice the Wim Hof method or any breath-holding techniques in water or while operating a vehicle or machinery.</strong></p><p>These Terms contain a binding arbitration clause and class action waiver in Section 16 that affect your legal rights. Please read them carefully. If your country of residence is in the European Economic Area or the United Kingdom, the arbitration clause does not apply to you.</p>",
   "sections": [
     {
       "title": "1. Definitions",
-      "content": "<p>These Terms of Service (“Terms”) govern your access to and use of the Refresher mobile application (the “App”) developed and published by OverX AI (“we,” “us,” or “our”). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p><ul><li><strong>“App”</strong> means the Refresher mobile application available on the Apple App Store, including all updates and new versions.</li><li><strong>“Content”</strong> means all text, graphics, animations, audio, video, and other materials provided through the App.</li><li><strong>“Services”</strong> means the App and any associated website at refresher.overx.ai.</li><li><strong>“User,” “you,” or “your”</strong> refers to any individual who downloads, installs, or uses the App.</li><li><strong>“Subscription”</strong> means any paid in-app purchase or recurring subscription plan offered within the App.</li><li><strong>“Country of Residence”</strong> means the country associated with your Apple ID or in which you primarily reside.</li><li><strong>“Dispute”</strong> means any dispute, claim, or controversy between you and OverX AI relating to the App, the Services, or these Terms, whether based in contract, tort, statute, fraud, misrepresentation, or any other legal theory.</li></ul>"
+      "content": "<p>These Terms of Service (“Terms”) govern your access to and use of the Refresher mobile application (the “App”) developed and published by OverX AI (“we,” “us,” or “our”). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p><ul><li><strong>“App”</strong> means the Refresher mobile application available on the Apple App Store, including all updates and new versions.</li><li><strong>“Content”</strong> means all text, graphics, animations, audio, video, and other materials provided through the App.</li><li><strong>“Services”</strong> means the App and any associated website at tryrefresher.app or refresher.overx.ai.</li><li><strong>“User,” “you,” or “your”</strong> refers to any individual who downloads, installs, or uses the App.</li><li><strong>“Subscription”</strong> means any paid in-app purchase or recurring subscription plan offered within the App.</li><li><strong>“Country of Residence”</strong> means the country associated with your Apple ID or in which you primarily reside.</li><li><strong>“Dispute”</strong> means any dispute, claim, or controversy between you and OverX AI relating to the App, the Services, or these Terms, whether based in contract, tort, statute, fraud, misrepresentation, or any other legal theory.</li></ul>"
     },
     {
       "title": "2. Eligibility",
@@ -86,7 +86,7 @@
     },
     {
       "title": "21. Contact Us",
-      "content": "<p>If you have questions about these Terms, please contact us:</p><ul><li><strong>Developer:</strong> Yauheni Malashchytski</li><li><strong>Email:</strong> <a href=\"mailto:support@overx.ai\">support@overx.ai</a></li><li><strong>Website:</strong> <a href=\"https://refresher.overx.ai\">refresher.overx.ai</a></li></ul>"
+      "content": "<p>If you have questions about these Terms, please contact us:</p><ul><li><strong>Developer:</strong> Yauheni Malashchytski</li><li><strong>Email:</strong> <a href=\"mailto:support@overx.ai\">support@overx.ai</a></li><li><strong>Website:</strong> <a href=\"https://tryrefresher.app\">tryrefresher.app</a></li></ul>"
     }
   ]
 }

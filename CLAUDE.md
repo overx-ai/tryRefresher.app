@@ -18,9 +18,11 @@ truth for copy, colours and claims.
 - **Canonical URLs are non-trailing** (`/support`, not `/support/`). Never link one.
 - **App facts live in `src/app.ts`.** The App Store ID, URLs, and the nine techniques with
   their patterns. Do not hardcode any of them in a page.
-- **Legal and support copy is generated, not written.** `src/data/{privacy,terms,support}.json`
-  are extracted from `overx.ai/overx-ai/sites/refresher/src/content/*.ts`, English branch.
-  To update, re-extract — do not hand-edit the JSON, it will drift from the app's own copy.
+- **This repo is now the source of truth for legal copy.** `src/data/{privacy,terms,support}.json`
+  began as an extraction from `overx.ai/overx-ai/sites/refresher/src/content/*.ts`, but that link is
+  cut as of 2026-09-03: the copy here names `tryrefresher.app` as the canonical host and carries an
+  HRV clause the old site does not. **Re-extracting would silently restore the old domain and drop
+  the HRV clause.** Edit the JSON here; port changes *to* the old site if it ever needs them.
 - English only. When a second locale lands, widen `SITE_PAGES` from `string[]` to
   `{ slug, locales[] }` and restore hreflang in `BaseLayout` — do not add an i18n library.
 
@@ -96,11 +98,19 @@ technique in `src/app.ts` so the homepage datasheet links to it, run `/seo` on t
   a stale one would silently override every other icon.
 
 ## Relationship to refresher.overx.ai
-`refresher.overx.ai` is still live and is **not** to be touched. It serves the App Store
-Connect URLs (`fastlane/Deliverfile`), the AASA file, and the `/r/<code>` referral deep link.
-This site replaces it eventually. Before that switch: all four of `/`, `/privacy`, `/terms`,
-`/support` must return 200 here, and AASA plus `/r/[code]` must move in the same step or
-universal links break.
+`tryrefresher.app` is the canonical host as of 2026-09-03. `refresher.overx.ai` stays live and is
+**not** to be torn down — referral links carrying it are already in the wild, and the app keeps
+`applinks:refresher.overx.ai` alongside the new host permanently. Two hosts, one app.
+
+This site now carries what the old one carried: `/`, `/privacy`, `/terms`, `/support` (all 200),
+the AASA at `public/.well-known/apple-app-site-association`, and `/r/<code>`. The App Store Connect
+URLs (`fastlane/Deliverfile`) move with the 2.0.0 submission.
+
+**`/r/<code>` is a rewrite, not a route.** `output: 'static'` cannot prerender an unbounded code
+space, so `vercel.json` rewrites `/r/:code([A-Z0-9]{4,16})` onto the single `src/pages/r.astro`,
+which reads the code from `location.pathname`. That regex is not decoration — it matches
+`AppDelegate.referralCodeFromURL`, so a code the app would reject 404s here instead of deep-linking
+into a dead redemption. It is also the only page on the site with client JavaScript.
 
 ## The site describes 2.0.0, which is not on the App Store yet
 The store serves `Refresher: Breathing & Focus` 1.5.0. The rename to `Breathing & HRV`, the
