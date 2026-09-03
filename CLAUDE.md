@@ -113,9 +113,11 @@ which reads the code from `location.pathname`. That regex is not decoration — 
 into a dead redemption. It is also the only page on the site with client JavaScript.
 
 ## The site describes 2.0.0, which is not on the App Store yet
-The store serves `Refresher: Breathing & Focus` 1.5.0. The rename to `Breathing & HRV`, the
-French and Dutch voices, the heart-rate delta and the HRV trend are all real in the app repo and
-**uncommitted**. User decision 2026-09-02: write for 2.0.0 and accept the temporary mismatch.
+The store serves `Refresher: Breathing & Focus` 1.5.0 (build 30). The rename to
+`Breathing & HRV`, the French and Dutch voices, the heart-rate delta and the HRV trend are all
+real and **committed** in the app repo, but 2.0.0 has not been archived, uploaded or submitted —
+App Store Connect has no 2.0.0 version at all. User decision 2026-09-02: write for 2.0.0 and
+accept the temporary mismatch.
 Re-verify `seo/product.md` against the store when 2.0.0 ships.
 
 ## Workflows
