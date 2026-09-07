@@ -14,7 +14,10 @@ truth for copy, colours and claims.
 
 ## Critical Conventions
 - **Register every page in `src/site-pages.ts`.** It drives the sitemap and the canonical
-  tag. An unregistered page is invisible to crawlers.
+  tag. An unregistered page is invisible to crawlers. Each entry carries a `lastmod`:
+  **bump it only when that page's copy actually changed.** It is a claim to search engines,
+  and Google discounts a `lastmod` it finds unreliable, so a date wired to the build clock
+  (nine pages "changing" on every deploy) is worse than no date at all.
 - **Canonical URLs are non-trailing** (`/support`, not `/support/`). Never link one.
 - **App facts live in `src/app.ts`.** The App Store ID, URLs, and the nine techniques with
   their patterns. Do not hardcode any of them in a page.
@@ -23,8 +26,9 @@ truth for copy, colours and claims.
   cut as of 2026-09-03: the copy here names `tryrefresher.app` as the canonical host and carries an
   HRV clause the old site does not. **Re-extracting would silently restore the old domain and drop
   the HRV clause.** Edit the JSON here; port changes *to* the old site if it ever needs them.
-- English only. When a second locale lands, widen `SITE_PAGES` from `string[]` to
-  `{ slug, locales[] }` and restore hreflang in `BaseLayout` — do not add an i18n library.
+- English only. When a second locale lands, add a `locales[]` field to each `SITE_PAGES`
+  entry (it is already an object array) and restore hreflang in `BaseLayout` — do not add
+  an i18n library.
 
 ## Copy rules — these are not stylistic, they are the positioning
 

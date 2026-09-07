@@ -3,12 +3,16 @@ import { SITE_PAGES, pathFor } from '../site-pages';
 
 // Hand-rolled rather than @astrojs/sitemap so the sitemap and the head tags read
 // from the same manifest and cannot drift.
+//
+// No <priority> or <changefreq>: Google ignores both outright. <lastmod> is the
+// one hint it acts on, and only while it stays truthful — the dates live in
+// src/site-pages.ts and are edited by hand when a page's copy changes.
 export const GET: APIRoute = ({ site }) => {
   const origin = (site?.toString() ?? 'https://tryrefresher.app').replace(/\/$/, '');
-  const urls = SITE_PAGES.map((slug) => {
-    const priority = slug === '' ? '1.0' : slug.endsWith('-app') ? '0.8' : slug === 'support' ? '0.7' : '0.5';
-    return `  <url>\n    <loc>${origin}${pathFor(slug)}</loc>\n    <priority>${priority}</priority>\n  </url>`;
-  }).join('\n');
+  const urls = SITE_PAGES.map(
+    ({ slug, lastmod }) =>
+      `  <url>\n    <loc>${origin}${pathFor(slug)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
+  ).join('\n');
 
   return new Response(
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
