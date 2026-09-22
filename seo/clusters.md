@@ -14,9 +14,9 @@ Supporting pages (all judged ≥80 before publish):
 | `/hrv-breathing-app` | hrv breathing app | live 2026-09-02 |
 | `/box-breathing-app` | box breathing app | live 2026-09-02 |
 | `/4-7-8-breathing-app` | 4-7-8 breathing app | live 2026-09-02 |
+| `/wim-hof-breathing-app` | wim hof breathing app | live 2026-09-23 (judge: 76 → 86) |
 
 ## Cluster: technique explainers (none built)
-Next candidates: `wim hof method app` (best-owned store term, needs its own SERP check).
 Informational intent, feeds the pillar.
 - resonance frequency breathing — what it is, how to find yours
 - Apple Watch breathing apps that record heart rate

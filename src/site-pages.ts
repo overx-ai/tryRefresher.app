@@ -15,10 +15,11 @@ export const SITE_PAGES = [
   { slug: 'privacy',                lastmod: '2026-09-03' },
   { slug: 'terms',                  lastmod: '2026-09-03' },
   { slug: 'press',                  lastmod: '2026-09-02' },
-  { slug: 'box-breathing-app',      lastmod: '2026-09-02' },
-  { slug: 'coherent-breathing-app', lastmod: '2026-09-02' },
+  { slug: 'box-breathing-app',      lastmod: '2026-09-23' },
+  { slug: 'coherent-breathing-app', lastmod: '2026-09-23' },
   { slug: 'hrv-breathing-app',      lastmod: '2026-09-02' },
-  { slug: '4-7-8-breathing-app',    lastmod: '2026-09-02' },
+  { slug: '4-7-8-breathing-app',    lastmod: '2026-09-23' },
+  { slug: 'wim-hof-breathing-app',  lastmod: '2026-09-23' },
 ] as const;
 
 export type Slug = (typeof SITE_PAGES)[number]['slug'];

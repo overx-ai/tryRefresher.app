@@ -44,7 +44,7 @@ A breathing pacer accurate to the second, for people who already know the techni
   | Box | 4 · 4 · 4 · 4 | 18 | rounds only |
   | 4-7-8 | 4 · 7 · 8 | 16 | rounds only |
   | Coherent | 5.5 in · 5.5 out | 27 | inhale/exhale, 3–10 s |
-  | Wim Hof | **3 rounds × 30 power breaths**, retention **60 / 90 / 90 s**, recovery hold 15 s | 3 | breaths 20–40, speed 2.6–4.0 s, rounds 1–10 |
+  | Wim Hof | **3 rounds × 30 power breaths**, retention **60 / 90 / 90 s**, recovery hold 15 s | 3 | breaths 10–60, speed 2.6–4.0 s, recovery 10–20 s, rounds 1–10, retention per round 30–300 s (15 s steps) |
   | Physiological sigh | 1.8 in · 1.0 sip · 6.0 out | 20 | rounds only |
   | Alternate nostril | 4 · 4 · 4 · 4 · 4 · 4 (24 s/round) | 10 | rounds only |
   | Extended exhale | 4 in · 8 out | 20 | inhale 3–7 s, exhale 4–12 s |
@@ -125,9 +125,18 @@ Never mention these as available, planned, or hedged:
 - "Two minutes", never "four" (resolved 2026-08-28).
 - Medical outcomes, guaranteed results, "the best app".
 
-- **Wim Hof tuning outside Premium.** `WimHofSettings` (breaths 20–40, speed 2.6–4.0 s, recovery
-  hold 10–20 s, per-round retention, rounds 1–10) is fully tunable, but
-  `effectiveWimHofSettings(isPremium:)` returns defaults for free users. Say "with Premium".
+- **Wim Hof tuning outside Premium, past the first five sessions.** `WimHofSettings` (breaths
+  10–60, speed 2.6–4.0 s, recovery hold 10–20 s, retention per round 30–300 s in 15 s steps,
+  rounds 1–10; `WimHofCustomizationView.swift`) is fully tunable. `effectiveWimHofSettings` is
+  fed `sessionCustomizationUnlocked`, which is Premium **or** the first 5 qualifying sessions
+  (`AppState.swift:220-248`). After that, defaults run and saved values are kept.
+- **Wim Hof in-session controls** (`BreathingView.swift:3105-3120`): +10 Seconds and Skip to
+  Recovery are ungated; +1 Round on the last round is `isPremium` only. The paywall copy sells
+  +10 s as Premium; the code does not gate it. The site states the code. Retention is a fixed
+  countdown, never "hold as long as you can".
+- **Wim Hof on Apple Watch**: runs with heart rate, but ignores per-round retention (always
+  60/90/90) and records no holds. Never claim custom holds or best-hold on the Watch.
+- The Wim Hof heart-rate timeline with round bands is Premium (`SessionDetailView.swift:350`).
 - **Adjustable hold on 4-7-8 or Box.** `customPhaseDurations` is nil for every technique except
   coherent and extended exhale. Only the round count is the user's.
 

@@ -21,7 +21,7 @@ independently.
 | 4-7-8 breathing app iphone | technique | product-page | 5 | 23 | #104 | hardest. 6+ App Store SKUs plus an Othership listicle; "iphone" pulls Google to apps.apple.com | published 2026-09-02 |
 | resonance frequency breathing | explainer | definition | 6 | 39 | #69 | **article, not a landing page.** An NCBI paper and a PR release rank. Consider a free in-browser pacer, as allos.app does | idea |
 | apple watch breathing heart rate | explainer | how-to | 5 | 40 | #142 | **article.** support.apple.com holds two slots; intent splits between Apple's built-in Breathe app and third-party | idea |
-| wim hof method | technique | product-page | 9 | 19 | **#37** | best-owned term in the store. Web SERP not scanned | idea |
+| wim hof method | technique | product-page | 9 | 19 | **#37** | best-owned term in the store. SERP 2026-09-23 (`wim hof breathing app`): official WHM app + App Store, one indie page (vayu-prana, ~1,200 words). Target `wim hof breathing app` | published 2026-09-23 |
 | vagus nerve breathing | technique | definition | 14 | 11 | #80 | not scanned | idea |
 
 ## What the ASO data says about positioning

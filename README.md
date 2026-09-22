@@ -51,7 +51,7 @@ difficulty and rank from the Astro MCP alongside the web SERP verdict for each t
 npm run build
 
 # technique pages: the words that have failed a judge round
-for p in box-breathing-app coherent-breathing-app hrv-breathing-app 4-7-8-breathing-app; do
+for p in box-breathing-app coherent-breathing-app hrv-breathing-app 4-7-8-breathing-app wim-hof-breathing-app; do
   f=dist/$p/index.html
   grep -c '—' $f                                                   # 0
   grep -oiE '\b(guided|journey|coach|unlock|treat|clinical|practice days|no trackers|standalone)\b' $f
@@ -60,12 +60,12 @@ for p in box-breathing-app coherent-breathing-app hrv-breathing-app 4-7-8-breath
 done
 
 # every registered page built
-for p in index 404 press/index privacy/index support/index terms/index box-breathing-app/index coherent-breathing-app/index hrv-breathing-app/index 4-7-8-breathing-app/index; do
+for p in index 404 press/index privacy/index support/index terms/index box-breathing-app/index coherent-breathing-app/index hrv-breathing-app/index 4-7-8-breathing-app/index wim-hof-breathing-app/index; do
   test -f "dist/$p.html" || echo "MISSING $p"
 done
 
 # sitemap matches the manifest, no trailing-slash URLs
-grep -c '<loc>' dist/sitemap.xml                  # expect 5
+grep -c '<loc>' dist/sitemap.xml                  # expect 10
 grep -o '<loc>[^<]*/</loc>' dist/sitemap.xml | grep -v 'app/</loc>'   # expect nothing
 
 # head gates

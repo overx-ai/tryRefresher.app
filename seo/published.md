@@ -11,6 +11,7 @@
 | https://tryrefresher.app/coherent-breathing-app | coherent breathing app | 2026-09-02 | — |
 | https://tryrefresher.app/hrv-breathing-app | hrv breathing app | 2026-09-02 | — |
 | https://tryrefresher.app/4-7-8-breathing-app | 4-7-8 breathing app | 2026-09-02 | — |
+| https://tryrefresher.app/wim-hof-breathing-app | wim hof breathing app | 2026-09-23 | — |
 
 No Search Console data yet. Run `/seo review` once the
 domain has been serving for 4+ weeks.
@@ -36,5 +37,6 @@ Each page renders its own sources list; this is the register.
 | /4-7-8-breathing-app | https://health.clevelandclinic.org/4-7-8-breathing | sequence and Weil attribution; nose in, mouth out, whoosh; tongue placement; three cycles twice a day; lightheadedness caution; association with sleep |
 | /coherent-breathing-app, /hrv-breathing-app | https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/ | Lehrer & Gevirtz 2014: resonance ≈0.1 Hz, refined to ≈5.5 breaths/min on average, varies by individual |
 | /hrv-breathing-app | https://my.clevelandclinic.org/health/symptoms/21773-heart-rate-variability-hrv | HRV definition; autonomic nervous system; normal varies by person; most wrist trackers not sensitive enough |
+| /wim-hof-breathing-app | https://www.wimhofmethod.com/breathing-exercises | fetched 2026-09-23: 30 deep breaths, retention until the urge to breathe, recovery breath held 15 s, 3–4 rounds; seated or lying down, never near water or driving; rare loss of consciousness; lightheadedness and tingling |
 
 Fetch failures recorded so nobody retries them blind: drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).

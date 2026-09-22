@@ -59,6 +59,12 @@ All from the app repo. Each names its source so the judge can check it.
   two days of data: no empty state, no "connect your Watch" nag. HRV never leaves the device;
   it isn't in the iCloud-synced store. (`docs/specs/046-hrv-and-the-proof-moment.md` §R1, R2,
   R5; `HRVTrendChart.swift:12-17`; `CompletionView.swift:323-345`.)
+- **Wim Hof.** I made every number adjustable, down to a separate retention for each round. And I
+  made the voice the only option: music can't count 1.5-second power breaths, and silence leaves
+  you staring at a circle. Retention is a countdown you stretch with +10 s or cut with Skip to
+  Recovery. (`WimHofCustomizationView.swift`, `GuidanceMode.swift:40-60`,
+  `BreathingView.swift:3105-3120`; owner statement 2026-09-23: "we have all possible
+  customizations for Wim Hof".)
 - **Heart rate delta.** The completion card needs both endpoints and at least three samples,
   or it omits the row rather than showing a number built on noise. Tracking is a separate
   switch from HealthKit permission and starts off. (`CompletionView.swift:323-328`,

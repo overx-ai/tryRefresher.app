@@ -1,0 +1,94 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="wim-hof-breathing-app"
+  technique="wim"
+  query="Wim Hof breathing app"
+  title="Wim Hof breathing app with a hold you set for each round"
+  description="A Wim Hof breathing timer for iPhone and Apple Watch. 30 power breaths, retention holds of 60, 90 and 90 seconds, a 15-second recovery. Every number is adjustable."
+  lede="30 power breaths. Breathe out and hold for 60 seconds. One deep breath in, held for 15. Then round two, with a 90-second hold. Refresher calls every breath out loud and times every hold."
+  answer="Refresher is a Wim Hof breathing timer for iPhone, iPad and Apple Watch. By default it runs 3 rounds of 30 power breaths, with retention holds of 60, 90 and 90 seconds and a 15-second recovery hold. The technique is free. Your first five sessions let you set the breath count, the tempo, the rounds and a separate hold for each round. After that, those settings are part of Premium."
+  sections={[
+    {
+      h2: 'What Wim Hof breathing is',
+      paras: [
+        "One round has three parts. First you take 30 deep breaths in a row: a full inhale through the nose or mouth, pushing the belly out, then letting it go without force. After the last exhale you hold your breath with empty lungs. That's the retention. When it ends you take one big breath in, hold it for 15 seconds and let it go. That's the recovery breath, and it closes the round.",
+        "The official instructions say to repeat that three to four times, and to hold the retention until you feel the urge to breathe. They also mention lightheadedness and tingling in the fingers and feet.",
+        "Refresher is not affiliated with Wim Hof or with WHM Services, which publishes the official Wim Hof Method app. In Refresher the technique is listed as Power Breath by Wim Hof, alongside box, 4-7-8 and coherent breathing on the same pacer.",
+      ],
+    },
+    {
+      h2: 'How Refresher times a round',
+      paras: [
+        "The defaults are 30 power breaths at 3 seconds each, 1.5 in and 1.5 out, then a retention of 60 seconds in round one and 90 in rounds two and three, and a 15-second recovery hold. Three rounds come to just over nine minutes.",
+        "The retention is a countdown, and you're in charge of it. When the urge to breathe comes early, tap Skip to Recovery and the app moves straight to the recovery breath. When you've got more in you, tap +10 Seconds, as many times as you like. Both work for everyone, free or not. The app saves the hold you actually did.",
+        "A voice runs the whole session. It calls in and out on every breath, then ten more, five more and the last one, on the longer holds tells you when you're halfway, then when 30 seconds are left, counts the final five, and says let go at the end of the recovery. On iPhone each power breath also lands as a haptic tap, heavier on the inhale, building over the last five.",
+      ],
+      aside: [
+        "I made every number in a Wim Hof session adjustable. You can set 10 to 60 power breaths, a breath speed from 2.6 to 4 seconds, 1 to 10 rounds, a recovery hold of 10 to 20 seconds, and a retention for each round on its own, from 30 seconds to 5 minutes in 15-second steps.",
+        "I also made the voice the only session mode for this one. Every other paced technique in the app can run to music. Wim Hof can't: a power breath lasts a second and a half, and nobody can count thirty of them against a song. Silence doesn't work either. It leaves you staring at a circle, trying to remember whether that was breath 22 or 23.",
+      ],
+    },
+    {
+      h2: 'After the last recovery breath',
+      paras: [
+        "The completion screen shows your longest hold of the session, and tells you when it beats your record. Each session in your history lists the hold you actually did in every round. On Apple Watch the session runs the default holds with heart rate. Custom holds and your hold history live on iPhone.",
+        "With an Apple Watch and heart rate tracking switched on in Settings, the session opens and closes with a heart rate reading and the difference lands on the completion screen. If the Watch misses either end, the row is left out. With Premium, the session's heart rate chart is split into rounds, retentions and recoveries, so you can see where each hold falls on the line.",
+        "Changing the numbers is free for your first five sessions of a minute or longer, then it's part of Premium, and your saved settings are kept. The default protocol stays free. Adding a round when you reach the last one is Premium.",
+      ],
+    },
+    {
+      h2: 'Before your first round',
+      paras: [
+        "Do it sitting or lying down, somewhere you'd be fine if you passed out. Never in water or while driving, and never standing. Intense, repeated rounds can in rare cases lead to loss of consciousness. Refresher shows a safety notice before your first Wim Hof session, and the session starts after you tap I Understand.",
+        "Don't force the hold. Skip to Recovery is there for the moment you need air. If you have a heart or lung condition, ask your doctor before you try it.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do a round of Wim Hof breathing',
+    description: 'One round is power breaths, a retention hold on empty lungs and a recovery breath. These are the defaults in Refresher, and every value can be changed.',
+    totalTime: 'PT9M30S',
+    steps: [
+      { name: 'Get into position', text: 'Sit or lie down somewhere safe, with nothing tight around the belly. Never in water or while driving.' },
+      { name: '30 power breaths', seconds: 90, text: 'Breathe in fully, belly out, and let each breath go without pushing. The voice calls each breath, then ten more, five more and the last one.' },
+      { name: 'Retention hold', seconds: 60, text: 'After the last exhale, hold with empty lungs. Round one is 60 seconds, rounds two and three are 90. Tap +10 Seconds to stretch it, or Skip to Recovery when you need to breathe.' },
+      { name: 'Recovery breath', seconds: 15, text: 'One deep breath in, held for 15 seconds, then let go when the voice says so.' },
+      { name: 'Repeat, then read', text: 'Three rounds by default. The completion screen shows your longest hold, and your history lists each one.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Is there a free Wim Hof breathing app?',
+      a: 'Refresher runs Wim Hof breathing free, with no session limit and no level gate, at the default settings. After your first five sessions, changing the numbers is part of Premium, which starts with a 7-day trial.',
+    },
+    {
+      q: 'Is Refresher the official Wim Hof Method app?',
+      a: 'No. The official Wim Hof Method app is published by WHM Services. Refresher is an independent breathing app that includes Wim Hof breathing as one technique among several, and it is not affiliated with Wim Hof or WHM Services.',
+    },
+    {
+      q: 'How many rounds of Wim Hof breathing should I do?',
+      a: "Three to four is the usual number. Refresher defaults to three, and you can set 1 to 10.",
+    },
+    {
+      q: 'Can I change the number of breaths and the hold times?',
+      a: 'Yes. Power breaths go from 10 to 60, breath speed from 2.6 to 4 seconds, the recovery hold from 10 to 20 seconds, and each round gets its own retention time, from 30 seconds to 5 minutes.',
+    },
+    {
+      q: 'Is Wim Hof breathing safe?',
+      a: "Do it seated or lying down, never in water or while driving. Intense rounds can in rare cases cause loss of consciousness. You may feel lightheaded, with tingling in your fingers and feet. Refresher is a timer and nothing more. With a heart or lung condition, ask your doctor first.",
+    },
+  ]}
+  siblings={[
+    { slug: 'box-breathing-app', anchor: 'Box breathing at 4-4-4-4, equal phases with a hold at both ends' },
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute, with no holds' },
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, the longest exhale of the fixed patterns' },
+  ]}
+  sources={[
+    { url: 'https://www.wimhofmethod.com/breathing-exercises', supports: 'the steps of a round: 30 deep breaths, a retention until the urge to breathe, a recovery breath held for 15 seconds, three to four rounds; seated or lying down, never in water or while driving; the rare loss-of-consciousness warning; lightheadedness and tingling' },
+  ]}
+  closeH2="Your hold, counted down."
+  closeP="Open Refresher, pick Power Breath, and the voice takes the count. Stretch any hold with +10 Seconds, free."
+/>
