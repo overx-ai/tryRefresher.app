@@ -12,6 +12,7 @@
 | https://tryrefresher.app/hrv-breathing-app | hrv breathing app | 2026-09-02 | — |
 | https://tryrefresher.app/4-7-8-breathing-app | 4-7-8 breathing app | 2026-09-02 | — |
 | https://tryrefresher.app/wim-hof-breathing-app | wim hof breathing app | 2026-09-23 | — |
+| https://tryrefresher.app/resonance-frequency-breathing | resonance frequency breathing | 2026-10-09 | — (new; judge 86) |
 
 No Search Console data yet. Run `/seo review` once the
 domain has been serving for 4+ weeks.

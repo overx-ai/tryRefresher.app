@@ -16,9 +16,11 @@ Supporting pages (all judged ≥80 before publish):
 | `/4-7-8-breathing-app` | 4-7-8 breathing app | live 2026-09-02 |
 | `/wim-hof-breathing-app` | wim hof breathing app | live 2026-09-23 (judge: 76 → 86) |
 
-## Cluster: technique explainers (none built)
-Informational intent, feeds the pillar.
-- resonance frequency breathing — what it is, how to find yours
+## Cluster: technique explainers
+Informational intent, feeds the pillar. Rendered through `TechniqueLayout` with the `article`
+prop: Article schema and a byline, no hero badge or datasheet.
+- resonance frequency breathing — what it is, how to find yours → `/resonance-frequency-breathing`
+  (writing 2026-10-09; inbound from /coherent-breathing-app, /hrv-breathing-app, /box-breathing-app)
 - Apple Watch breathing apps that record heart rate
 - box breathing vs 4-7-8 — which for which moment
 

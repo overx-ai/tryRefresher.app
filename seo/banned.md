@@ -126,3 +126,18 @@ rate variability` · `Struggling with anxiety, racing thoughts, or poor sleep?`
   Only the coherent pace slider is.
 - **Step timing that lives in the UI but not in the HowTo schema.** Fold seconds into the step
   name so the machine copy matches the visible one.
+
+## Added 2026-10-09 (resonance frequency breathing, self-edit)
+
+- **"Any rate" / "every step" for a stepped control.** The coherent slider moves in 0.5 s steps,
+  so it hits 6.0 and 5.0 breaths a minute exactly and misses 6.5 and 4.5. Say "3 to 10 seconds
+  per phase in half-second steps", never "any pace" or "every step of the test".
+- **The sources list is published copy.** `supports` text renders on the page and gets the same
+  word bans: "practice at 5.5 to 6" shipped `practice` as a noun. Paraphrase the paper in the
+  site's words.
+- **"Clinician" as a near-miss of "clinical".** It drags the page into a medical frame the
+  product never claims. "If a professional is running biofeedback with you" carries the same
+  deferral.
+- **Outcome lists copied from a trial abstract.** An RCT that measured stress, anxiety and
+  depression scores is cited for "less stress" only; the other two are banned medical terms on
+  this site, even when attributed.

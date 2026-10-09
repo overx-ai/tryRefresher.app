@@ -1,5 +1,8 @@
 import { APP } from './app';
 
+const author = { '@type': 'Person', name: APP.developer, url: APP.publisherUrl };
+const publisher = { '@type': 'Organization', name: APP.publisher, url: APP.publisherUrl };
+
 // One MobileApplication object for every page that mentions the app, so the
 // feature list and author cannot drift between the pillar and the technique pages.
 export const appSchema = (site: string) => ({
@@ -15,10 +18,10 @@ export const appSchema = (site: string) => ({
   installUrl: APP.appStoreUrl,
   sameAs: [APP.appStoreUrl],
   identifier: APP.appStoreId,
-  author: { '@type': 'Person', name: APP.developer, url: APP.publisherUrl },
+  author,
   datePublished: '2026-09-01',
   dateModified: '2026-09-02',
-  publisher: { '@type': 'Organization', name: APP.publisher, url: APP.publisherUrl },
+  publisher,
   isAccessibleForFree: true,
   featureList: [
     'Box breathing at 4-4-4-4, 4-7-8, coherent breathing at 5.5 breaths per minute, and the Wim Hof method',
@@ -49,4 +52,21 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
     name: f.q,
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
+});
+
+export const articleSchema = (
+  site: string,
+  a: { headline: string; description: string; slug: string; datePublished: string; dateModified: string },
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: a.headline,
+  description: a.description,
+  mainEntityOfPage: `${site}/${a.slug}`,
+  image: `${site}/og-image.jpg`,
+  inLanguage: 'en-US',
+  datePublished: a.datePublished,
+  dateModified: a.dateModified,
+  author,
+  publisher,
 });

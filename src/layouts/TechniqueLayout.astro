@@ -5,7 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import { APP, TECHNIQUES } from '../app';
 import { pathFor, type Slug } from '../site-pages';
-import { appSchema, breadcrumb, faqSchema } from '../schema';
+import { appSchema, articleSchema, breadcrumb, faqSchema } from '../schema';
 
 type TechniqueKey = (typeof TECHNIQUES)[number]['key'];
 
@@ -14,6 +14,7 @@ export interface Section {
   paras: string[];
   /** First-person block from seo/experience.md, placed inside the section it argues for. */
   aside?: string[];
+  table?: { caption: string; head: string[]; rows: string[][] };
 }
 export interface Step { name: string; seconds?: number; text: string }
 export interface Props {
@@ -27,7 +28,7 @@ export interface Props {
   /** 40-60 words, self-contained. */
   answer: string;
   sections: Section[];
-  howTo: { name: string; description: string; totalTime: string; steps: Step[] };
+  howTo: { name: string; description: string; totalTime: string; steps: Step[]; tools?: string[] };
   faqs: { q: string; a: string }[];
   /** Assigned from seo/clusters.md. */
   siblings: { slug: Slug; anchor: string }[];
@@ -36,6 +37,8 @@ export interface Props {
   closeP: string;
   /** Breadcrumb label when the page is not named after its technique. */
   crumb?: string;
+  /** Explainer articles: Article schema and a byline instead of the hero CTA and datasheet. */
+  article?: { datePublished: string; dateModified: string };
 }
 
 const p = Astro.props;
@@ -44,16 +47,25 @@ const t = TECHNIQUES.find((x) => x.key === p.technique)!;
 const crumb = p.crumb ?? t.name;
 const accClass = t.access === 'Included' ? 'acc-in' : t.access === 'Premium' ? 'acc-pro' : 'acc-try';
 
+const WORDS_PER_MINUTE = 230;
+const DEFAULT_TOOLS = ['Refresher for iPhone', 'Apple Watch, for the heart rate reading'];
+const proseWords = [
+  p.lede, p.answer,
+  ...p.sections.flatMap((s) => [s.h2, ...s.paras, ...(s.aside ?? [])]),
+  ...p.howTo.steps.flatMap((s) => [s.name, s.text]),
+  ...p.faqs.flatMap((f) => [f.q, f.a]),
+].join(' ').split(/\s+/).length;
+const readingMinutes = Math.ceil(proseWords / WORDS_PER_MINUTE);
+const formatDate = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: p.howTo.name,
   description: p.howTo.description,
   totalTime: p.howTo.totalTime,
-  tool: [
-    { '@type': 'HowToTool', name: 'Refresher for iPhone' },
-    { '@type': 'HowToTool', name: 'Apple Watch, for the heart rate reading' },
-  ],
+  tool: (p.howTo.tools ?? DEFAULT_TOOLS).map((name) => ({ '@type': 'HowToTool', name })),
   step: p.howTo.steps.map((s) => ({ '@type': 'HowToStep', name: s.seconds ? `${s.name}, ${s.seconds} seconds` : s.name, text: s.text })),
 };
 ---
@@ -62,23 +74,33 @@ const howToSchema = {
   title={p.title}
   description={p.description}
   slug={p.slug}
-  structuredData={[appSchema(site), faqSchema(p.faqs), howToSchema, breadcrumb(site, crumb, p.slug)]}
+  structuredData={[
+    ...(p.article ? [articleSchema(site, { headline: p.title, description: p.description, slug: p.slug, ...p.article })] : []),
+    appSchema(site), faqSchema(p.faqs), howToSchema, breadcrumb(site, crumb, p.slug),
+  ]}
 >
   <section class="hero container">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="/">Refresher</a><span>/</span><span>{crumb}</span>
     </nav>
     <h1>{p.query}</h1>
+    {p.article && (
+      <p class="byline fine">
+        By {APP.developer}, developer of {APP.name} · <time datetime={p.article.datePublished}>{formatDate(p.article.datePublished)}</time> · {readingMinutes} min read
+      </p>
+    )}
     <p class="lede">{p.lede}</p>
     <p class="answer">{p.answer}</p>
-    <div class="cta">
-      <AppStoreBadge />
-      <span class="fine">7-day free trial</span>
-    </div>
+    {!p.article && (
+      <div class="cta">
+        <AppStoreBadge />
+        <span class="fine">7-day free trial</span>
+      </div>
+    )}
   </section>
 
   <!-- The technique's own datasheet row: pattern, phase bar, access -->
-  <section class="sec container">
+  {!p.article && <section class="sec container">
     <div class="spec">
       <div class="spec-row">
         <span class="lbl">Technique</span>
@@ -104,12 +126,21 @@ const howToSchema = {
         <span class={`acc ${accClass}`}>{t.access}</span>
       </div>
     </div>
-  </section>
+  </section>}
 
   {p.sections.map((s) => (
     <section class="sec container prose-sec">
       <h2>{s.h2}</h2>
       {s.paras.map((para) => <p>{para}</p>)}
+      {s.table && (
+        <div class="tbl">
+          <table>
+            <caption>{s.table.caption}</caption>
+            <thead><tr>{s.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+            <tbody>{s.table.rows.map((row) => <tr>{row.map((c) => <td class="tnum">{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>
+      )}
       {s.aside && (
         <aside class="note">
           <span class="lbl">{APP.developer}, developer of Refresher</span>
@@ -189,6 +220,7 @@ const howToSchema = {
   .lede { margin: var(--space-lg) 0 0; max-width: 54ch; font-size: 16.5px; color: var(--color-ink-2); line-height: 1.62; }
   .answer { margin: var(--space-md) 0 0; max-width: 62ch; font-size: 15px; line-height: 1.68; color: var(--color-ink-2); padding-left: var(--space-md); border-left: 2px solid var(--color-rule); }
   .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: var(--space-xl); }
+  .byline { margin: var(--space-md) 0 0; }
   .fine { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--color-ink-3); }
 
   .spec { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); overflow: hidden; }
@@ -205,6 +237,14 @@ const howToSchema = {
   .prose-sec h2 { font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 14px; max-width: 26ch; }
   .prose-sec p { margin: 0 0 14px; max-width: 66ch; color: var(--color-ink-2); font-size: 15.5px; line-height: 1.66; }
   .prose-sec p:last-child { margin-bottom: 0; }
+
+  .tbl { margin: 4px 0 18px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-lg); }
+  .tbl table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 13px; }
+  .tbl caption { caption-side: bottom; text-align: left; padding: 10px 16px; font-size: 12px; color: var(--color-ink-3); }
+  .tbl th, .tbl td { padding: 10px 16px; text-align: left; vertical-align: bottom; border-bottom: 1px solid var(--color-rule); }
+  .tbl th { font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-3); background: var(--color-surface); }
+  .tbl td { color: var(--color-ink-2); white-space: nowrap; }
+  .tbl tbody tr:last-child td { border-bottom: 0; }
 
   .note { margin-top: var(--space-lg); border: 1px solid var(--color-rule); border-left: 3px solid var(--color-brand); border-radius: var(--radius-lg); background: var(--color-surface); padding: 18px 22px 20px; }
   .note p { margin: 10px 0 0; max-width: 70ch; font-size: 14.5px; line-height: 1.62; color: var(--color-ink-2); }
@@ -226,5 +266,8 @@ const howToSchema = {
   .close p { margin: 0 auto var(--space-lg); max-width: 46ch; color: var(--color-ink-2); font-size: 15.5px; }
   .close .fine { margin-top: 18px; }
 
-  @media (max-width: 700px) { .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px) {
+    .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tbl th, .tbl td { padding: 10px 12px; }
+  }
 </style>

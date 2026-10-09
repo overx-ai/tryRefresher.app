@@ -144,7 +144,18 @@ Never mention these as available, planned, or hedged:
 - Box, 4-7-8 and coherent are **free from the start and never level-gated**. Only sigh, nostril
   and extended exhale carry the level gate (`BreathingTechnique.swift:96-101`).
 - Rounds: 1 to 200 on all three. Defaults: box 18 (4:48), 4-7-8 16 (5:04), coherent 27 (4:57).
-  Round count is free for everyone; there is also an infinite toggle (`StandardCustomizationView.swift:392-394`).
+  Round count is free for everyone. The infinite toggle is **not**: it sits in the customization
+  window and paywalls after it (`StandardCustomizationView.swift:82`, `infiniteToggleLocked`), and
+  `UserPreferences.effectiveIsInfinite` drops it at runtime outside the window. Never write "1 to
+  200 or infinite" as a free claim. (Corrected 2026-10-09 against the code.)
+- **Customization window** = `qualifyingSessions < 5` (`AppState.swift:234,246-247`
+  `customizationSessionLimit`). Sessions 1 to 5 are inside it; the 6th is not. A five-pace
+  resonance staircase plus a warm-up is six sessions.
+- **Extended exhale timings** (inhale 3–7 s, exhale 4–12 s, `BreathingTechnique.tunableDurations`)
+  follow the same rule as the coherent pace slider: free for the first five qualifying sessions,
+  then Premium (`StandardCustomizationView.swift:104-108` `phaseDurationSection` behind
+  `paywallOnInteraction(!customizationUnlocked)`; `BreathingCoordinator.swift:572-573`). The
+  technique itself is also level-gated with one free try. Verified 2026-10-09.
 - Coherent pace: 3 to 10 s per phase, 0.5 s steps, one slider drives both. Free for the first 5
   qualifying sessions, then Premium. Free users run at 5.5 (`UserPreferences.swift:823-828`).
 - The completion card shows the **latest HRV reading from Apple Health with its date** (`CompletionView.swift:395-419`),
