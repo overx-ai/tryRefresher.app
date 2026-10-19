@@ -19,6 +19,15 @@ ships, re-verify this file rather than assuming it aged correctly.
 ## One-line pitch
 A breathing pacer accurate to the second, for people who already know the technique they want.
 
+## Values
+- **Community-driven** (added 2026-10-19). Users vote on what gets built next on the in-app
+  roadmap (Breathe ▸ people icon ▸ Roadmap), served by roadmap-api: one vote per idea per
+  anonymous ID, ideas ordered by votes, user suggestions shown after review. When an idea is set to
+  `shipped` there, add it to `/community` (`src/pages/community.astro`) in the same change.
+  First shipped idea: the technique quiz (3 votes).
+- Claim only what the roadmap shows. Never invent vote counts, user numbers or quotes, and never
+  write "built by our users" for a feature nobody voted on.
+
 ## Platforms
 - iOS: yes, 18.0+. iPhone and iPad, universal (`TARGETED_DEVICE_FAMILY = "1,2"`).
 - watchOS: yes, 10.0+, a companion Watch app (`ai.overx.refresher.watchkitapp`, requires the iPhone

@@ -69,6 +69,8 @@ These are positioning rules, not style preferences.
   live" is stale: Flow Breath (id6756208822) and Breathing Trainer: HRV Calm (id6790003073) both
   ship before/after heart rate.
 - **Social proof of any kind.** Zero ratings.
+  Exception (2026-10-19): real roadmap vote counts on `/community`, read from roadmap-api at the
+  moment an idea shipped. Never ratings, download or user counts, and never a rounded-up number.
 - **Prices.** Territory-set.
 - **"4 minutes."** Resolved to two on 2026-08-28.
 - **HRV before/after.** Impossible; HRV is a 30-day trend.
