@@ -3,7 +3,7 @@
 // hydration, no client JS, nothing a crawler has to wait for.
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { pathFor } from '../site-pages';
+import { DEFAULT_LOCALE, LOCALES, pathFor, type Locale } from '../site-pages';
 import { APP } from '../app';
 import '../styles/global.css';
 
@@ -12,6 +12,7 @@ export interface Props {
   description: string;
   /** Route key, registered in src/site-pages.ts. '' for home. */
   slug?: string;
+  locale?: Locale;
   ogImage?: string;
   structuredData?: object[];
   noindex?: boolean;
@@ -21,32 +22,34 @@ const {
   title,
   description,
   slug = '',
+  locale = DEFAULT_LOCALE,
   ogImage = '/og-image.jpg',
   structuredData = [],
   noindex = false,
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
-const canonicalURL = `${site}${pathFor(slug)}`;
+const lang = LOCALES[locale];
+const canonicalURL = `${site}${pathFor(slug, locale)}`;
 const fullTitle = title.includes(APP.name) ? title : `${title} | ${APP.name}`;
 const indexable = !noindex;
 
 // WebSite schema on the home page only, per Google guidance.
 const websiteSchema =
-  slug === '' && indexable
+  slug === '' && locale === DEFAULT_LOCALE && indexable
     ? [{
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: APP.name,
         url: `${site}/`,
-        inLanguage: 'en-US',
+        inLanguage: lang,
       }]
     : [];
 const allStructuredData = [...websiteSchema, ...structuredData];
 ---
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,7 +72,7 @@ const allStructuredData = [...websiteSchema, ...structuredData];
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
   <meta property="og:image:alt" content="Refresher, a breathing pacer accurate to the second" />
-  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale" content={lang.replace('-', '_')} />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />

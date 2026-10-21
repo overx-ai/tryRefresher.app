@@ -1,7 +1,7 @@
 ---
 id: 001
 title: "German and Spanish technique pages, with the minimum locale plumbing"
-status: approved
+status: done
 priority: p1
 created: 2026-10-21
 updated: 2026-10-21
@@ -45,3 +45,7 @@ The app's UI ships in 7 languages and its App Store listing in 10 locales, but t
 - `npm run build` passes. `dist/de/<slug>.html` has `lang="de-DE"` and its own canonical. `grep -r hreflang dist/`
   still finds nothing.
 - `dist/sitemap.xml` lists the de and es URLs.
+
+## Follow-ups before the first de/es page
+- Header, Footer and BaseLayout `og:image:alt` are still English. Technique names and patterns in the datasheet come from `TECHNIQUES` in `src/app.ts` (English), so pass a native `crumb`.
+- Writer flow: `src/pages/<locale>/<native-slug>.astro` with `TechniqueLayout locale="<locale>"`, plus a `SITE_PAGES` entry `{ slug, lastmod, locale }`. `registeredPath` fails the build when the pair is unregistered or a sibling slug is missing in that locale.

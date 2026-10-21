@@ -34,19 +34,19 @@ export const appSchema = (site: string) => ({
   ],
 });
 
-export const breadcrumb = (site: string, name: string, slug: string) => ({
+export const breadcrumb = (site: string, name: string, path: string, home = 'Home') => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
-    { '@type': 'ListItem', position: 2, name, item: `${site}/${slug}` },
+    { '@type': 'ListItem', position: 1, name: home, item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name, item: `${site}${path}` },
   ],
 });
 
-export const faqSchema = (faqs: { q: string; a: string }[]) => ({
+export const faqSchema = (faqs: { q: string; a: string }[], inLanguage = 'en-US') => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  inLanguage: 'en-US',
+  inLanguage,
   mainEntity: faqs.map((f) => ({
     '@type': 'Question',
     name: f.q,
@@ -56,15 +56,15 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
 
 export const articleSchema = (
   site: string,
-  a: { headline: string; description: string; slug: string; datePublished: string; dateModified: string },
+  a: { headline: string; description: string; path: string; inLanguage: string; datePublished: string; dateModified: string },
 ) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: a.headline,
   description: a.description,
-  mainEntityOfPage: `${site}/${a.slug}`,
+  mainEntityOfPage: `${site}${a.path}`,
   image: `${site}/og-image.jpg`,
-  inLanguage: 'en-US',
+  inLanguage: a.inLanguage,
   datePublished: a.datePublished,
   dateModified: a.dateModified,
   author,

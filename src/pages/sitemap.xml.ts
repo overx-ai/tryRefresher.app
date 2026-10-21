@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { SITE_PAGES, pathFor } from '../site-pages';
+import { SITE_PAGES, pathFor, type SitePage } from '../site-pages';
 
 // Hand-rolled rather than @astrojs/sitemap so the sitemap and the head tags read
 // from the same manifest and cannot drift.
@@ -10,8 +10,8 @@ import { SITE_PAGES, pathFor } from '../site-pages';
 export const GET: APIRoute = ({ site }) => {
   const origin = (site?.toString() ?? 'https://tryrefresher.app').replace(/\/$/, '');
   const urls = SITE_PAGES.map(
-    ({ slug, lastmod }) =>
-      `  <url>\n    <loc>${origin}${pathFor(slug)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
+    ({ slug, lastmod, locale }: SitePage) =>
+      `  <url>\n    <loc>${origin}${pathFor(slug, locale)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
   ).join('\n');
 
   return new Response(

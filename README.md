@@ -70,7 +70,7 @@ grep -o '<loc>[^<]*/</loc>' dist/sitemap.xml | grep -v 'app/</loc>'   # expect n
 
 # head gates
 grep -c 'rel="canonical"' dist/index.html         # expect 1
-grep -r 'hreflang' dist/ && echo "FAIL: single-locale site"
+grep -r 'hreflang' dist/ && echo "FAIL: hreflang only for true twins (none today)"
 grep -c 'noindex, nofollow' dist/404.html         # expect 1
 
 # real App Store link, not a placeholder

@@ -7,8 +7,14 @@
 // only when that page's copy actually changed. Never wire it to the build clock:
 // nine pages all claiming to change on every deploy is worse than no date at all.
 //
-// English-only today. When a second locale lands, add a `locales[]` field here
-// rather than a boolean; see CLAUDE.md.
+// `locale` defaults to 'en'. A de/es entry is a native page, not a twin of an
+// English one, so it is self-canonical and carries no hreflang; see CLAUDE.md.
+export const LOCALES = { en: 'en-US', de: 'de-DE', es: 'es-ES' } as const;
+export type Locale = keyof typeof LOCALES;
+export const DEFAULT_LOCALE: Locale = 'en';
+
+export interface SitePage { slug: string; lastmod: string; locale?: Locale }
+
 export const SITE_PAGES = [
   { slug: '',                       lastmod: '2026-09-02' },
   { slug: 'support',                lastmod: '2026-09-02' },
@@ -22,8 +28,21 @@ export const SITE_PAGES = [
   { slug: '4-7-8-breathing-app',    lastmod: '2026-10-09' },
   { slug: 'wim-hof-breathing-app',  lastmod: '2026-09-23' },
   { slug: 'resonance-frequency-breathing', lastmod: '2026-10-09' },
-] as const;
+] as const satisfies readonly SitePage[];
 
 export type Slug = (typeof SITE_PAGES)[number]['slug'];
 
-export const pathFor = (slug: string) => (slug ? `/${slug}` : '/');
+export const pathFor = (slug: string, locale: Locale = DEFAULT_LOCALE) => {
+  const prefix = locale === DEFAULT_LOCALE ? '' : `/${locale}`;
+  return slug ? `${prefix}/${slug}` : prefix || '/';
+};
+
+// Fails the build when a page or a sibling link points at a slug that has no
+// entry in that locale, which would otherwise ship a 404 or a wrong canonical.
+export const registeredPath = (slug: string, locale: Locale) => {
+  const pages: readonly SitePage[] = SITE_PAGES;
+  if (!pages.some((e) => e.slug === slug && (e.locale ?? DEFAULT_LOCALE) === locale)) {
+    throw new Error(`No SITE_PAGES entry for slug "${slug}" in locale "${locale}"`);
+  }
+  return pathFor(slug, locale);
+};

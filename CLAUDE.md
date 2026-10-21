@@ -26,9 +26,12 @@ truth for copy, colours and claims.
   cut as of 2026-09-03: the copy here names `tryrefresher.app` as the canonical host and carries an
   HRV clause the old site does not. **Re-extracting would silently restore the old domain and drop
   the HRV clause.** Edit the JSON here; port changes *to* the old site if it ever needs them.
-- English only. When a second locale lands, add a `locales[]` field to each `SITE_PAGES`
-  entry (it is already an object array) and restore hreflang in `BaseLayout` — do not add
-  an i18n library.
+- **Native pages per locale, never translated.** English is the default; `de` and `es` are the
+  pilot. A localized page is written from its own locale's keyword research, lives at
+  `/{locale}/{slug}`, and is registered in `SITE_PAGES` with `locale`. It is self-canonical with
+  **no hreflang**: hreflang is only for true twins (the same page in two languages), and there
+  are none today. Technique-page UI strings live in `src/layouts/technique-strings.ts`. Do not
+  add an i18n library.
 
 ## Copy rules — these are not stylistic, they are the positioning
 

@@ -4,7 +4,8 @@
 import BaseLayout from './BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import { APP, TECHNIQUES } from '../app';
-import { pathFor, type Slug } from '../site-pages';
+import { DEFAULT_LOCALE, LOCALES, registeredPath, type Locale, type Slug } from '../site-pages';
+import { TECHNIQUE_STRINGS } from './technique-strings';
 import { appSchema, articleSchema, breadcrumb, faqSchema } from '../schema';
 
 type TechniqueKey = (typeof TECHNIQUES)[number]['key'];
@@ -19,6 +20,8 @@ export interface Section {
 export interface Step { name: string; seconds?: number; text: string }
 export interface Props {
   slug: Slug;
+  /** Siblings are resolved in the same locale. */
+  locale?: Locale;
   technique: TechniqueKey;
   /** The exact query, used as H1. */
   query: string;
@@ -42,13 +45,16 @@ export interface Props {
 }
 
 const p = Astro.props;
+const locale = p.locale ?? DEFAULT_LOCALE;
+const lang = LOCALES[locale];
+const ui = TECHNIQUE_STRINGS[locale];
+const path = registeredPath(p.slug, locale);
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
 const t = TECHNIQUES.find((x) => x.key === p.technique)!;
 const crumb = p.crumb ?? t.name;
 const accClass = t.access === 'Included' ? 'acc-in' : t.access === 'Premium' ? 'acc-pro' : 'acc-try';
 
 const WORDS_PER_MINUTE = 230;
-const DEFAULT_TOOLS = ['Refresher for iPhone', 'Apple Watch, for the heart rate reading'];
 const proseWords = [
   p.lede, p.answer,
   ...p.sections.flatMap((s) => [s.h2, ...s.paras, ...(s.aside ?? [])]),
@@ -57,7 +63,7 @@ const proseWords = [
 ].join(' ').split(/\s+/).length;
 const readingMinutes = Math.ceil(proseWords / WORDS_PER_MINUTE);
 const formatDate = (iso: string) =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const howToSchema = {
   '@context': 'https://schema.org',
@@ -65,8 +71,8 @@ const howToSchema = {
   name: p.howTo.name,
   description: p.howTo.description,
   totalTime: p.howTo.totalTime,
-  tool: (p.howTo.tools ?? DEFAULT_TOOLS).map((name) => ({ '@type': 'HowToTool', name })),
-  step: p.howTo.steps.map((s) => ({ '@type': 'HowToStep', name: s.seconds ? `${s.name}, ${s.seconds} seconds` : s.name, text: s.text })),
+  tool: (p.howTo.tools ?? ui.defaultTools).map((name) => ({ '@type': 'HowToTool', name })),
+  step: p.howTo.steps.map((s) => ({ '@type': 'HowToStep', name: s.seconds ? `${s.name}, ${s.seconds} ${ui.seconds}` : s.name, text: s.text })),
 };
 ---
 
@@ -74,19 +80,20 @@ const howToSchema = {
   title={p.title}
   description={p.description}
   slug={p.slug}
+  locale={locale}
   structuredData={[
-    ...(p.article ? [articleSchema(site, { headline: p.title, description: p.description, slug: p.slug, ...p.article })] : []),
-    appSchema(site), faqSchema(p.faqs), howToSchema, breadcrumb(site, crumb, p.slug),
+    ...(p.article ? [articleSchema(site, { headline: p.title, description: p.description, path, inLanguage: lang, ...p.article })] : []),
+    appSchema(site), faqSchema(p.faqs, lang), howToSchema, breadcrumb(site, crumb, path, ui.home),
   ]}
 >
   <section class="hero container">
-    <nav class="crumbs" aria-label="Breadcrumb">
+    <nav class="crumbs" aria-label={ui.breadcrumbLabel}>
       <a href="/">Refresher</a><span>/</span><span>{crumb}</span>
     </nav>
     <h1>{p.query}</h1>
     {p.article && (
       <p class="byline fine">
-        By {APP.developer}, developer of {APP.name} · <time datetime={p.article.datePublished}>{formatDate(p.article.datePublished)}</time> · {readingMinutes} min read
+        {ui.byline(APP.developer, APP.name)} · <time datetime={p.article.datePublished}>{formatDate(p.article.datePublished)}</time> · {ui.minRead(readingMinutes)}
       </p>
     )}
     <p class="lede">{p.lede}</p>
@@ -94,7 +101,7 @@ const howToSchema = {
     {!p.article && (
       <div class="cta">
         <AppStoreBadge />
-        <span class="fine">7-day free trial</span>
+        <span class="fine">{ui.freeTrial}</span>
       </div>
     )}
   </section>
@@ -103,15 +110,15 @@ const howToSchema = {
   {!p.article && <section class="sec container">
     <div class="spec">
       <div class="spec-row">
-        <span class="lbl">Technique</span>
+        <span class="lbl">{ui.specTechnique}</span>
         <span class="tname" style={`--c: var(--t-${t.key})`}><em></em>{t.name}</span>
       </div>
       <div class="spec-row">
-        <span class="lbl">Pattern</span>
+        <span class="lbl">{ui.specPattern}</span>
         <span class="tpat tnum">{t.pattern}</span>
       </div>
       <div class="spec-row">
-        <span class="lbl">Phases</span>
+        <span class="lbl">{ui.specPhases}</span>
         <span class="ratio" aria-hidden="true">
           {t.ratio.map(([phase, weight]) => (
             <i
@@ -122,8 +129,8 @@ const howToSchema = {
         </span>
       </div>
       <div class="spec-row">
-        <span class="lbl">Access</span>
-        <span class={`acc ${accClass}`}>{t.access}</span>
+        <span class="lbl">{ui.specAccess}</span>
+        <span class={`acc ${accClass}`}>{ui.access[t.access]}</span>
       </div>
     </div>
   </section>}
@@ -143,7 +150,7 @@ const howToSchema = {
       )}
       {s.aside && (
         <aside class="note">
-          <span class="lbl">{APP.developer}, developer of Refresher</span>
+          <span class="lbl">{ui.developerOf(APP.developer, APP.name)}</span>
           {s.aside.map((para) => <p>{para}</p>)}
         </aside>
       )}
@@ -152,7 +159,7 @@ const howToSchema = {
 
   <section class="sec container" id="how">
     <div class="sec-head">
-      <span class="lbl">Step by step</span>
+      <span class="lbl">{ui.stepByStep}</span>
       <h2>{p.howTo.name}</h2>
       <p>{p.howTo.description}</p>
     </div>
@@ -171,8 +178,8 @@ const howToSchema = {
 
   <section class="sec container" id="faq">
     <div class="sec-head">
-      <span class="lbl">Questions</span>
-      <h2>What people ask.</h2>
+      <span class="lbl">{ui.questions}</span>
+      <h2>{ui.faqH2}</h2>
     </div>
     <div class="faq">
       {p.faqs.map((f, i) => (
@@ -185,16 +192,16 @@ const howToSchema = {
   </section>
 
   <section class="sec container related">
-    <span class="lbl">Also in Refresher</span>
+    <span class="lbl">{ui.alsoIn}</span>
     <ul>
-      {p.siblings.map((s) => <li><a href={pathFor(s.slug)}>{s.anchor}</a></li>)}
-      <li><a href="/">Every technique, on one pacer</a></li>
+      {p.siblings.map((s) => <li><a href={registeredPath(s.slug, locale)}>{s.anchor}</a></li>)}
+      <li><a href="/">{ui.everyTechnique}</a></li>
     </ul>
   </section>
 
   {p.sources.length > 0 && (
     <section class="sec container sources">
-      <span class="lbl">Sources</span>
+      <span class="lbl">{ui.sources}</span>
       <ul>
         {p.sources.map((s) => <li><a href={s.url} rel="noopener">{s.url.replace(/^https?:\/\/(www\.)?/, '')}</a> <span>{s.supports}</span></li>)}
       </ul>
@@ -206,7 +213,7 @@ const howToSchema = {
       <h2>{p.closeH2}</h2>
       <p>{p.closeP}</p>
       <AppStoreBadge />
-      <div class="fine">7-day free trial · No ads · No account</div>
+      <div class="fine">{ui.closeFine}</div>
     </div>
   </section>
 </BaseLayout>
