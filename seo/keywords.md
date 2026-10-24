@@ -54,3 +54,45 @@ Two things to watch, both App Store problems rather than website ones:
 - 4-7-8 breathing app: Does the 4-7-8 breathing method work? · What is the 4-7-8 breathing method? · How many times a day should I do 4-7-8 breathing? · What is the best breathing app?
 
 "Best app" questions are answered on-page only as "what is free in Refresher"; never as a superiority claim.
+
+## de research (2026-10-24, `/seo research --lang de`)
+
+Native seed terms, searched in German: Box-Atmung, 4-7-8 Atemtechnik, kohärentes Atmen, Resonanzatmung, HRV Atmung,
+Atemtrainer App, Wim Hof Atmung. Not seeded from the English backlog. Volumes are **estimated** from SERP shape only (no
+keyword tool, no ASO pull for the DE store yet). Caveat: the search tool runs from the US, so pools are indicative and rank
+order is not verified; no German People Also Ask box was captured.
+
+What the German SERP looks like: App Store listings and app aggregators (mwm.ai, appfollow, similarweb) dominate the
+"App" queries; editorial content is iphone-ticker.de app news, the wandernundmehr.at FAQ farm, health magazines
+(Zentrum der Gesundheit) and university handouts (Uni Würzburg, ZHAW PDFs) for the techniques. No German brand site
+explains a technique and its pacer on one page, which is the shape the English technique pages rank with.
+
+| keyword | Locale | cluster | intent | volume (estimated) | competition note | status |
+|---|---|---|---|---|---|---|
+| Box-Atmung App | de | technique | product-page | low (est.) | Pure store listings and aggregators (BoxMind, Calma, AtemFlow Studio, coddykit) plus Othership's English list; no German explainer page with a pacer. Experience fit: "Box. I fixed box at 4-4-4-4" | idea |
+| kohärentes Atmen | de | technique | how-to / definition | med (est.) | Uni Würzburg handout (5,5 s ein, 5,5 s aus, 10-20 Wiederholungen, "Stoppuhr oder App"), ZHAW PDF, IWW Praxisangebot, a tredition book, Garmin manual. Informational, thin, no app page. Strongest fit: the 5.5 s default decision (Lehrer and Gevirtz) | idea |
+| Resonanzatmung | de | explainer | definition | low (est.) | Mostly English papers (PubMed 2017, 2025) and vendor pages (Aria Breath, Polar Serene, triagemethod). A German explainer would face almost no native competition. Must not cannibalise `kohärentes Atmen`: pick one page per intent (definition of the personal rate vs how-to) | idea |
+| 4-7-8 Atemtechnik App | de | technique | product-page | low-med (est.) | iphone-ticker.de app news (Calmaria), wandernundmehr FAQs, Zentrum der Gesundheit ("Evidenz noch begrenzt"), indie listings (478 Breathe, four seven eight). Fit: "4-7-8. the ratio is the method" | idea |
+| Atemübung Apple Watch Herzfrequenz | de | explainer | how-to | low (est.) | support.apple.com (Achtsamkeit app, Atemfrequenz 4-10), macwelt, appgefahren HRV tag, store listings. Intent splits between Apple's built-in Breathe and third-party apps. Needs the heart-rate delta facts from product.md (Watch only) | idea |
+| Wim Hof Atmung App | de | technique | product-page | low (est.) | Official "Wim Hof Methode: Atmung, Kälte" DE listing owns it, plus spam/APK pages. Low priority: the official app is the answer most searchers want | idea |
+
+Suggested first pick for a de write slot: `kohärentes Atmen` (most informational demand, thinnest native competition,
+strongest experience fit), then `Box-Atmung App`.
+
+Sources (de):
+- https://www.uni-wuerzburg.de/fileadmin/ext00216/2022/Atemuebungen_Petko_Schenk.pdf
+- https://www-ub22.zhaw.ch/storage/psychologie/upload/forschung/beratung/Atemuebungen.pdf
+- https://www.iww.de/pp/perspektiven/praxisangebot-fuenf-atemzuege-zur-ruhe-die-wirkung-der-kohaerenten-atemtechnik-f172177
+- https://www.iphone-ticker.de/4-7-8-atemtechnik-calmaria-will-bei-angst-unruhe-und-stress-helfen-232679
+- https://www.wandernundmehr.at/faq/was-ist-die-4-7-8-methode
+- https://www.zentrum-der-gesundheit.de/news/gesundheit/allgemein-gesundheit/4-7-8-atemtechnik
+- https://apps.appfollow.io/ios/atemubungen-boxmind/6473701182?country=de
+- https://apps.apple.com/de/app/atemflow-studio/id6467029838
+- https://othership.us/resources/best-box-breathing-apps
+- https://pubmed.ncbi.nlm.nih.gov/28890890/
+- https://pubmed.ncbi.nlm.nih.gov/39864026/
+- https://support.polar.com/de/serene-guided-breathing-exercise
+- https://support.apple.com/de-de/guide/watch-ultra/apd371dfe3d7/9.0/watchos
+- https://www.macwelt.de/article/986455/apple-watch-warum-sie-uns-ans-atmen-erinnert.html
+- https://apps.apple.com/DE/app/id890471578
+
