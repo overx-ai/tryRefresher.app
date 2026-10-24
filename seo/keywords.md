@@ -96,3 +96,39 @@ Sources (de):
 - https://www.macwelt.de/article/986455/apple-watch-warum-sie-uns-ans-atmen-erinnert.html
 - https://apps.apple.com/DE/app/id890471578
 
+---
+
+## es research (2026-10-24, `/seo research --lang es`)
+
+Native seed terms, searched in Spanish: respiración cuadrada, respiración de caja, respiración 4-7-8, respiración
+coherente, variabilidad de la frecuencia cardiaca (VFC) Apple Watch, método Wim Hof. Locale is es-ES (`LOCALES.es`), but
+the pools mix Spain, Mexico and Argentina. Volumes are **estimated** from SERP shape only; the search tool runs from the US,
+so rank order is not verified and no Spanish PAA box was captured.
+
+What the Spanish SERP looks like: App Store listings (mostly non-Spanish developers with an es listing) and mwm.ai
+aggregator pages for the "app" queries; news and lifestyle media (iProfesional, Moncloa, Tua Saúde) for the techniques,
+often framed as "the Navy SEAL trick" or anxiety relief, which product.md and docs/074 keep us away from. Italian pages
+(my-personaltrainer.it) leak into "respiración cuadrada", a sign of thin native supply.
+
+| keyword | Locale | cluster | intent | volume (estimated) | competition note | status |
+|---|---|---|---|---|---|---|
+| respiración coherente | es | technique | how-to / definition | med (est.) | Tua Saúde news, English blogs (blackroll, sunway), a Finnish project page. No Spanish page pairs the 5,5 s rhythm with a pacer. Strongest fit: the 5.5 s default decision (Lehrer and Gevirtz) | idea |
+| respiración cuadrada / respiración de caja | es | technique | how-to | med (est.) | iProfesional (Jul 2026), Moncloa ("método de los militares"), a Spanish PDF, Italian my-personaltrainer pages, store listings (Stamina & Box Breathing Zone, a freediving app). Write as how-to with the fixed 4-4-4-4 decision; avoid the anxiety framing | idea |
+| app respiración 4-7-8 | es | technique | product-page | low-med (est.) | Store listings with es pages (Ejercicios de respiración, YourBreath, 478 Breathe) and mwm.ai. Product intent; a native landing page would be one of very few non-listing results | idea |
+| variabilidad de la frecuencia cardiaca respiración Apple Watch | es | explainer | how-to | low-med (est.) | PMC validity study (Series 6 vs lab ECG), mwm.ai (HRV Tracker), livity-app.com/es blog, watchgeneration.fr. Must use the sanctioned HRV sentence only ("30-day trend", never a per-session delta) | idea |
+| método Wim Hof app | es | technique | product-page | low (est.) | Official "Método Wim Hof: Respiración" MX listing, getfitcraft.com/es guide (safety warnings), APK sites. Low priority | idea |
+
+Suggested first pick for an es write slot: `respiración coherente`, then `respiración cuadrada`.
+
+Sources (es):
+- https://www.tuasaude.com/es/news/?p=3856
+- https://blackroll.com/eu/en/article/coherent-breathing
+- https://www.iprofesional.com/salud/439180-la-tecnica-de-meditacion-que-recomiendan-para-eliminar-el-estres-diario
+- https://www.moncloa.com/2025/08/18/ansiedad-redujo-respiracion-3255887/
+- https://cdn.document360.io/06daeaa7-7f41-443e-bcc0-1934f99876f8/Images/Documentation/Box%20Breathing%20%5BSp%5D.pdf
+- https://apps.apple.com/es/app/ejercicios-de-respiraci%C3%B3n/id1510785436
+- https://mwm.ai/es/apps/yourbreath/6754709063
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12031371/
+- https://livity-app.com/es/blog/how-to-track-stress-on-apple-watch
+- https://apps.apple.com/MX/app/id890471578
+- https://getfitcraft.com/es/guides/wim-hof-breathing-method
