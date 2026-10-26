@@ -13,6 +13,8 @@
 | https://tryrefresher.app/4-7-8-breathing-app | 4-7-8 breathing app | 2026-09-02 | — |
 | https://tryrefresher.app/wim-hof-breathing-app | wim hof breathing app | 2026-09-23 | — |
 | https://tryrefresher.app/resonance-frequency-breathing | resonance frequency breathing | 2026-10-09 | — (new; judge 86) |
+| https://tryrefresher.app/de/kohaerentes-atmen | kohärentes Atmen (de) | 2026-10-26 | — (new; judge 74 → 84) |
+| https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | — (new; judge 81) |
 
 No Search Console data yet. Run `/seo review` once the
 domain has been serving for 4+ weeks.

@@ -31,3 +31,12 @@ prop: Article schema and a byline, no hero badge or datasheet.
   It carries FAQPage + HowTo + SoftwareApplication schema; the others carry far less.
 - A competitor ranks with ~400 words and three headings (symbreathing.app). The bar is beatable.
 - One-URL-per-query is the architecture that works in this space.
+
+## de pilot (spec 001)
+Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.
+| slug | target | status |
+|---|---|---|
+| `/de/kohaerentes-atmen` | kohärentes Atmen | live 2026-10-26 (judge 74 → 84) |
+| `/de/box-atmung-app` | Box-Atmung App | live 2026-10-26 (judge 81) |
+
+- Inbound links: TechniqueLayout resolves siblings in the page's own locale and renders prose as plain text, so a de page can only be linked from other de pages. The two pilot pages link to each other (one inbound each). Every further de page should add itself to the existing de pages' `siblings`.

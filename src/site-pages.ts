@@ -28,6 +28,8 @@ export const SITE_PAGES = [
   { slug: '4-7-8-breathing-app',    lastmod: '2026-10-09' },
   { slug: 'wim-hof-breathing-app',  lastmod: '2026-09-23' },
   { slug: 'resonance-frequency-breathing', lastmod: '2026-10-09' },
+  { slug: 'kohaerentes-atmen',      lastmod: '2026-10-26', locale: 'de' },
+  { slug: 'box-atmung-app',         lastmod: '2026-10-26', locale: 'de' },
 ] as const satisfies readonly SitePage[];
 
 export type Slug = (typeof SITE_PAGES)[number]['slug'];
