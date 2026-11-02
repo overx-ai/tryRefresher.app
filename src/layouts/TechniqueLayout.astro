@@ -4,7 +4,7 @@
 import BaseLayout from './BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import { APP, TECHNIQUES } from '../app';
-import { DEFAULT_LOCALE, LOCALES, registeredPath, type Locale, type Slug } from '../site-pages';
+import { DEFAULT_LOCALE, LANGUAGE_NAMES, LOCALES, registeredPath, topicPeers, type Locale, type Slug } from '../site-pages';
 import { TECHNIQUE_STRINGS } from './technique-strings';
 import { appSchema, articleSchema, breadcrumb, faqSchema } from '../schema';
 
@@ -195,6 +195,7 @@ const howToSchema = {
     <span class="lbl">{ui.alsoIn}</span>
     <ul>
       {p.siblings.map((s) => <li><a href={registeredPath(s.slug, locale)}>{s.anchor}</a></li>)}
+      {topicPeers(p.slug, locale).map((peer) => <li><a href={peer.href} lang={LOCALES[peer.locale]}>{peer.title} ({LANGUAGE_NAMES[peer.locale]})</a></li>)}
       <li><a href="/">{ui.everyTechnique}</a></li>
     </ul>
   </section>

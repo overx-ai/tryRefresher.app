@@ -39,7 +39,7 @@ Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.
 | `/de/kohaerentes-atmen` | kohärentes Atmen | live 2026-10-26 (judge 74 → 84) |
 | `/de/box-atmung-app` | Box-Atmung App | live 2026-10-26 (judge 81) |
 
-- Inbound links: TechniqueLayout resolves siblings in the page's own locale and renders prose as plain text, so a de page can only be linked from other de pages. The two pilot pages link to each other (one inbound each). Every further de page should add itself to the existing de pages' `siblings`.
+- Inbound links: **limit fixed 2026-11-02.** `siblings` still resolve in the page's own locale, but `TOPIC_PEERS` in `src/site-pages.ts` now links every page to its topic equivalents in the other locales (en ↔ de ↔ es), labelled with the target's own H1 and language name. Not hreflang: each page stays self-canonical. Each de/es pilot page went from 1 inbound link to 3. A new de/es page joins an existing `TOPIC_PEERS` group (or starts one with its en equivalent) and adds itself to the same-locale pages' `siblings`.
 
 ## es pilot (spec 001)
 Native Spanish technique pages at `/es/{slug}`, self-canonical, no hreflang.
@@ -48,4 +48,4 @@ Native Spanish technique pages at `/es/{slug}`, self-canonical, no hreflang.
 | `/es/respiracion-coherente` | respiración coherente | live 2026-11-02 (judge 89) |
 | `/es/respiracion-cuadrada` | respiración cuadrada / respiración de caja | live 2026-11-02 (judge 80) |
 
-- Inbound links: same constraint as the de pilot (siblings resolve per locale). The two es pages link to each other; every further es page should add itself to their `siblings`.
+- Inbound links: see the de pilot note; the same `TOPIC_PEERS` fix applies (1 → 3 inbound each).
