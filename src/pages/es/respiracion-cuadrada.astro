@@ -1,0 +1,90 @@
+---
+import TechniqueLayout from '../../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="respiracion-cuadrada"
+  locale="es"
+  technique="box"
+  crumb="Respiración cuadrada"
+  query="Respiración cuadrada"
+  title="Respiración cuadrada (de caja): 4-4-4-4 al segundo"
+  description="Respiración cuadrada o de caja: cuatro segundos para inhalar, retener, exhalar y retener. Cómo se hace y cómo marcar el ritmo en iPhone y Apple Watch."
+  lede="Cuatro segundos inhalando. Cuatro reteniendo. Cuatro exhalando. Cuatro con los pulmones vacíos. En Refresher cada fase dura exactamente cuatro segundos y no se mueve."
+  answer="La respiración cuadrada, también llamada respiración de caja o box breathing, consiste en cuatro fases de cuatro segundos: inhalar, retener el aire, exhalar y retener con los pulmones vacíos. Refresher marca ese 4-4-4-4 en iPhone, iPad y Apple Watch, gratis desde la primera sesión, durante las rondas que elijas."
+  sections={[
+    {
+      h2: 'Qué es la respiración cuadrada',
+      paras: [
+        "Es un solo patrón con cuatro lados iguales, como un cuadrado. De ahí los nombres que vas a encontrar: respiración cuadrada, respiración de caja, respiración del cuadrilátero o, en inglés, box breathing. Todos son lo mismo.",
+        "Lo que la distingue son las dos retenciones, una con los pulmones llenos y otra con los pulmones vacíos. La respiración coherente no tiene ninguna, y la 4-7-8 tiene una sola y una exhalación el doble de larga que la inhalación.",
+        "Muchos artículos empiezan por los Navy SEALs, y la Cleveland Clinic cuenta que la usan. A mí me parece más útil otra cosa: contar hasta cuatro sigue siendo fácil cuando estás nervioso.",
+      ],
+    },
+    {
+      h2: 'Cómo marca Refresher el cuadrado',
+      paras: [
+        "El marcador es una figura que crece al inhalar, se queda quieta, se encoge al exhalar y vuelve a quedarse quieta. Miras y respiras con ella, sin contar de cabeza: la app lleva el ritmo.",
+        "Cada fase dura cuatro segundos y no cambia. Lo que eliges es el número de rondas, gratis. Para unos dos minutos bastan siete u ocho. Una voz puede ir diciendo cada fase en tu idioma, o la quitas y respiras solo con la figura.",
+        "En el Apple Watch la sesión va en la muñeca. Si activas la medición de frecuencia cardíaca, la app se queda con el primer y el último valor de la sesión y te enseña la diferencia en la pantalla final. Si falta el de inicio o el de final, o hay pocas muestras, esa línea no aparece; nunca verás un cero.",
+      ],
+      aside: [
+        "Dejé la caja fija en 4-4-4-4 y no puse ningún control para cambiar las fases. El patrón es la técnica: una caja de 3-5-3-5 ya es otra cosa. Lo que sí cambias es el número de rondas, y por defecto son 18 porque 18 rondas de 16 segundos dan 4:48, cerca de cinco minutos sin fingir que son cinco exactos.",
+      ],
+    },
+    {
+      h2: 'Cuándo y cuánto tiempo',
+      paras: [
+        "La Cleveland Clinic habla de tres o cuatro rondas, una o dos veces al día, y de no forzar las retenciones. Refresher arranca en 18 rondas y puedes bajarlas hasta una, así que si quieres seguir esa pauta, pon cuatro.",
+        "Si la retención con los pulmones vacíos se te hace larga, no aprietes: para la sesión y respira con normalidad. Las fases no se acortan, porque el patrón es justo ese.",
+        "Solo necesitas sentarte un momento, así que vale casi cualquier sitio: antes de una reunión, en la mesa de trabajo o antes de dormir.",
+        "Si notas mareo, para y respira con normalidad.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'Respiración cuadrada con un marcador de ritmo',
+    description: 'Cada ronda tiene cuatro fases de cuatro segundos. Refresher lleva el ritmo y cuenta las rondas.',
+    totalTime: 'PT4M48S',
+    steps: [
+      { name: 'Siéntate', text: 'Espalda recta y hombros sueltos. Abre Refresher y elige Respiración Cuadrada.' },
+      { name: 'Inhala', seconds: 4, text: 'Toma aire por la nariz mientras la figura crece.' },
+      { name: 'Retén', seconds: 4, text: 'Mantén el aire mientras la figura se queda quieta, sin apretar.' },
+      { name: 'Exhala', seconds: 4, text: 'Suelta el aire mientras la figura se encoge.' },
+      { name: 'Retén con los pulmones vacíos', seconds: 4, text: 'Espera sin aire antes de la siguiente ronda.' },
+      { name: 'Repite', text: 'La app repite el ciclo durante las rondas que elegiste, 18 por defecto.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: '¿Cómo se hace la respiración cuadrada?',
+      a: 'Inhalas cuatro segundos, retienes cuatro, exhalas cuatro y esperas cuatro con los pulmones vacíos. Luego repites. Con un marcador de ritmo no tienes que contar: sigues la figura.',
+    },
+    {
+      q: '¿Respiración cuadrada y respiración de caja son lo mismo?',
+      a: 'Sí. Respiración cuadrada, de caja, del cuadrilátero y box breathing son nombres del mismo patrón 4-4-4-4 con dos retenciones.',
+    },
+    {
+      q: '¿Puedo cambiar los segundos de cada fase?',
+      a: 'En Refresher, no. Las fases son fijas en cuatro segundos porque ese patrón es la técnica. Lo que eliges es el número de rondas, de 1 a 200, siempre gratis.',
+    },
+    {
+      q: '¿Cuánto dura una sesión?',
+      a: 'Con las 18 rondas por defecto, 4:48 minutos. Para unos dos minutos, pon siete u ocho rondas.',
+    },
+    {
+      q: '¿Necesito un Apple Watch?',
+      a: 'Para respirar, no. La frecuencia cardíaca de antes y después solo la mide el Apple Watch, porque el iPhone no tiene sensor para eso, y la medición viene desactivada hasta que la activas.',
+    },
+  ]}
+  siblings={[
+    { slug: 'respiracion-coherente', anchor: 'Respiración coherente, 5,5 segundos sin retenciones' },
+  ]}
+  sources={[
+    { url: 'https://health.clevelandclinic.org/box-breathing-benefits', supports: 'el nombre square breathing, la técnica descrita como usada por los Navy SEALs, de tres a cuatro rondas una o dos veces al día y no forzar' },
+    { url: 'https://selecciones.com.mx/box-breathing-reducir-el-estres-y-mejorar-el-rendimiento/', supports: 'el patrón en español: inhalar cuatro segundos, contener cuatro, exhalar cuatro y mantener los pulmones vacíos otros cuatro' },
+    { url: 'https://www.medicalnewstoday.com/articles/es/respiracion-del-cuadrilatero', supports: 'el nombre respiración del cuadrilátero para el mismo patrón' },
+  ]}
+  closeH2="Cuatro lados iguales. Siempre cuatro segundos."
+  closeP="Abre Refresher, elige Respiración Cuadrada y respira con la figura. Si quieres más, sube las rondas hasta 200."
+/>

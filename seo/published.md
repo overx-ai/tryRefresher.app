@@ -15,6 +15,8 @@
 | https://tryrefresher.app/resonance-frequency-breathing | resonance frequency breathing | 2026-10-09 | — (new; judge 86) |
 | https://tryrefresher.app/de/kohaerentes-atmen | kohärentes Atmen (de) | 2026-10-26 | — (new; judge 74 → 84) |
 | https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | — (new; judge 81) |
+| https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | new; judge 89 |
+| https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | new; judge 80 |
 
 No Search Console data yet. Run `/seo review` once the
 domain has been serving for 4+ weeks.

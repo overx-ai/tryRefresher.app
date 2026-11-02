@@ -30,6 +30,8 @@ export const SITE_PAGES = [
   { slug: 'resonance-frequency-breathing', lastmod: '2026-10-09' },
   { slug: 'kohaerentes-atmen',      lastmod: '2026-10-26', locale: 'de' },
   { slug: 'box-atmung-app',         lastmod: '2026-10-26', locale: 'de' },
+  { slug: 'respiracion-coherente',  lastmod: '2026-11-02', locale: 'es' },
+  { slug: 'respiracion-cuadrada',   lastmod: '2026-11-02', locale: 'es' },
 ] as const satisfies readonly SitePage[];
 
 export type Slug = (typeof SITE_PAGES)[number]['slug'];

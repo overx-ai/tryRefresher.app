@@ -1,0 +1,92 @@
+---
+import TechniqueLayout from '../../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="respiracion-coherente"
+  locale="es"
+  technique="coherent"
+  crumb="Respiración coherente"
+  query="Respiración coherente"
+  title="Respiración coherente: inhala 5,5 segundos, exhala 5,5"
+  description="Respiración coherente: inhalar 5,5 segundos y exhalar otros 5,5, sin pausa. Cómo se hace, de dónde sale el 5,5 y cómo mantener el ritmo."
+  lede="5,5 segundos para inhalar, 5,5 para exhalar y ninguna pausa entre medias. La técnica no tiene más secreto: lo difícil es no acelerarse."
+  answer="La respiración coherente es respirar lento y regular: 5,5 segundos para inhalar y 5,5 para exhalar, sin retener el aire, por la nariz y sin forzar. Son unas 5,5 respiraciones por minuto. Refresher marca ese ritmo en iPhone, iPad y Apple Watch, gratis desde la primera sesión."
+  sections={[
+    {
+      h2: 'En qué consiste',
+      paras: [
+        "Tiene solo dos fases, inhalar y exhalar, las dos igual de largas, normalmente 5,5 segundos. No hay retención en ningún momento. Cada respiración completa dura 11 segundos, así que en un minuto caben algo más de cinco.",
+        "El número viene de los estudios sobre la llamada frecuencia de resonancia: un ritmo de respiración lento en el que la respiración y el pulso suben y bajan acompasados. En su revisión de 2014, Lehrer y Gevirtz cuentan que primero se situó en torno a 0,1 Hz, es decir, seis respiraciones por minuto, y que después se afinó a una media de unos 0,09 Hz, unas 5,5 respiraciones por minuto.",
+        "Por eso vas a ver las dos cifras, seis y 5,5. Se refieren al mismo rango, y 5,5 es la media que dan Lehrer y Gevirtz. Ojo, que es un promedio: la frecuencia de resonancia cambia de una persona a otra, así que 5,5 segundos es un buen punto de partida y no una regla para todos.",
+      ],
+    },
+    {
+      h2: 'Por qué usar un marcador de ritmo',
+      paras: [
+        "Si cuentas de cabeza, en cuanto te distraes empiezas a ir más rápido sin darte cuenta. En la respiración coherente el ritmo es toda la técnica, así que tiene sentido dejarle la cuenta a la app.",
+        "En Refresher sigues una figura que crece al inhalar y se encoge al exhalar, y la app lleva el ritmo. Una voz cuenta cada fase en tu idioma, o la quitas y respiras solo con la figura.",
+        "Tú eliges cuántas rondas, de 1 a 200, y eso siempre es gratis. Por defecto son 27 rondas, que dan 4:57. Si solo tienes dos minutos, pon once rondas.",
+      ],
+      aside: [
+        "Dejé el ritmo por defecto en 5,5 segundos para inhalar y 5,5 para exhalar porque Lehrer y Gevirtz sitúan la frecuencia de resonancia media en unas 5,5 respiraciones por minuto. Como cambia de una persona a otra, el control va de 3 a 10 segundos en pasos de medio segundo, y un único control mueve las dos fases para que sigan siendo iguales.",
+        "Es el único ajuste de fases que hice configurable. Lo puedes usar sin Premium durante tus primeras cinco sesiones de al menos un minuto; después pasa a Premium y, sin él, respiras a 5,5 segundos. El número de rondas no se paga nunca.",
+      ],
+    },
+    {
+      h2: 'Con Apple Watch: pulso antes y después',
+      paras: [
+        "Si tienes un Apple Watch y activas la medición de frecuencia cardíaca, Refresher te enseña tu pulso al empezar y al terminar la sesión, con la diferencia en la pantalla final. Si falta algún dato, esa línea no aparece; nunca verás un cero inventado. El iPhone por sí solo no tiene sensor para esto, y la medición viene desactivada.",
+        "Con una sola sesión no se puede sacar honestamente una variabilidad de la frecuencia cardíaca (VFC) de antes y otra de después: el Apple Watch solo guarda unas pocas muestras al día. Así que no me la invento. Lo que tienes es tu VFC de los últimos 30 días desde la app Salud, junto a los días en que respiraste con Refresher. La pantalla final enseña además tu última lectura de VFC en Salud, con su fecha.",
+      ],
+    },
+    {
+      h2: 'Cuándo y cuánto tiempo',
+      paras: [
+        "Como no tiene retenciones, la puedes hacer casi en cualquier sitio: en la mesa de trabajo, antes de dormir, en el tren. Con las rondas por defecto son casi cinco minutos seguidos.",
+        "Ante cualquier molestia, respira menos hondo o para.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'Respiración coherente con un marcador de ritmo',
+    description: 'Cada ronda tiene dos fases de 5,5 segundos. Refresher lleva el ritmo y cuenta las rondas.',
+    totalTime: 'PT4M57S',
+    steps: [
+      { name: 'Siéntate', text: 'Espalda recta y hombros sueltos. Abre Refresher y elige Respiración Coherente.' },
+      { name: 'Inhala', seconds: 5.5, text: 'Toma aire por la nariz mientras la figura crece. Con calma, sin llenarte al máximo.' },
+      { name: 'Exhala', seconds: 5.5, text: 'Suelta el aire de forma uniforme mientras la figura se encoge. Sin pausa al final.' },
+      { name: 'Repite', text: 'La app cuenta las rondas hasta llegar a las que elegiste.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: '¿Cómo se hace la respiración coherente?',
+      a: 'Inhalas 5,5 segundos y exhalas 5,5 segundos, sin retener el aire. Salen unas 5,5 respiraciones por minuto. Mejor por la nariz y sin forzar. Con un marcador de ritmo no tienes que contar.',
+    },
+    {
+      q: '¿Son 5,5 o 6 respiraciones por minuto?',
+      a: 'Circulan las dos. La frecuencia de resonancia se describió primero en unas seis respiraciones por minuto y después se afinó a una media de unas 5,5. Cambia de una persona a otra, y por eso en Refresher el ritmo se ajusta en pasos de medio segundo.',
+    },
+    {
+      q: '¿Cuánto tiempo hay que hacerla?',
+      a: 'En Refresher, una sesión con las rondas por defecto dura 4:57. Si tienes menos tiempo, pon once rondas y serán unos dos minutos.',
+    },
+    {
+      q: '¿La respiración coherente es gratis en Refresher?',
+      a: 'Sí, desde la primera sesión, y el número de rondas también. El control del ritmo lo puedes usar sin Premium durante tus primeras cinco sesiones de al menos un minuto; después pasa a Premium. Premium tiene una prueba gratis de 7 días.',
+    },
+    {
+      q: '¿Necesito un Apple Watch?',
+      a: 'Para respirar, no. El pulso de antes y después solo lo mide el Apple Watch, porque el iPhone no tiene sensor para eso. Refresher tiene una app para el reloj con la que puedes empezar una sesión aunque el iPhone no esté cerca.',
+    },
+  ]}
+  siblings={[
+    { slug: 'respiracion-cuadrada', anchor: 'Respiración cuadrada, fija en 4-4-4-4' },
+  ]}
+  sources={[
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/', supports: 'Lehrer y Gevirtz 2014: la frecuencia de resonancia se situó en torno a 0,1 Hz (seis respiraciones por minuto) y después en una media de unas 5,5 por minuto; cambia de una persona a otra' },
+  ]}
+  closeH2="No cuentes. Sigue la figura."
+  closeP="Abre Refresher, elige Respiración Coherente y respira con la figura. Hasta 200 rondas si quieres una sesión más larga."
+/>

@@ -40,3 +40,12 @@ Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.
 | `/de/box-atmung-app` | Box-Atmung App | live 2026-10-26 (judge 81) |
 
 - Inbound links: TechniqueLayout resolves siblings in the page's own locale and renders prose as plain text, so a de page can only be linked from other de pages. The two pilot pages link to each other (one inbound each). Every further de page should add itself to the existing de pages' `siblings`.
+
+## es pilot (spec 001)
+Native Spanish technique pages at `/es/{slug}`, self-canonical, no hreflang.
+| slug | target | status |
+|---|---|---|
+| `/es/respiracion-coherente` | respiración coherente | live 2026-11-02 (judge 89) |
+| `/es/respiracion-cuadrada` | respiración cuadrada / respiración de caja | live 2026-11-02 (judge 80) |
+
+- Inbound links: same constraint as the de pilot (siblings resolve per locale). The two es pages link to each other; every further es page should add itself to their `siblings`.
