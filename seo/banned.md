@@ -143,3 +143,17 @@ rate variability` · `Struggling with anxiety, racing thoughts, or poor sleep?`
 - **Outcome lists copied from a trial abstract.** An RCT that measured stress, anxiety and
   depression scores is cited for "less stress" only; the other two are banned medical terms on
   this site, even when attributed.
+
+## Added 2026-11-02 (hrv-breathing-app refresh, judge round 1)
+
+- **"The app never says X" about the whole app.** The app's own info texts still carry two
+  allowlisted causal-HRV science strings (`technique_coherent_info_science`,
+  `technique_alternate_nostril_info_science`). Claim only what the site and the chart do; never
+  speak for every string in the app, and never write that the audit script blocks "every" claim.
+- **Physiology in the site's voice as a reason.** "because that's where the heart rate swings
+  most" is the retired "maximizes HRV" shape. Anchor on the cited number instead.
+- **The page talking about itself.** "The second half is this page." Say the thing.
+- **Refrain of the refusal.** The per-session HRV refusal belongs in the aside and one FAQ, not
+  in the lede, the short answer and three sections too.
+- **Sources stretched past their text.** "chest straps do better" when the page only compares a
+  chest band with a pulse oximeter. Quote what the source says or cut it.

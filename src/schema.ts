@@ -25,7 +25,7 @@ export const appSchema = (site: string) => ({
   isAccessibleForFree: true,
   featureList: [
     'Box breathing at 4-4-4-4, 4-7-8, coherent breathing at 5.5 breaths per minute, and the Wim Hof method',
-    'A pacer with no drift between phases',
+    'A pacer timed to the second',
     'Heart rate before and after each session, measured on Apple Watch',
     'A 30-day HRV trend read from Apple Health',
     'HealthKit mindfulness-minute logging and iCloud sync',
