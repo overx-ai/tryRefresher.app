@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "ai.overx.refresher",
+    "sha256_cert_fingerprints": ["DB:55:94:E5:88:DA:C3:4E:44:20:18:01:82:4A:52:4D:74:32:72:C8:C7:26:1A:EF:74:1F:D4:8E:56:5D:7A:C8"]
+  }
+}]
