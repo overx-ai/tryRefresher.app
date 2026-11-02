@@ -31,6 +31,16 @@ prop: Article schema and a byline, no hero badge or datasheet.
   It carries FAQPage + HowTo + SoftwareApplication schema; the others carry far less.
 - A competitor ranks with ~400 words and three headings (symbreathing.app). The bar is beatable.
 - One-URL-per-query is the architecture that works in this space.
+- **Learn, 2026-11-02 (`/coherent-breathing-app`, 10% CTR: 2 clicks / 20 impressions, 28 days,
+  position 16.6; next best is /wim-hof-breathing-app at 6%, every other page 0%).** Its title is
+  the exact query plus one number the searcher can check against what they already know:
+  "Coherent breathing app at 5.5 breaths per minute". The others promise an attitude ("that shows
+  what it can measure") or a feature, not a spec. Its short answer then opens with the query noun,
+  the platforms and the same number in the first sentence, and states "free from the first
+  session" before any condition. Copy that shape: query + a concrete spec in the title, and a
+  first sentence that names product, platforms and the number. Applied to /hrv-breathing-app on
+  2026-11-02 in part: the title now names iPhone and Apple Watch, the words in its one visible
+  query; the 5.5 spec stays in the description and short answer. Re-check its CTR in four weeks.
 
 ## de pilot (spec 001)
 Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.
