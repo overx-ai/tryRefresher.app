@@ -1,0 +1,129 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="paced-breathing"
+  technique="coherent"
+  crumb="Paced breathing"
+  query="Paced breathing"
+  title="Paced breathing: 6 breaths a minute, counted in seconds"
+  description="Paced breathing is breathing at a slower, set rate, about 6 breaths a minute, such as 4 seconds in and 6 out. The numbers, the evidence and how to start."
+  article={{ datePublished: '2026-11-09', dateModified: '2026-11-09' }}
+  lede="Six breaths a minute is a 10-second breath. Paced breathing is mostly that sum: pick an inhale and an exhale that add up to the rate you want, then hold the rhythm for a few minutes."
+  answer="Paced breathing is breathing at a slower, set rate that you follow by counting or with a pacer. A common target is about 6 breaths a minute, for example 4 seconds in and 6 seconds out, often with the exhale longer than the inhale. Start with 2 minutes and sit down while you do it."
+  sections={[
+    {
+      h2: 'What paced breathing is',
+      paras: [
+        "Paced breathing means you stop breathing at whatever rate your body picks and breathe at one you chose. The rate is slower than usual, and it stays the same from one breath to the next. The versions differ only in the numbers.",
+        "Most guides land in the same place. A menopause resource, My Menoplan, gives 4 in and 6 out. Now Matters Now, which teaches skills from dialectical behaviour therapy (DBT), suggests 5 seconds in and 7 out, or any pace that suits you as long as the exhale is longer than the inhale. Oxygen Advantage starts people at 3 in and 5 out through the nose, then 4 in and 6 out.",
+        "Resonance frequency breathing and coherent breathing are paced breathing with a specific target. Coherent breathing fixes one pace, usually 5.5 or 6 breaths a minute, with an equal inhale and exhale. Resonance frequency breathing measures your own best rate first. I cover that test in the guide to <a href=\"/resonance-frequency-breathing\">resonance frequency breathing</a>.",
+      ],
+    },
+    {
+      h2: 'Turning breaths per minute into seconds',
+      paras: [
+        "Instructions mix breaths per minute and seconds per phase, and the two are easy to confuse. The conversion is one division: 60 divided by the length of one full breath in seconds gives breaths per minute.",
+        "So 4 seconds in and 6 out is a 10-second breath, which is 6 breaths a minute. My Menoplan's page gives that same 4 and 6 count and then calls the goal 10 breaths a minute. If the counts are seconds, the two can't both be right. Ten breaths a minute is a 6-second breath, say 2.5 in and 3.5 out. Decide which number you're following before you start.",
+      ],
+      table: {
+        caption: 'One breath is the inhale plus the exhale. Breaths per minute is 60 divided by that total.',
+        head: ['Inhale (s)', 'Exhale (s)', 'Breath (s)', 'Breaths per minute'],
+        rows: [
+          ['3', '5', '8', '7.5'],
+          ['4', '6', '10', '6.0'],
+          ['5', '5', '10', '6.0'],
+          ['5.5', '5.5', '11', '5.45'],
+          ['5', '7', '12', '5.0'],
+          ['4', '8', '12', '5.0'],
+        ],
+      },
+    },
+    {
+      h2: 'Even breaths or a longer exhale',
+      paras: [
+        "The DBT version insists on a longer exhale. Coherent breathing keeps the two equal. For a home session I wouldn't agonise over it: both sit at 5 to 6 breaths a minute in the table above, and the rate is what you're controlling.",
+        "Oxygen Advantage puts the useful range at 4.5 to 6.5 breaths a minute and says you don't need to breathe that slowly all the time. If 6 a minute feels like straining for air, go up to 7.5 (3 in, 5 out) and come down later. A pace you can hold for two minutes beats a slower one you abandon after four breaths.",
+      ],
+    },
+    {
+      h2: 'What the evidence does and doesn\'t show',
+      paras: [
+        "Slow breathing at about 6 a minute has research behind it for stress and anxiety. My Menoplan says so while noting those studies weren't done in menopausal women, and Oxygen Advantage adds that slow paced breathing may help lower blood pressure.",
+        "Hot flashes are where the sources split. My Menoplan states that studies of paced breathing found no effect on how often hot flashes and night sweats happen, how strong they are or how much they interfere. Oxygen Advantage calls the evidence mixed and cites a nine-week trial in 68 women: 58% of those breathing twice a day reported fewer hot flashes, against 46% in the comparison group. Its own verdict is that the difference was modest.",
+        "My read: use paced breathing because you want a few slower minutes, and keep expectations for anything medical small. If you're dealing with a condition, high blood pressure included, keep working with your doctor.",
+      ],
+    },
+    {
+      h2: 'Counting it yourself or following a pacer',
+      paras: [
+        "You can count in your head. A count has nothing to check itself against, though, so if it speeds up you won't notice, and a 4-and-6 count can turn into something faster without you deciding it should.",
+        "A pacer fixes the rhythm so you only have to follow it. That's why I built Refresher as a pacer timed to the second, and why I made the pace adjustable on coherent breathing and fixed on box and 4-7-8. With box and 4-7-8 the ratio is the technique. With paced breathing, the pace is the thing people disagree about.",
+      ],
+      aside: [
+        "I set the coherent default at 5.5 seconds in and 5.5 out because Lehrer and Gevirtz put the average resonance frequency at about 5.5 breaths a minute, and I let the slider run from 3 to 10 seconds in half-second steps because the right rate varies by person.",
+      ],
+    },
+    {
+      h2: 'How Refresher paces it',
+      paras: [
+        "Coherent paces 5.5 seconds in and 5.5 out, about 5.5 breaths a minute, and it's free from the first session. The slider runs from 3 to 10 seconds per phase in half-second steps, which covers 10 breaths a minute down to 3. Changing it is free for your first five qualifying sessions of a minute or longer, then part of Premium, which has a 7-day free trial. The round count, 1 to 200, is always free.",
+        "For a longer exhale, Extended exhale defaults to 4 in and 8 out, 5 breaths a minute, with an inhale slider from 3 to 7 seconds and an exhale slider from 4 to 12. It opens as you level up, with one free try before that, and its sliders follow the same five-session rule. Voice guidance counts each phase in your language, and you can switch it off.",
+        "With an Apple Watch and heart rate tracking switched on, the app shows your heart rate before and after each session. You can also see your HRV alongside the days you practise, as a 30-day trend from Apple Health. Refresher runs on iPhone and iPad, with a companion Apple Watch app.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do paced breathing',
+    description: 'Six breaths a minute, 4 seconds in and 6 out, for 2 minutes at first.',
+    totalTime: 'PT2M',
+    tools: ['A breathing pacer, or a clock with a second hand'],
+    steps: [
+      { name: 'Sit down', text: 'Sit somewhere you can stay still for a few minutes. If you feel lightheaded at any point, lie down.' },
+      { name: 'Pick your numbers', text: 'Start with 4 seconds in and 6 out, which is 6 breaths a minute. If that feels like straining, use 3 in and 5 out.' },
+      { name: 'Breathe in through your nose', seconds: 4, text: 'A quiet, even inhale for the full count. No hold at the top.' },
+      { name: 'Breathe out slowly', seconds: 6, text: "Let the exhale last the whole count. Don't rush the end of it." },
+      { name: 'Keep it up for 2 minutes', text: 'That is 12 breaths at 6 a minute. Over later sessions, work up towards about 10 minutes if you want longer.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'What is paced breathing?',
+      a: 'Breathing at a slower, set rate that you follow by counting or with a pacer, usually about 6 breaths a minute. A common pattern is 4 seconds in and 6 seconds out. Many versions make the exhale longer than the inhale.',
+    },
+    {
+      q: 'How many breaths a minute is paced breathing?',
+      a: 'Most guides aim for about 6, which is a 10-second breath. Oxygen Advantage gives a range of 4.5 to 6.5 a minute. Divide 60 by the length of one full breath in seconds to check what a pattern works out to.',
+    },
+    {
+      q: 'What is paced breathing in DBT?',
+      a: "Now Matters Now, which teaches DBT skills, describes it as breathing in for about 5 seconds and out for about 7, or any pace that feels right as long as the exhale is longer than the inhale. At 5 and 7 that's 5 breaths a minute.",
+    },
+    {
+      q: 'Does paced breathing help with hot flashes?',
+      a: "The sources disagree, and neither finds a large effect. My Menoplan says studies found no effect on hot flash frequency, severity or interference. Oxygen Advantage cites a 68-woman trial with 58% reporting fewer hot flashes against 46% in the comparison group, and calls that difference modest.",
+    },
+    {
+      q: 'Is paced breathing the same as coherent breathing?',
+      a: 'Coherent breathing is one kind of paced breathing: a fixed pace of about 5.5 to 6 breaths a minute with an equal inhale and exhale. Paced breathing is the broader idea, and many versions use a longer exhale instead.',
+    },
+    {
+      q: 'Can paced breathing make you dizzy?',
+      a: 'Some people feel lightheaded when they control their breathing rate. Do it sitting down, and lie down if you feel lightheaded. If a pace makes you feel short of air, speed it up a little.',
+    },
+  ]}
+  siblings={[
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute' },
+    { slug: 'resonance-frequency-breathing', anchor: 'Resonance frequency breathing, and how to find your own rate' },
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, a fixed ratio with a long exhale' },
+  ]}
+  sources={[
+    { url: 'https://mymenoplan.org/paced-breathing/', supports: 'paced breathing slows breathing; 4 in and 6 out; "goal is 10 breaths a minute"; 2 minutes at first, up to about 10; slow paced breathing at about 6 a minute helps stress and anxiety, not studied in menopausal women; no impact on hot flashes and night sweats; sit, lie down if lightheaded (fetched 2026-11-09)' },
+    { url: 'https://nowmattersnow.org/skill/paced-breathing/', supports: 'DBT-based skill; 5 seconds in, 7 out, or any pace with the exhale longer than the inhale (fetched 2026-11-09)' },
+    { url: 'https://oxygenadvantage.com/blogs/blog/paced-breathing', supports: '3 in and 5 out through the nose, then 4 in and 6 out; 4.5 to 6.5 breaths a minute, not necessary all the time; may help lower blood pressure; nine-week study of 68 women, paced breathing twice a day, 58% vs 46% reported a reduction, modest difference; keep working with your doctor on high blood pressure (fetched 2026-11-09)' },
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/', supports: 'Lehrer and Gevirtz, 2014: resonance at about 0.1 Hz (6 breaths per minute), average about 5.5 breaths per minute; basis for fixed-pace coherent breathing at 5.5 to 6' },
+  ]}
+  closeH2="Four in, six out. Two minutes."
+  closeP="Refresher holds the pace so you don't have to count. Coherent is free from the first session, and changing the pace is free for your first five sessions of a minute or longer; the 7-day trial covers the rest."
+/>

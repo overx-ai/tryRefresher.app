@@ -17,6 +17,7 @@
 | https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | hold (2026-11-02: "Crawled - currently not indexed"; inbound 1 -> 3 via cross-locale links; judge 81) |
 | https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 89) |
 | https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 80) |
+| https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (new; weekly run; judge 86; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app) |
 
 Verdicts from `gsc.py perf sc-domain:tryrefresher.app 28 page,query` on 2026-11-02. Most
 queries are anonymised at this volume; every page except /coherent-breathing-app is under 20
@@ -47,5 +48,8 @@ Each page renders its own sources list; this is the register.
 | /hrv-breathing-app | https://support.apple.com/en-us/120277 | fetched 2026-11-02: Recovery HRV on Series 12 / Ultra 4, possible indicator of stress and recovery, sampled while still |
 | /hrv-breathing-app | https://support.apple.com/guide/watch/heart-rate-apda88aefe4c/watchos | fetched 2026-11-02: Health, Browse, Heart, then an entry |
 | /wim-hof-breathing-app | https://www.wimhofmethod.com/breathing-exercises | fetched 2026-09-23: 30 deep breaths, retention until the urge to breathe, recovery breath held 15 s, 3–4 rounds; seated or lying down, never near water or driving; rare loss of consciousness; lightheadedness and tingling |
+| /paced-breathing | https://mymenoplan.org/paced-breathing/ | fetched 2026-11-09: definition; 4 in, 6 out; "goal is 10 breaths a minute"; 2 then up to 10 minutes; ~6/min helps stress and anxiety, not studied in menopausal women; no effect on hot flashes; sit, lie down if lightheaded |
+| /paced-breathing | https://nowmattersnow.org/skill/paced-breathing/ | fetched 2026-11-09: DBT skill; 5 in, 7 out, or any pace with a longer exhale |
+| /paced-breathing | https://oxygenadvantage.com/blogs/blog/paced-breathing | fetched 2026-11-09: 3/5 then 4/6 through the nose; 4.5 to 6.5 per minute; may help lower blood pressure; 68 women, nine weeks, twice a day, 58% vs 46%, modest |
 
-Fetch failures recorded so nobody retries them blind: drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).
+Fetch failures recorded so nobody retries them blind: saprea.org paced-breathing (403, 2026-11-09), drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).

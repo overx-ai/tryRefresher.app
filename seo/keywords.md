@@ -14,7 +14,7 @@ independently.
 | keyword | cluster | intent | ASO pop | ASO diff | ASO rank | web SERP verdict | status |
 |---|---|---|---|---|---|---|---|
 | breathing pacer app | pillar | product-page | 5 | 38 | **#63** | **best target.** Weakest SERP of seven: near-pure App Store listings, one brand site, no listicles, no Calm/Headspace, no Reddit | **pillar (live)** |
-| paced breathing | pillar | product-page | 9 | 17 | #57 | supports the pillar | idea |
+| paced breathing | explainer | definition / how-to | 9 | 17 | #57 | supports the pillar. SERP 2026-11-09: therapy, DBT and menopause pages (saprea, nowmattersnow, mymenoplan, oxygenadvantage, counselling sites), 800-1,500 words; none convert counts to breaths per minute | published 2026-11-09 (judge 86) |
 | coherent breathing app | technique | product-page | 5 | 44 | **#193** ⚠ | strong. symbreathing.app ranks with ~400 words and 3 headings | published 2026-09-02 |
 | hrv breathing app | technique | product-page | 5 | 39 | #59 | second wave. Store listings dominate; two weak indie brand sites hold slots | published 2026-09-02 |
 | box breathing app | technique | product-page | 7 | 21 | #1000 | winnable but must match vayu-prana's depth: ~1,300 words, HowTo + FAQPage schema | published 2026-09-02 |

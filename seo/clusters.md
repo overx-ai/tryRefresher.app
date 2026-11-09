@@ -21,6 +21,8 @@ Informational intent, feeds the pillar. Rendered through `TechniqueLayout` with 
 prop: Article schema and a byline, no hero badge or datasheet.
 - resonance frequency breathing — what it is, how to find yours → `/resonance-frequency-breathing`
   (writing 2026-10-09; inbound from /coherent-breathing-app, /hrv-breathing-app, /box-breathing-app)
+- paced breathing — what it is, the numbers in seconds, the evidence → `/paced-breathing`
+  (2026-11-09; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app)
 - Apple Watch breathing apps that record heart rate
 - box breathing vs 4-7-8 — which for which moment
 
