@@ -18,6 +18,7 @@
 | https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 89) |
 | https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 80) |
 | https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (new; weekly run; judge 86; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app) |
+| https://tryrefresher.app/apple-watch-breathing-heart-rate | apple watch breathing heart rate | 2026-11-16 | hold (new; weekly run; judge 85; inbound from /hrv-breathing-app, /coherent-breathing-app, /paced-breathing) |
 
 Verdicts from `gsc.py perf sc-domain:tryrefresher.app 28 page,query` on 2026-11-02. Most
 queries are anonymised at this volume; every page except /coherent-breathing-app is under 20
@@ -51,5 +52,10 @@ Each page renders its own sources list; this is the register.
 | /paced-breathing | https://mymenoplan.org/paced-breathing/ | fetched 2026-11-09: definition; 4 in, 6 out; "goal is 10 breaths a minute"; 2 then up to 10 minutes; ~6/min helps stress and anxiety, not studied in menopausal women; no effect on hot flashes; sit, lie down if lightheaded |
 | /paced-breathing | https://nowmattersnow.org/skill/paced-breathing/ | fetched 2026-11-09: DBT skill; 5 in, 7 out, or any pace with a longer exhale |
 | /paced-breathing | https://oxygenadvantage.com/blogs/blog/paced-breathing | fetched 2026-11-09: 3/5 then 4/6 through the nose; 4.5 to 6.5 per minute; may help lower blood pressure; 68 women, nine weeks, twice a day, 58% vs 46%, modest |
+
+| /apple-watch-breathing-heart-rate | https://support.apple.com/en-jo/guide/watch/apd371dfe3d7/26/watchos/26 | fetched 2026-11-16: heart rate appears in the Summary screen after Reflect or Breathe; Health path to Breathe; duration 1 to 5 minutes; Breath Rate; haptics |
+| /apple-watch-breathing-heart-rate | https://support.apple.com/en-lb/guide/watch/heart-rate-apda88aefe4c/11/watchos | fetched 2026-11-16: heart rate monitored for Breathe and Reflect by default; clean, dry wrist; skin contact |
+| /apple-watch-breathing-heart-rate | https://www.sanolabs.eu/blog/apple-watch-mindfulness-hrv/ | fetched 2026-11-16: HRV overnight via SDNN, "not during mindfulness sessions" |
+| /apple-watch-breathing-heart-rate | https://athlyticapp.helpscoutdocs.com/article/23-using-the-mindfulness-app-for-hrv-in-athlytic | fetched 2026-11-16: a Mindfulness session triggers an HRV reading, usually above the sleep average; breathe naturally |
 
 Fetch failures recorded so nobody retries them blind: saprea.org paced-breathing (403, 2026-11-09), drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).

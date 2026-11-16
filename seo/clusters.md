@@ -23,7 +23,8 @@ prop: Article schema and a byline, no hero badge or datasheet.
   (writing 2026-10-09; inbound from /coherent-breathing-app, /hrv-breathing-app, /box-breathing-app)
 - paced breathing — what it is, the numbers in seconds, the evidence → `/paced-breathing`
   (2026-11-09; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app)
-- Apple Watch breathing apps that record heart rate
+- Apple Watch breathing heart rate: where Apple shows it, before vs after, the in-session HRV dispute → `/apple-watch-breathing-heart-rate`
+  (2026-11-16, weekly run, judge 85; inbound from /hrv-breathing-app, /coherent-breathing-app, /paced-breathing)
 - box breathing vs 4-7-8 — which for which moment
 
 ## Notes

@@ -1,0 +1,114 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="apple-watch-breathing-heart-rate"
+  technique="coherent"
+  crumb="Apple Watch breathing and heart rate"
+  query="Apple Watch breathing heart rate"
+  title="Apple Watch breathing heart rate: before and after a session"
+  description="Apple Watch shows your heart rate on the Summary screen after a Breathe session. Where to find it, what it can't show, and how to see it before and after."
+  article={{ datePublished: '2026-11-16', dateModified: '2026-11-16' }}
+  lede="Heart rate, once, at the end. That's all Apple's Breathe session gives you, and one reading can't show a change."
+  answer="After a Breathe session in the Mindfulness app, Apple Watch shows your heart rate on the Summary screen. You can find it later in the Health app on iPhone: Heart, Heart Rate, Show More Heart Rate Data, then Breathe. To compare before and after, you need an app that keeps a reading from both ends of the session."
+  sections={[
+    {
+      h2: 'What Apple Watch records during a Breathe session',
+      paras: [
+        "Apple's Mindfulness app on the Watch has two sessions, Reflect and Breathe. Apple's user guide says that once you complete a Reflect or Breathe session, \"your heart rate appears in the Summary screen.\" Apple's heart rate guide adds that, by default, the Watch monitors your heart rate for the Heart Rate app, workouts, and Breathe and Reflect sessions.",
+        "You choose a session length between 1 and 5 minutes. The pace lives in Settings on the Watch, under Mindfulness, then Breath Rate, which sets the number of breaths per minute. The same screen sets haptics to None, Minimal or Prominent. You can change all of it from the Apple Watch app on iPhone too, under My Watch, then Mindfulness.",
+        "The reading also lands in the Health app on iPhone. The steps below show where to find it.",
+      ],
+    },
+    {
+      h2: 'Where the number comes from',
+      paras: [
+        "The heart rate comes from the sensor on the back of the Watch. An iPhone has no built-in heart rate sensor. Refresher reads your heart rate only from an Apple Watch, through Apple Health.",
+        "Apple's own tips for a clean reading are short. Keep your wrist and the Watch clean and dry, because water and sweat can cause a poor recording, and keep the back of the Watch against your skin. Sitting still helps too, which suits a breathing session anyway.",
+      ],
+    },
+    {
+      h2: 'One reading after, or one before and one after',
+      paras: [
+        "A single number on a Summary screen tells you where your heart rate was when you finished. It doesn't tell you where it started, so you can't see a change. If you want to know whether five minutes of slow breathing moved your pulse today, you need a reading from the start as well.",
+        "Even with two readings, a short session is hard to read. On a short session the first and last readings are often the same, and a wrist sensor reading only a few samples can produce a difference that's just noise.",
+      ],
+      aside: [
+        "In Refresher I made the completion card show the change only when there's a reading at both ends and at least three samples behind each. Without them it leaves the row out instead of printing a number built on noise. It reports a drop, no change or a rise, because no change is a common result on a short session and I didn't want to hide it.",
+      ],
+    },
+    {
+      h2: 'Heart rate variability is a different question',
+      paras: [
+        "If what you're after is heart rate variability (HRV), the sources disagree on whether a Breathe session records it. Sano Labs writes that Apple Watch measures HRV overnight and \"not during mindfulness sessions\". Athlytic's help centre says a Mindfulness session triggers an HRV reading, warns that HRV taken during one is usually higher than your sleep average, and advises breathing naturally if you want a reading you can compare.",
+        "Either way, Apple Health stores HRV as SDNN, and from what I've seen building Refresher, a Watch writes a handful of those samples a day, not a stream. Nobody can draw an honest before-and-after HRV line through one five-minute session from that. Read HRV over weeks.",
+      ],
+      aside: [
+        "I refused to put a before-and-after HRV number on Refresher's completion screen for exactly that reason. A figure that can't be produced honestly is worse than no figure, and the person who wants HRV is the person who'd catch it. You see your HRV alongside the days you practise instead, as a 30-day trend.",
+      ],
+    },
+    {
+      h2: 'How Refresher shows it',
+      paras: [
+        "Refresher is a breathing pacer for iPhone and iPad, with a companion Apple Watch app. With an Apple Watch on and heart rate tracking switched on in Settings, it keeps a heart rate reading from the start of the session and one from the end, and the completion card shows the change. Tracking is a separate switch from the Apple Health permission and starts off.",
+        "The same card shows your latest HRV reading from Apple Health with its date, never a session delta. In Statistics, a 30-day HRV chart puts your Apple Health readings next to the days you practise. It doesn't appear until there are two days of data, and it's free through your tenth qualifying session, then part of Premium, which has a 7-day free trial. The heart rate change and the latest HRV reading on the completion card are free.",
+        "For the session itself, Coherent paces 5.5 seconds in and 5.5 out, about 5.5 breaths a minute, and it's free from the first session.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: "How to see your heart rate after a Breathe session on Apple Watch",
+    description: "Run a Breathe session in the Mindfulness app, read the Summary screen, then find the same reading in the Health app on iPhone.",
+    totalTime: 'PT5M',
+    tools: ['Apple Watch', 'iPhone with the Health app'],
+    steps: [
+      { name: 'Set the pace', text: 'On the Watch, open Settings, tap Mindfulness, then Breath Rate, and pick the breaths per minute you want.' },
+      { name: 'Pick a length', text: 'In the Mindfulness app, tap the More Options button next to Breathe, tap Duration and choose a length between 1 and 5 minutes.' },
+      { name: 'Sit still and breathe', text: 'Keep the Watch snug against a clean, dry wrist and follow the pace for the whole session.' },
+      { name: 'Read the Summary screen', text: 'When the session ends, your heart rate appears on the Summary screen.' },
+      { name: 'Find it later on iPhone', text: 'In the Health app, search for Heart, tap Heart Rate, then Show More Heart Rate Data, swipe up and tap Breathe.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Does Apple Watch show heart rate during a Breathe session?',
+      a: "Apple's guide says your heart rate appears on the Summary screen when you complete a Breathe or Reflect session. It describes no live heart rate display during the session itself.",
+    },
+    {
+      q: 'Where do I see my Breathe heart rate on iPhone?',
+      a: 'In the Health app. Search for Heart, tap Heart Rate, then Show More Heart Rate Data, swipe up and tap Breathe.',
+    },
+    {
+      q: 'How do I change the breathing rate on Apple Watch?',
+      a: 'In Settings on the Watch, under Mindfulness, then Breath Rate. The same setting is in the Apple Watch app on iPhone.',
+    },
+    {
+      q: 'Can an iPhone measure my heart rate during a breathing session?',
+      a: "An iPhone has no built-in heart rate sensor. Refresher reads heart rate only from an Apple Watch, through Apple Health, and has no phone-only heart rate mode.",
+    },
+    {
+      q: 'Does a Breathe session measure HRV?',
+      a: "Sources disagree. Sano Labs says Apple Watch measures HRV overnight, not during mindfulness sessions. Athlytic says a Mindfulness session triggers an HRV reading that's usually higher than your sleep average. Either way, a single session can't give an honest before-and-after HRV figure.",
+    },
+    {
+      q: "Why didn't my heart rate change after breathing?",
+      a: 'On a short session the first and last readings are often the same. A small difference can also be sensor noise. Look at the change across many sessions before reading anything into one.',
+    },
+  ]}
+  siblings={[
+    { slug: 'hrv-breathing-app', anchor: 'HRV breathing, and what the app will and will not show you' },
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute' },
+    { slug: 'paced-breathing', anchor: 'Paced breathing at 6 breaths a minute, converted to seconds' },
+    { slug: 'resonance-frequency-breathing', anchor: 'Resonance frequency breathing, and how to find your own rate' },
+  ]}
+  sources={[
+    { url: 'https://support.apple.com/en-jo/guide/watch/apd371dfe3d7/26/watchos/26', supports: 'Reflect and Breathe sessions; More Options next to Breathe, then Duration; heart rate appears in the Summary screen after a session; Health app path to Breathe heart rate; duration 1 to 5 minutes; Settings, Mindfulness, Breath Rate; haptics None, Minimal or Prominent; settings also in the Apple Watch app on iPhone (fetched 2026-11-16)' },
+    { url: 'https://support.apple.com/en-lb/guide/watch/heart-rate-apda88aefe4c/11/watchos', supports: 'Apple Watch monitors heart rate for the Heart Rate app, workouts, and Breathe and Reflect sessions by default; wrist and Watch clean and dry, water and sweat can cause a poor recording; the back of the Watch needs skin contact (fetched 2026-11-16)' },
+    { url: 'https://www.sanolabs.eu/blog/apple-watch-mindfulness-hrv/', supports: 'Apple Watch measures HRV overnight using SDNN, "not during mindfulness sessions" (published 2026-05-16, fetched 2026-11-16)' },
+    { url: 'https://athlyticapp.helpscoutdocs.com/article/23-using-the-mindfulness-app-for-hrv-in-athlytic', supports: 'a Mindfulness session triggers an HRV reading; HRV during a Mindfulness session is usually higher than the sleep average; breathe naturally for a comparable reading (updated 2025-02-26, fetched 2026-11-16)' },
+    { url: 'https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/heartratevariabilitysdnn', supports: 'HealthKit stores heart rate variability as SDNN' },
+  ]}
+  closeH2="See your heart rate at both ends of a session"
+  closeP="Refresher keeps a reading from both ends of the session when your Apple Watch has enough samples, and says nothing when it doesn't. Coherent breathing is free from the first session."
+/>
