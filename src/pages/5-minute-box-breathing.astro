@@ -1,0 +1,94 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="5-minute-box-breathing"
+  technique="box"
+  crumb="5 minute box breathing"
+  query="5 minute box breathing"
+  title="5 minute box breathing: 18 rounds at 4-4-4-4"
+  description="A 5 minute box breathing session to follow now, at 4-4-4-4 with a singing bowl on each phase and no voice. One round takes 16 seconds."
+  video={{ main: 'box5', more: 'box10' }}
+  lede="5 minutes of 4-4-4-4, timed by a moving ball and a singing bowl. Press play and follow it, or run the same count in Refresher."
+  answer="Five minutes of box breathing is 18 full rounds of 4-4-4-4 and most of a 19th. Each round is 16 seconds: in for four, hold for four, out for four, hold for four. Refresher's session on YouTube runs 5:01, with a singing bowl on each phase and no voice."
+  sections={[
+    {
+      h2: 'What five minutes of box breathing adds up to',
+      paras: [
+        "Five minutes is 300 seconds, so it holds 18.75 rounds. Eighteen full rounds end at 4:48 and nineteen end at 5:04. No round count lands on five minutes exactly.",
+        "The Cleveland Clinic's instructions use the same four counts, breathing in through the nose, and suggest three to four rounds, once or twice a day. At one second a count, that's 48 to 64 seconds. Five minutes is about five to six times that, which is more holding than most people expect.",
+        "Its advice is to stay comfortable and not strain, so end on whatever round you're in when the holds start to pinch.",
+      ],
+    },
+    {
+      h2: "What's in the 5-minute video",
+      paras: [
+        "A ball sits in the middle of the frame and a line scrolls through it. The line climbs for four seconds on the inhale, runs flat for the hold, drops on the exhale and runs flat again at the bottom. Behind it is footage of a waterfall.",
+        "A singing bowl sounds at the start of each phase and nobody speaks. In the opening rounds, short captions name the phase, such as \"Hold while the ball stays level\". After that the captions stop and the bowls carry it.",
+      ],
+      aside: [
+        "I build these videos from one short segment of rounds, drawn once and repeated to fill the length. The first segment carries the captions, and every repeat after it is timed identically.",
+        "The ball never moves sideways. I pinned it to the horizontal centre and let the curve scroll through it, so only its height changes.",
+      ],
+    },
+    {
+      h2: 'Video or app',
+      paras: [
+        "The video doesn't change. It runs the same way on every play, in any browser.",
+        "Refresher runs the same 4-4-4-4 on iPhone, iPad and Apple Watch, and the length is a round count from 1 to 200. I set Box's default to 18 rounds, which ends at 4:48. Set 19 to finish just past five minutes. A voice counts each phase unless you turn it off.",
+        "With an Apple Watch, and heart rate tracking switched on in Settings, the completion screen shows how your heart rate changed from the start of the session to the end, when the Watch caught enough readings at both ends.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do 5 minutes of box breathing',
+    description: 'Four phases of four seconds make one round. Follow the ball, or count for yourself, until the session ends at 5:01.',
+    totalTime: 'PT5M1S',
+    tools: ['The 5-minute session video, or a timer', 'Refresher on iPhone, iPad or Apple Watch, to count the rounds'],
+    steps: [
+      { name: 'Inhale', seconds: 4, text: 'Fill through the nose as the ball climbs. Stop short of a full stretch.' },
+      { name: 'Hold', seconds: 4, text: 'Ball level at the top. Keep the air in without locking the throat.' },
+      { name: 'Exhale', seconds: 4, text: 'Empty as the ball drops, spreading it across all four seconds.' },
+      { name: 'Hold', seconds: 4, text: 'Ball level at the bottom. Wait, empty, for the next bowl.' },
+      { name: 'Keep going to the end', text: 'Repeat the four phases until the session ends at 5:01.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'How many rounds of box breathing is 5 minutes?',
+      a: "18.75 rounds. Five minutes is 300 seconds and a round of 4-4-4-4 is 16 seconds, so 18 rounds fit with time left over.",
+    },
+    {
+      q: 'How long should you do box breathing?',
+      a: "The Cleveland Clinic's instruction is three to four rounds, once or twice a day, which is about a minute at one second a count. A five-minute session is the same pattern held longer.",
+    },
+    {
+      q: 'Can I do 5 minutes of box breathing without a video?',
+      a: "Yes. Count four for each phase on your fingers and keep going until a five-minute timer goes off. In Refresher, Box counts the rounds for you and is free.",
+    },
+    {
+      q: 'Is there a voice in the video?',
+      a: "No. A singing bowl marks each phase, and short captions name the phases in the opening rounds. The Refresher app can count phases aloud, and that voice can be switched off.",
+    },
+    {
+      q: 'Is there a longer version?',
+      a: "Yes. A 10-minute version with a handpan runs 37 full rounds and is linked under the player. In the app the round count goes up to 200, which is 53:20.",
+    },
+    {
+      q: 'Is 5 minutes of box breathing safe?',
+      a: "Five minutes of 4-4-4-4 means holding your breath 37 times, four seconds each, which is the part to judge yourself on. If a hold strains, stop on that round, and with a heart or lung condition, ask your doctor first.",
+    },
+  ]}
+  siblings={[
+    { slug: 'box-breathing-app', anchor: 'Box breathing app, the same 4-4-4-4 with a round count you set' },
+    { slug: '4-7-8-breathing-app', anchor: '4-7-8 breathing, one hold and an exhale twice the inhale' },
+    { slug: 'coherent-breathing-app', anchor: 'Coherent breathing at 5.5 breaths per minute, with no holds' },
+    { slug: 'paced-breathing', anchor: 'Paced breathing, counted in breaths per minute' },
+  ]}
+  sources={[
+    { url: 'https://health.clevelandclinic.org/box-breathing-benefits', supports: 'four counts for each phase, breathing in through the nose, three to four rounds, once or twice a day, and the advice to stay comfortable and not strain (fetched 2026-11-18)' },
+  ]}
+  closeH2="Set your own round count."
+  closeP="Box takes any count from 1 to 200 rounds in Refresher, on iPhone, iPad and Apple Watch, and it's free."
+/>

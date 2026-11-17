@@ -18,6 +18,7 @@
 | https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 89) |
 | https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 80) |
 | https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (new; weekly run; judge 86; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app) |
+| https://tryrefresher.app/5-minute-box-breathing | 5 minute box breathing | 2026-11-18 | hold (new; spec 002, first video page; judge 77 -> 85; inbound from /box-breathing-app, /4-7-8-breathing-app, /paced-breathing) |
 | https://tryrefresher.app/apple-watch-breathing-heart-rate | apple watch breathing heart rate | 2026-11-16 | hold (new; weekly run; judge 85; inbound from /hrv-breathing-app, /coherent-breathing-app, /paced-breathing) |
 
 Verdicts from `gsc.py perf sc-domain:tryrefresher.app 28 page,query` on 2026-11-02. Most
@@ -58,4 +59,4 @@ Each page renders its own sources list; this is the register.
 | /apple-watch-breathing-heart-rate | https://www.sanolabs.eu/blog/apple-watch-mindfulness-hrv/ | fetched 2026-11-16: HRV overnight via SDNN, "not during mindfulness sessions" |
 | /apple-watch-breathing-heart-rate | https://athlyticapp.helpscoutdocs.com/article/23-using-the-mindfulness-app-for-hrv-in-athlytic | fetched 2026-11-16: a Mindfulness session triggers an HRV reading, usually above the sleep average; breathe naturally |
 
-Fetch failures recorded so nobody retries them blind: saprea.org paced-breathing (403, 2026-11-09), drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).
+Fetch failures recorded so nobody retries them blind: livestrong.com box-breathing article (301 to everydayhealth.com, not read, 2026-11-18), saprea.org paced-breathing (403, 2026-11-09), drweil.com (403), health.harvard.edu HRV post (404), health.clevelandclinic.org/what-is-heart-rate-variability (404).

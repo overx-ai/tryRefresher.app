@@ -1,0 +1,49 @@
+---
+// Click-to-play, no JavaScript. `srcdoc` wins over `src`, so the frame starts as a
+// self-hosted poster and a link; YouTube is requested only when the visitor follows it.
+// The srcdoc is its own document: site tokens do not reach it, hence the literal styles.
+import { clock, embedUrl, posterPath, watchUrl, type Video } from '../videos';
+import { existsSync } from 'node:fs';
+import type { TechniqueStrings } from '../layouts/technique-strings';
+
+interface Props { video: Video; more?: Video; ui: TechniqueStrings }
+const { video, more, ui } = Astro.props;
+
+// The poster is the whole player before the click and the VideoObject thumbnail: fail the build without it.
+const posterFile = `public${posterPath(video)}`;
+if (!existsSync(posterFile)) throw new Error(`VideoEmbed: missing poster ${posterFile} for ${video.id}`);
+
+const escapeAttr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const srcdoc =
+  '<style>*{margin:0}html,body,a,img{display:block;width:100%;height:100%}body{background:#000;overflow:hidden}' +
+  'img{object-fit:cover}a{position:relative}' +
+  'a::before{content:"";position:absolute;inset:0;margin:auto;width:72px;height:72px;border-radius:50%;background:rgba(0,0,0,.7)}' +
+  'a::after{content:"";position:absolute;inset:0;margin:auto;width:0;height:0;left:6px;border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff}' +
+  'a:hover::before,a:focus-visible::before{background:#000}</style>' +
+  `<a href="${embedUrl(video)}?autoplay=1" aria-label="${escapeAttr(ui.playVideo(video.name))}"><img src="${posterPath(video)}" alt=""></a>`;
+---
+<figure class="video">
+  <div class="frame">
+    <iframe
+      src={embedUrl(video)}
+      srcdoc={srcdoc}
+      title={video.name}
+      loading="lazy"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <figcaption>
+    <span>{video.name} · {clock(video)}</span>
+    <a href={watchUrl(video)} rel="noopener">{ui.watchOnYouTube}</a>
+    {more && <a href={watchUrl(more)} rel="noopener">{ui.otherLength(clock(more))}</a>}
+  </figcaption>
+</figure>
+
+<style>
+  .video { margin: var(--space-lg) 0 0; }
+  .frame { aspect-ratio: 16 / 9; border: 1px solid var(--color-rule); border-radius: var(--radius-lg); overflow: hidden; background: #000; }
+  iframe { display: block; width: 100%; height: 100%; border: 0; }
+  figcaption { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-3); }
+  figcaption a { color: var(--color-ink-2); }
+</style>

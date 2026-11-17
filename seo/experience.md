@@ -70,6 +70,27 @@ All from the app repo. Each names its source so the judge can check it.
   switch from HealthKit permission and starts off. (`CompletionView.swift:323-328`,
   `SessionHeartRateStore.swift:44`, `UserPreferences.swift:318`.)
 
+## YouTube channel (for the pages with video, 2026-11-18)
+Channel "Refresher: Breathing & HRV" (`UCPZrsHvG-XxorsXWtC3i6AA`). Numbers are vidIQ on
+2026-11-18 and **internal**: 360 subscribers, 80,022 views, 118 videos, 36 of them long paced
+sessions of 3 to 30 minutes. Never publish them (no social proof, `banned.md`).
+
+- **How I render the sessions.** One segment of a few rounds is drawn once and repeated by
+  stream copy to fill the length, so every repeat is timed identically. The first segment is an
+  intro that carries short captions naming each phase; later rounds have none. (hero-ai
+  `backend/app/services/breathing_channel/`.)
+- **The ball stays put.** It is pinned to the horizontal centre and only its height changes; the
+  breath curve scrolls through it. For box that curve is a rounded trapezoid: up four seconds,
+  level four, down four, level four. Checked against frames of `1rgjbiqi4N0` (blue ball, white
+  line, waterfall footage, caption "Hold while the ball stays level").
+- **Sound.** One cue per phase from a sound set (singing bowls, handpan, crystal bowl) over a
+  soundscape bed, or a voice. `1rgjbiqi4N0` and `NPN9oBbp_sQ` have no voice.
+- **Lengths.** Videos run one second over the round minute (5:01, 10:01). At 16 s a round, 5:01
+  is 18 full rounds and most of a 19th; the app's box default is 18 rounds, 4:48.
+- **Titles and thumbnails are not site copy.** The channel's titles and posters carry words the
+  site bans ("guided", "instant calm", sleep and anxiety outcomes). `src/videos.ts` holds our own
+  names and descriptions. The watermark in older videos still reads "Breathing & Focus".
+
 ## Screenshots / recordings
 - `public/screenshots/01-session.png` — an active coherent breathing session
 - `public/screenshots/02-techniques.png` — the technique picker, all nine

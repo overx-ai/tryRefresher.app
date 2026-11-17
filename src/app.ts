@@ -6,6 +6,8 @@ export const APP = {
   subtitle: 'Wim Hof, Box, Vagus & Coherent',
   appStoreId: '6759679041',
   appStoreUrl: 'https://apps.apple.com/app/id6759679041',
+  // Channel-ID URL: it survives a handle rename.
+  youtubeUrl: 'https://www.youtube.com/channel/UCPZrsHvG-XxorsXWtC3i6AA',
   supportEmail: 'support@overx.ai',
   developer: 'Yauheni Malashchytski',
   publisher: 'OverX AI',

@@ -27,6 +27,13 @@ prop: Article schema and a byline, no hero badge or datasheet.
   (2026-11-16, weekly run, judge 85; inbound from /hrv-breathing-app, /coherent-breathing-app, /paced-breathing)
 - box breathing vs 4-7-8 — which for which moment
 
+## Cluster: sessions with video
+Do-it-now intent: the page's main content is one of our YouTube sessions (click-to-play, `VideoObject`),
+plus the arithmetic of the length. The `... app` pages keep app intent and link here. Spec 002.
+| slug | target | status |
+|---|---|---|
+| `/5-minute-box-breathing` | 5 minute box breathing | live 2026-11-18 (judge 77 → 85); inbound from /box-breathing-app, /4-7-8-breathing-app, /paced-breathing |
+
 ## Notes
 - Format Google rewards here (from the strongest ranking page, vayu-prana.com/box-breathing-app):
   H1 as the exact query noun phrase → what-is explainer → why-this-app feature grid → when/how-to

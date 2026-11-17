@@ -24,6 +24,9 @@ export interface TechniqueStrings {
   alsoIn: string;
   everyTechnique: string;
   sources: string;
+  playVideo: (name: string) => string;
+  watchOnYouTube: string;
+  otherLength: (length: string) => string;
 }
 
 export const TECHNIQUE_STRINGS: Record<Locale, TechniqueStrings> = {
@@ -48,6 +51,9 @@ export const TECHNIQUE_STRINGS: Record<Locale, TechniqueStrings> = {
     alsoIn: 'Also in Refresher',
     everyTechnique: 'Every technique, on one pacer',
     sources: 'Sources',
+    playVideo: (name) => `Play video: ${name}`,
+    watchOnYouTube: 'Watch on YouTube',
+    otherLength: (length) => `${length} version`,
   },
   de: {
     breadcrumbLabel: 'Brotkrümelnavigation',
@@ -70,6 +76,9 @@ export const TECHNIQUE_STRINGS: Record<Locale, TechniqueStrings> = {
     alsoIn: 'Außerdem in Refresher',
     everyTechnique: 'Alle Techniken im Überblick',
     sources: 'Quellen',
+    playVideo: (name) => `Video abspielen: ${name}`,
+    watchOnYouTube: 'Auf YouTube ansehen',
+    otherLength: (length) => `Fassung mit ${length}`,
   },
   es: {
     breadcrumbLabel: 'Ruta de navegación',
@@ -92,5 +101,8 @@ export const TECHNIQUE_STRINGS: Record<Locale, TechniqueStrings> = {
     alsoIn: 'También en Refresher',
     everyTechnique: 'Todas las técnicas, de un vistazo',
     sources: 'Fuentes',
+    playVideo: (name) => `Reproducir vídeo: ${name}`,
+    watchOnYouTube: 'Ver en YouTube',
+    otherLength: (length) => `Versión de ${length}`,
   },
 };

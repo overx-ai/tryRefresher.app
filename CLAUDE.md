@@ -9,6 +9,10 @@ truth for copy, colours and claims.
 ## Tech Stack
 - Astro 4, `output: 'static'`, `trailingSlash: 'never'`. **One dependency: `astro`.**
 - **Zero client JavaScript.** No exceptions currently. Theme switching is pure CSS.
+- **Video is click-to-play, nothing from YouTube before the click.** `VideoEmbed.astro` is a
+  `youtube-nocookie.com` iframe whose `srcdoc` holds a self-hosted poster (`public/video/<id>.jpg`,
+  a frame of the session, never the channel thumbnail) and a play link. Videos and our own names
+  for them live in `src/videos.ts`; a page opts in with the `video` prop on `TechniqueLayout`.
 - Deploy: `git push origin master` → Vercel auto-builds. Config is `vercel.json`, two keys
   plus the `/download` redirect.
 

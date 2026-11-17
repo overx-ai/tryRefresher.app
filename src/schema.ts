@@ -1,4 +1,5 @@
 import { APP } from './app';
+import { embedUrl, posterPath, type Video } from './videos';
 
 const author = { '@type': 'Person', name: APP.developer, url: APP.publisherUrl };
 const publisher = { '@type': 'Organization', name: APP.publisher, url: APP.publisherUrl };
@@ -16,7 +17,7 @@ export const appSchema = (site: string) => ({
   image: `${site}/og-image.jpg`,
   downloadUrl: APP.appStoreUrl,
   installUrl: APP.appStoreUrl,
-  sameAs: [APP.appStoreUrl],
+  sameAs: [APP.appStoreUrl, APP.youtubeUrl],
   identifier: APP.appStoreId,
   author,
   datePublished: '2026-09-01',
@@ -52,6 +53,18 @@ export const faqSchema = (faqs: { q: string; a: string }[], inLanguage = 'en-US'
     name: f.q,
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
+});
+
+export const videoSchema = (site: string, v: Video) => ({
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: v.name,
+  description: v.description,
+  thumbnailUrl: `${site}${posterPath(v)}`,
+  uploadDate: v.uploadDate,
+  duration: v.duration,
+  embedUrl: embedUrl(v),
+  publisher,
 });
 
 export const articleSchema = (

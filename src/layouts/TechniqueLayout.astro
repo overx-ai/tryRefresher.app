@@ -3,10 +3,12 @@
 // facts; layout, styling and schema live here so four pages cannot drift.
 import BaseLayout from './BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
 import { APP, TECHNIQUES } from '../app';
 import { DEFAULT_LOCALE, LANGUAGE_NAMES, LOCALES, registeredPath, topicPeers, type Locale, type Slug } from '../site-pages';
 import { TECHNIQUE_STRINGS } from './technique-strings';
-import { appSchema, articleSchema, breadcrumb, faqSchema } from '../schema';
+import { appSchema, articleSchema, breadcrumb, faqSchema, videoSchema } from '../schema';
+import { VIDEOS, type VideoKey } from '../videos';
 
 type TechniqueKey = (typeof TECHNIQUES)[number]['key'];
 
@@ -42,6 +44,8 @@ export interface Props {
   crumb?: string;
   /** Explainer articles: Article schema and a byline instead of the hero CTA and datasheet. */
   article?: { datePublished: string; dateModified: string };
+  /** One session from the channel, embedded under the short answer. `more` is linked, not embedded. */
+  video?: { main: VideoKey; more?: VideoKey };
 }
 
 const p = Astro.props;
@@ -52,6 +56,8 @@ const path = registeredPath(p.slug, locale);
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
 const t = TECHNIQUES.find((x) => x.key === p.technique)!;
 const crumb = p.crumb ?? t.name;
+const video = p.video && VIDEOS[p.video.main];
+const moreVideo = p.video?.more && VIDEOS[p.video.more];
 const accClass = t.access === 'Included' ? 'acc-in' : t.access === 'Premium' ? 'acc-pro' : 'acc-try';
 
 const WORDS_PER_MINUTE = 230;
@@ -83,6 +89,7 @@ const howToSchema = {
   locale={locale}
   structuredData={[
     ...(p.article ? [articleSchema(site, { headline: p.title, description: p.description, path, inLanguage: lang, ...p.article })] : []),
+    ...(video ? [videoSchema(site, video)] : []),
     appSchema(site), faqSchema(p.faqs, lang), howToSchema, breadcrumb(site, crumb, path, ui.home),
   ]}
 >
@@ -98,6 +105,7 @@ const howToSchema = {
     )}
     <p class="lede">{p.lede}</p>
     <p class="answer">{p.answer}</p>
+    {video && <VideoEmbed video={video} more={moreVideo} ui={ui} />}
     {!p.article && (
       <div class="cta">
         <AppStoreBadge />
