@@ -1,0 +1,88 @@
+---
+import TechniqueLayout from '../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="4-2-6-2-breathing"
+  technique="builder"
+  crumb="4-2-6-2 breathing"
+  query="4-2-6-2 breathing"
+  title="4-2-6-2 breathing: a 14-second round, on video"
+  description="4-2-6-2 breathing is four seconds in, two held, six out and two held. A 10-minute session to follow, and how to set the pattern in Refresher."
+  video={{ main: 'p4262_10', more: 'p4262_30' }}
+  lede="4-2-6-2 breathing gives the exhale half again the inhale's time, with a short pause on either side. Press play and follow it for ten minutes."
+  answer="4-2-6-2 breathing means breathing in for four seconds, holding for two, breathing out for six and holding for two with empty lungs. One round is 14 seconds, about 4.3 breaths a minute. It reads like box breathing with shorter holds and a longer exhale. Refresher's 10-minute session on YouTube runs 42 full rounds."
+  sections={[
+    {
+      h2: 'Where 4-2-6-2 comes from',
+      paras: [
+        "4-2-6-2 has no famous author. The clearest mention is on Vibvid's 4-4-6-2 page, which suggests it as a gentler variation while the four-second hold still feels hard.",
+        "Next to box breathing at 4-4-4-4, both holds drop to two seconds and the exhale grows to six. The round shrinks from 16 seconds to 14, and breathing out takes three sevenths of it.",
+        "Ten minutes is 600 seconds, which fits 42 full rounds with 12 to spare. The video runs 10:01 and ends one second into the last hold of the 43rd round. Five minutes is 21 rounds, 4:54.",
+      ],
+    },
+    {
+      h2: 'The ball, the line and the duduk',
+      paras: [
+        "A white ball rides a line in front of a waterfall. The line climbs for the inhale, runs flat for two seconds, falls for the six-second exhale and runs flat again at the bottom, while the ball stays at the centre.",
+        "The phase name, a short instruction and a count stay on screen throughout. The holds say \"stay soft and still\", the exhale says \"gently, through your nose\", and a duduk marks each phase.",
+      ],
+      aside: [
+        "4-2-6-2 isn't one of the app's presets. I left it to Builder, where you set each phase yourself, and Builder is part of Premium.",
+      ],
+    },
+    {
+      h2: 'Running 4-2-6-2 in Refresher',
+      paras: [
+        "A Builder block holds up to eight phases and repeats up to 20 times, and one preset holds up to five blocks. Twenty repeats of 4-2-6-2 take 4:40, and five blocks of 20 take 23:20.",
+        "Each phase can carry its own voice cue: none, a short \"in\" or \"out\" on the breaths, the full phrase, or the phrase with its seconds.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'How to do 4-2-6-2 breathing',
+    description: 'Four phases, repeated. Count them yourself, or let the video carry you to 10:01.',
+    totalTime: 'PT10M1S',
+    tools: ['The 10-minute session video, or a timer', 'Refresher with Premium, to save the pattern in Builder'],
+    steps: [
+      { name: 'Inhale', seconds: 4, text: 'In through the nose while the line rises.' },
+      { name: 'Hold', seconds: 2, text: 'Pause at the top, soft and still.' },
+      { name: 'Exhale', seconds: 6, text: 'Breathe out gently through the nose as the ball falls, using all six seconds.' },
+      { name: 'Hold', seconds: 2, text: 'Pause with empty lungs until the line climbs again.' },
+      { name: 'Repeat to the end', text: "Follow the video to 10:01, or stop when you've had enough rounds." },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Is 4-2-6-2 the same as box breathing?',
+      a: "No. Box breathing gives every phase four seconds. 4-2-6-2 cuts both holds to two and stretches the exhale to six, so a round is 14 seconds instead of 16.",
+    },
+    {
+      q: 'How many rounds of 4-2-6-2 are in 10 minutes?',
+      a: "Forty-two full rounds. A round is 4 + 2 + 6 + 2 = 14 seconds, and 42 rounds take 9:48. The 30-minute version runs 128 full rounds.",
+    },
+    {
+      q: 'Do you breathe out through the nose or the mouth?',
+      a: "The video's captions say through the nose. The 4-4-6-2 page allows nose or mouth, so pick whichever keeps the six seconds even.",
+    },
+    {
+      q: 'Can I set 4-2-6-2 in the Refresher app?',
+      a: "Yes, in Builder, which comes with Premium. Add four phases, inhale 4, hold 2, exhale 6 and pause 2, then repeat the block up to 20 times. The built-in presets, such as box and 4-7-8, keep their phases fixed.",
+    },
+    {
+      q: 'Is 4-2-6-2 easier than 4-4-6-2?',
+      a: "Usually, yes. Its first hold is two seconds instead of four, which is why the 4-4-6-2 page suggests it while the holds feel hard. Keep a pace that doesn't strain, and stop if it does.",
+    },
+  ]}
+  siblings={[
+    { slug: 'box-breathing-app', anchor: 'Box breathing app, the 4-4-4-4 pattern with a round count you set' },
+    { slug: '5-minute-box-breathing', anchor: '5 minute box breathing, 18 rounds of 4-4-4-4 on video' },
+    { slug: '4-7-8-breathing-for-sleep', anchor: '4-7-8 breathing for sleep, a 19-second round on a 10-minute video' },
+    { slug: 'paced-breathing', anchor: 'Paced breathing, counted in breaths per minute' },
+  ]}
+  sources={[
+    { url: 'https://vibvid-web.pages.dev/breathwork/4-4-6-2-breathing', supports: '4-4-6-2 as inhale 4, hold 4, exhale 6, hold 2, the exhale through the nose or mouth, and 4-2-6-2 named as a gentler variation while the holds feel hard (fetched 2026-11-18)' },
+  ]}
+  closeH2="Build the pattern once."
+  closeP="Builder saves 4-2-6-2 as your own preset in Refresher, with Premium and a 7-day free trial."
+/>

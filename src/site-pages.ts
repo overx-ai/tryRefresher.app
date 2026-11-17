@@ -31,6 +31,8 @@ export const SITE_PAGES = [
   { slug: 'paced-breathing',        lastmod: '2026-11-18' },
   { slug: 'apple-watch-breathing-heart-rate', lastmod: '2026-11-16' },
   { slug: '5-minute-box-breathing', lastmod: '2026-11-18' },
+  { slug: '4-7-8-breathing-for-sleep', lastmod: '2026-11-18' },
+  { slug: '4-2-6-2-breathing', lastmod: '2026-11-18' },
   { slug: 'kohaerentes-atmen',      lastmod: '2026-10-26', locale: 'de' },
   { slug: 'box-atmung-app',         lastmod: '2026-10-26', locale: 'de' },
   { slug: 'respiracion-coherente',  lastmod: '2026-11-02', locale: 'es' },

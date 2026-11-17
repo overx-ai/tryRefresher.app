@@ -23,8 +23,8 @@ independently.
 | apple watch breathing heart rate | explainer | how-to | 5 | 40 | #142 | **article.** support.apple.com holds two slots; intent splits between Apple's built-in Breathe app and third-party. SERP 2026-11-16: Apple Breathe and heart rate guides, then vendor blogs (sanolabs, soft-breathe, athlytic) that disagree on in-session HRV | published 2026-11-16 (weekly run; judge 85) |
 | wim hof method | technique | product-page | 9 | 19 | **#37** | best-owned term in the store. SERP 2026-09-23 (`wim hof breathing app`): official WHM app + App Store, one indie page (vayu-prana, ~1,200 words). Target `wim hof breathing app` | published 2026-09-23 |
 | 5 minute box breathing | sessions with video | do-it-now | | | | YouTube (vidIQ 2026-11-18): 7,559/mo, `box breathing 5 minutes` 12,190. Google SERP: web timers and follow-along sessions | published 2026-11-18 |
-| 4-7-8 breathing for sleep | sessions with video | do-it-now | | | | YouTube 4,374/mo; Google SERP all articles, none with a session to follow | idea |
-| 4-2-6-2 breathing | sessions with video | definition / do-it-now | | | | no page on the web defines it; 11 long videos on the channel | idea |
+| 4-7-8 breathing for sleep | sessions with video | do-it-now | | | | YouTube 4,374/mo; Google SERP all articles, none with a session to follow | published 2026-11-18 |
+| 4-2-6-2 breathing | sessions with video | definition / do-it-now | | | | no page on the web defines it; named only as a gentler 4-4-6-2 variant | published 2026-11-18 |
 | 7-7 breathing | sessions with video | do-it-now | | | | not scanned | idea |
 | 5 minute breathing exercise | sessions with video | do-it-now | | | | YouTube 4,990/mo | idea |
 | breathing exercise for sleep | sessions with video | do-it-now | | | | YouTube 10,457/mo; crowded (Healthline etc.) | idea |

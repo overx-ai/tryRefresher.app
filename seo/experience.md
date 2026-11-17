@@ -87,6 +87,14 @@ sessions of 3 to 30 minutes. Never publish them (no social proof, `banned.md`).
   soundscape bed, or a voice. `1rgjbiqi4N0` and `NPN9oBbp_sQ` have no voice.
 - **Lengths.** Videos run one second over the round minute (5:01, 10:01). At 16 s a round, 5:01
   is 18 full rounds and most of a 19th; the app's box default is 18 rounds, 4:48.
+- **Captions, old and new.** In the newer sessions (`jidkbBLZi7Q`, `4agi_YNJLXM`) the phase name,
+  a short instruction and a running count stay on screen for the whole video, and the corner
+  mark reads "Refresher, Breathing & HRV". The older ones (`1rgjbiqi4N0`) caption only the
+  opening rounds. Checked against frames at a quarter, half and three quarters of each video.
+- **4-2-6-2.** The channel has many long 4-2-6-2 sessions (internal, never publish a count) but the
+  app has no 4-2-6-2 preset; I left it to Builder, which is Premium. In `jp6RX7Bi4qA` the captions
+  say to breathe out "gently, through your nose" and to hold "soft and still" (checked on frames).
+  Its phase cue is a duduk (named in the channel title; listen before changing the claim).
 - **Titles and thumbnails are not site copy.** The channel's titles and posters carry words the
   site bans ("guided", "instant calm", sleep and anxiety outcomes). `src/videos.ts` holds our own
   names and descriptions. The watermark in older videos still reads "Breathing & Focus".

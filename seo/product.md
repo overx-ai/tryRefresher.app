@@ -65,6 +65,10 @@ A breathing pacer accurate to the second, for people who already know the techni
   three are level-gated at Level 10 / 20 qualifying sessions with **one free try each**
   (physiological sigh, alternate nostril, extended exhale); Builder is **premium only**.
   The datasheet carries an availability column rather than a count.
+- **Builder limits** (`BuilderPreset.swift`): a block holds 1 to 8 phases (inhale, hold, exhale,
+  pause), each 0.5 to 60 s (holds and pauses to 180 s); a block repeats 1 to 20 times; a preset
+  holds 1 to 5 blocks. Each phase has its own voice cue: none, short, full, or counted.
+  4-2-6-2 is not a preset; it exists only through Builder (Premium).
 - **A pacer timed to the second**, with per-technique customization of rounds and speed.
 - **Heart rate before and after a session**, with the delta rendered on the completion screen
   (`CompletionView.swift:357` `heartRateDeltaRow`, string `session.detail.hr_change`).

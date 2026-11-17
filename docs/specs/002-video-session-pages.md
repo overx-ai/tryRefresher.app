@@ -1,7 +1,7 @@
 ---
 id: 002
 title: "Session pages built around the YouTube videos"
-status: in-progress
+status: done
 priority: p1
 created: 2026-11-18
 updated: 2026-11-18
@@ -16,10 +16,10 @@ source: owner request 2026-11-18, plan approved the same day
 
 # 002 - Session pages built around the YouTube videos
 
-> **TL;DR** - Technique pages can carry one click-to-play YouTube session with `VideoObject`
-> markup, still with zero client JavaScript and no YouTube request before the click.
-> `/5-minute-box-breathing` is built first and waits for the owner's OK on a local preview;
-> the 4-7-8, 4-2-6-2 and paced-breathing embeds follow. Nothing is pushed before that OK.
+> **TL;DR** - Shipped 2026-11-18: click-to-play YouTube sessions with `VideoObject`, zero client
+> JS and no YouTube request before the click, on `/5-minute-box-breathing`, `/4-7-8-breathing-for-sleep`,
+> `/4-2-6-2-breathing` and `/paced-breathing`. Posters are frames of each video. Nothing to do;
+> check impressions for the three queries in four weeks.
 
 ## Why
 
@@ -46,12 +46,11 @@ nothing answers the "do it now" queries the videos answer (vidIQ, monthly YouTub
    |---|---|---|---|
    | `/5-minute-box-breathing` | 5 minute box breathing | `1rgjbiqi4N0` | `NPN9oBbp_sQ` |
    | `/4-7-8-breathing-for-sleep` | 4-7-8 breathing for sleep | `jidkbBLZi7Q` | `4agi_YNJLXM` |
-   | `/4-2-6-2-breathing` | 4-2-6-2 breathing | to be chosen (see below) | `5dxbM5NB_7Q` |
-   | `/paced-breathing` (refresh) | unchanged | `4P5RPpx4yfA`, pending the owner | |
+   | `/4-2-6-2-breathing` | 4-2-6-2 breathing | `jp6RX7Bi4qA` | `5dxbM5NB_7Q` |
+   | `/paced-breathing` (refresh) | unchanged | `4P5RPpx4yfA` | |
 
-   A poster that breaks the imagery rules means a different video. The poster of `3a2BDvthfIA`
-   (closed eyes, "INSOMNIA? FIXED.") fails, so `/4-2-6-2-breathing` needs another main video.
-   The poster of `4P5RPpx4yfA` carries the word "Guided" and a lotus-like engraving: owner's call.
+   Posters are frames of the session itself, never the channel thumbnail (owner, 2026-11-18):
+   the thumbnails carry banned words. Old-name watermarks are cropped out.
 4. **T4 Records and checks.** `seo/experience.md` gets a "YouTube channel" section;
    `keywords.md`, `clusters.md`, `published.md` get the "sessions with video" cluster; the README
    verification battery gets the video greps and the corrected sitemap count; one line each in

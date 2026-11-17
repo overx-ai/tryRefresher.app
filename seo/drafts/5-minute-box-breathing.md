@@ -6,7 +6,7 @@ intent: do-it-now session (video or timer)
 serp_format: YouTube sessions, web timers and Insight Timer tracks; articles that rank are short how-tos (Cleveland Clinic)
 angle: nobody converts five minutes to rounds; 300 s / 16 s = 18.75, so 18 rounds is 4:48 and 19 is 5:04
 experience_used: how the sessions are rendered, the pinned ball, and the 18-round default (YouTube channel; Decisions per technique, Box)
-status: draft
+status: published
 ---
 
 Page: src/pages/5-minute-box-breathing.astro (sources in the page; Livestrong 301-redirects to everydayhealth.com, not read, not cited).

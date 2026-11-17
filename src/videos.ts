@@ -21,6 +21,41 @@ export const VIDEOS = {
     duration: 'PT10M1S',
     uploadDate: '2026-07-24T18:04:35Z',
   },
+  p478_10: {
+    id: 'jidkbBLZi7Q',
+    name: '4-7-8 breathing, 10 minutes, crystal bowl',
+    description: 'Ten minutes of 4-7-8 breathing over a mountain lake. A ball rides a line that rises for four seconds, runs flat for seven and falls for eight, with the phase name, a short instruction and a count on screen. A crystal bowl marks each phase.',
+    duration: 'PT10M1S',
+    uploadDate: '2026-11-02T00:01:06Z',
+  },
+  p478_3: {
+    id: '4agi_YNJLXM',
+    name: '4-7-8 breathing, 3 minutes, spoken prompts',
+    description: 'Three minutes of 4-7-8 breathing beside a forest stream, with brief spoken prompts for each phase and the count on screen.',
+    duration: 'PT3M1S',
+    uploadDate: '2026-10-08T01:00:57Z',
+  },
+  p4262_10: {
+    id: 'jp6RX7Bi4qA',
+    name: '4-2-6-2 breathing, 10 minutes, duduk',
+    description: 'Ten minutes of 4-2-6-2 breathing in front of a waterfall. A ball rides a line that climbs for four seconds, runs flat for two, falls for six and runs flat for two, with the phase name, a short instruction and a count on screen. A duduk marks each phase.',
+    duration: 'PT10M1S',
+    uploadDate: '2026-10-31T23:00:58Z',
+  },
+  p4262_30: {
+    id: '5dxbM5NB_7Q',
+    name: '4-2-6-2 breathing, 30 minutes',
+    description: 'Thirty minutes of 4-2-6-2 breathing under willow branches, with the phase name, a short instruction and a count on screen.',
+    duration: 'PT30M1S',
+    uploadDate: '2026-10-10T23:02:35Z',
+  },
+  paced10: {
+    id: '4P5RPpx4yfA',
+    name: 'Paced breathing 5-5, 10 minutes',
+    description: 'Ten minutes of paced breathing at five seconds in and five out, six breaths a minute, in a misty forest. A ball rides a wave that rises for the inhale and falls for the exhale.',
+    duration: 'PT10M1S',
+    uploadDate: '2026-06-20T15:00:06Z',
+  },
 } as const satisfies Record<string, Video>;
 
 export type VideoKey = keyof typeof VIDEOS;

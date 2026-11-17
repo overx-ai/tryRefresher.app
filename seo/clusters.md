@@ -33,6 +33,8 @@ plus the arithmetic of the length. The `... app` pages keep app intent and link 
 | slug | target | status |
 |---|---|---|
 | `/5-minute-box-breathing` | 5 minute box breathing | live 2026-11-18 (judge 77 → 85); inbound from /box-breathing-app, /4-7-8-breathing-app, /paced-breathing |
+| `/4-7-8-breathing-for-sleep` | 4-7-8 breathing for sleep | live 2026-11-18 (judge 85); inbound from /4-7-8-breathing-app, /5-minute-box-breathing, /paced-breathing |
+| `/4-2-6-2-breathing` | 4-2-6-2 breathing | live 2026-11-18 (judge 82); inbound from /box-breathing-app, /5-minute-box-breathing, /paced-breathing |
 
 ## Notes
 - Format Google rewards here (from the strongest ranking page, vayu-prana.com/box-breathing-app):
