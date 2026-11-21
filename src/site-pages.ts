@@ -26,7 +26,7 @@ export const SITE_PAGES = [
   { slug: 'coherent-breathing-app', lastmod: '2026-11-16' },
   { slug: 'hrv-breathing-app',      lastmod: '2026-11-16' },
   { slug: '4-7-8-breathing-app',    lastmod: '2026-11-18' },
-  { slug: 'wim-hof-breathing-app',  lastmod: '2026-09-23' },
+  { slug: 'ice-and-fire-power-breathing-app',  lastmod: '2026-11-21' },
   { slug: 'resonance-frequency-breathing', lastmod: '2026-11-09' },
   { slug: 'paced-breathing',        lastmod: '2026-11-18' },
   { slug: 'apple-watch-breathing-heart-rate', lastmod: '2026-11-16' },
