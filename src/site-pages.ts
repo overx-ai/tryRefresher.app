@@ -27,14 +27,15 @@ export const SITE_PAGES = [
   { slug: 'hrv-breathing-app',      lastmod: '2026-11-16' },
   { slug: '4-7-8-breathing-app',    lastmod: '2026-11-18' },
   { slug: 'ice-and-fire-power-breathing-app',  lastmod: '2026-11-21' },
-  { slug: 'resonance-frequency-breathing', lastmod: '2026-11-09' },
+  { slug: 'resonance-frequency-breathing', lastmod: '2026-11-23' },
   { slug: 'paced-breathing',        lastmod: '2026-11-18' },
   { slug: 'apple-watch-breathing-heart-rate', lastmod: '2026-11-16' },
   { slug: '5-minute-box-breathing', lastmod: '2026-11-18' },
   { slug: '4-7-8-breathing-for-sleep', lastmod: '2026-11-18' },
   { slug: '4-2-6-2-breathing', lastmod: '2026-11-18' },
-  { slug: 'kohaerentes-atmen',      lastmod: '2026-10-26', locale: 'de' },
-  { slug: 'box-atmung-app',         lastmod: '2026-10-26', locale: 'de' },
+  { slug: 'kohaerentes-atmen',      lastmod: '2026-11-23', locale: 'de' },
+  { slug: 'box-atmung-app',         lastmod: '2026-11-23', locale: 'de' },
+  { slug: 'resonanzatmung',         lastmod: '2026-11-23', locale: 'de' },
   { slug: 'respiracion-coherente',  lastmod: '2026-11-02', locale: 'es' },
   { slug: 'respiracion-cuadrada',   lastmod: '2026-11-02', locale: 'es' },
 ] as const satisfies readonly SitePage[];
@@ -56,6 +57,10 @@ export const TOPIC_PEERS: Partial<Record<Locale, { slug: Slug; title: string }>>
     en: { slug: 'box-breathing-app', title: 'Box breathing app' },
     de: { slug: 'box-atmung-app', title: 'Box-Atmung App' },
     es: { slug: 'respiracion-cuadrada', title: 'Respiración cuadrada' },
+  },
+  {
+    en: { slug: 'resonance-frequency-breathing', title: 'Resonance frequency breathing' },
+    de: { slug: 'resonanzatmung', title: 'Resonanzatmung' },
   },
 ];
 

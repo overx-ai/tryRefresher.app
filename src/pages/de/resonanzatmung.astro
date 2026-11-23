@@ -1,0 +1,120 @@
+---
+import TechniqueLayout from '../../layouts/TechniqueLayout.astro';
+---
+
+<TechniqueLayout
+  slug="resonanzatmung"
+  locale="de"
+  technique="coherent"
+  crumb="Resonanzatmung"
+  query="Resonanzatmung"
+  title="Resonanzatmung: So findest du dein Atemtempo"
+  description="Resonanzatmung ist langsames Atmen im persönlichen Tempo, meist 4,5 bis 7 Atemzüge pro Minute. Wie der Stufentest abläuft und ob er sich für dich lohnt."
+  article={{ datePublished: '2026-11-23' }}
+  lede="4,5 bis 7 Atemzüge pro Minute: Irgendwo in diesem Bereich liegt das Tempo, bei dem dein Puls mit jedem Atemzug am stärksten steigt und fällt. Wo genau, zeigt nur ein Test, und für den reicht eine Uhr nicht."
+  answer="Resonanzatmung ist langsames, gleichmäßiges Atmen in dem persönlichen Tempo, bei dem die Herzfrequenz mit jedem Atemzug am stärksten schwankt. Bei Erwachsenen liegt es meist zwischen 4,5 und 7 Atemzügen pro Minute, im Schnitt bei etwa 5,5. Gefunden wird es mit einem Stufentest: je zwei Minuten pro Tempo, dazu ein Brustgurt, der jeden Herzschlag erfasst."
+  sections={[
+    {
+      h2: 'Resonanzatmung oder kohärentes Atmen?',
+      paras: [
+        "Die beiden Begriffe werden oft synonym verwendet, meinen aber nicht ganz dasselbe. Beim kohärenten Atmen gilt ein festes Tempo für alle, meist 5,5 oder 6 Atemzüge pro Minute. Bei der Resonanzatmung misst man zuerst das eigene Tempo und atmet dann genau in diesem Tempo.",
+        "Dahinter steckt eine Beobachtung aus der Biofeedback-Forschung: Der Puls steigt beim Einatmen leicht an und sinkt beim Ausatmen. Wird die Atmung langsamer, werden diese Schwankungen größer, bis sie bei einem bestimmten Tempo am größten sind. Dieses Tempo heißt Resonanzfrequenz.",
+        "Lehrer und Gevirtz haben 2014 die Forschung dazu zusammengefasst. Anfangs ging man von etwa 0,1 Hz aus, also sechs Atemzügen pro Minute, später von durchschnittlich etwa 5,5. Sie unterscheidet sich aber von Mensch zu Mensch: Eine Studie von Steffen und Kollegen (2017) nennt 4,5 bis 7 Atemzüge pro Minute als typischen Bereich.",
+      ],
+    },
+    {
+      h2: 'Der Stufentest',
+      paras: [
+        "Das übliche Verfahren ist eine Treppe. Im Leitfaden von Shaffer und Meehan (2020) beginnt sie bei 6,5 Atemzügen pro Minute und geht in Schritten von 0,5 bis 4,5 hinunter. Jede Stufe dauert zwei Minuten, dazwischen wird normal geatmet. Mit den Pausen kommt man auf knapp 20 Minuten.",
+        "Während jeder Stufe zeichnet ein Sensor jeden Herzschlag auf. Danach vergleicht man die Stufen anhand von sechs gewichteten Kriterien. Am stärksten zählt, ob Puls und Atem im Gleichtakt steigen und fallen. An zweiter Stelle steht der Abstand zwischen höchstem und niedrigstem Puls innerhalb eines Atemzugs. Das Tempo mit dem besten Ergebnis ist deine Schätzung.",
+        "Der Sensor ist der Knackpunkt. Ein Brustgurt mit einer App, die den Puls Schlag für Schlag anzeigt, reicht für eine Messung zu Hause. Der HRV-Wert der Apple Watch nicht: Er ist eine einzelne SDNN-Messung, die die Uhr selbst ansetzt, keine Kurve über zwei Minuten. Damit lassen sich fünf Stufen nicht vergleichen.",
+      ],
+    },
+    {
+      h2: 'Atemzüge pro Minute in Sekunden umrechnen',
+      paras: [
+        "Taktgeber auf dem Handy stellen jede Phase in Sekunden ein, die Studien rechnen in Atemzügen pro Minute. Bei gleich langem Ein- und Ausatmen gilt: Sekunden pro Phase sind 30 geteilt durch Atemzüge pro Minute.",
+      ],
+      table: {
+        caption: 'Gleich lang ein und aus. Atemzüge pro Minute sind 30 geteilt durch die Sekunden pro Phase.',
+        head: ['Sekunden pro Phase', 'Atemzüge pro Minute', 'Runden für etwa 2 Minuten'],
+        rows: [
+          ['4,5', '6,7', '13 (1:57)'],
+          ['5,0', '6,0', '12 (2:00)'],
+          ['5,5', '5,45', '11 (2:01)'],
+          ['6,0', '5,0', '10 (2:00)'],
+          ['6,5', '4,6', '9 (1:57)'],
+        ],
+      },
+    },
+    {
+      h2: 'Ein Test ist nur eine Schätzung',
+      paras: [
+        "Capdevila und Kollegen haben 2021 bei 21 Personen den Test nach sechs bis acht Tagen wiederholt. Bei zwei Dritteln (66,7 %) kam beim zweiten Mal ein anderes Tempo heraus. Shaffer und Meehan verweisen dagegen auf eine Studie, ebenfalls mit 21 Personen, die über zwei Wochen eine akzeptable Wiederholbarkeit fand. Sicher ist nur: Ein einzelner Durchgang ist ein Startwert. Mach den Test an einem anderen Tag noch einmal.",
+        "Ob sich das persönliche Tempo überhaupt lohnt, ist offen. In einer randomisierten Studie von 2026 mit 88 Personen atmete eine Gruppe in ihrer gemessenen Resonanzfrequenz, eine zweite fest bei sechs Atemzügen pro Minute, eine dritte wartete. Nach vier Wochen berichteten beide Atemgruppen weniger Stress als die Wartegruppe, ohne nennenswerten Unterschied untereinander. Die Autoren schreiben selbst, dass eine größere Studie nötig wäre, um die Frage zu klären.",
+        "Mein Rat: Hast du einen Brustgurt und Spaß an Daten, mach die Treppe zwei- oder dreimal an verschiedenen Tagen und nimm das Tempo, das am häufigsten vorn liegt. Hast du keinen, atme bei 5,5 bis 6 Atemzügen pro Minute und nutz die 20 Minuten zum Atmen statt zum Testen.",
+      ],
+    },
+    {
+      h2: 'Was Refresher dabei kann und was nicht',
+      paras: [
+        "Refresher hält das Tempo, der Brustgurt misst. Bei Kohärent läuft der Regler von 3 bis 10 Sekunden pro Phase in Schritten von 0,5 Sekunden, also von 10 bis 3 Atemzügen pro Minute. 5,0 und 6,0 Sekunden treffen die Stufen 6 und 5 aus dem Leitfaden genau, 5,5 Sekunden ergeben 5,45 statt 5,5. 4,5 und 6,5 Sekunden landen bei 6,7 und 4,6 statt 6,5 und 4,5. Für einen Test zu Hause reicht das, weil du die Stufen untereinander vergleichst.",
+        "In deinen ersten fünf Sitzungen ab einer Minute kannst du den Regler ohne Abo nutzen. Danach gehört er zu Premium, das du 7 Tage kostenlos testen kannst. Die Rundenzahl, 1 bis 200, bleibt immer kostenlos.",
+        "Deine Resonanzfrequenz findet Refresher nicht. Mit Apple Watch und eingeschalteter Herzfrequenzmessung zeigt die App den Puls vor und nach der Sitzung. Für den Test zählt aber die Schwankung innerhalb jedes Atemzugs, und die zeigen zwei Werte nicht. Deine HRV siehst du als 30-Tage-Verlauf aus Apple Health, neben den Tagen, an denen du geatmet hast.",
+      ],
+      aside: [
+        "Die Voreinstellung habe ich auf 5,5 Sekunden ein und 5,5 aus gesetzt, weil Lehrer und Gevirtz die durchschnittliche Resonanzfrequenz dort ansetzen. Den Regler habe ich von 3 bis 10 Sekunden in Schritten von 0,5 gebaut, weil sich die Resonanzfrequenz von Person zu Person unterscheidet. Bei Box und 4-7-8 gibt es keinen Regler, dort ist das Verhältnis die Technik. Beim kohärenten Atmen ist genau das Tempo umstritten.",
+        "Die Apple Watch speichert SDNN nur ein paar Mal am Tag, nicht fortlaufend. Eine HRV-Zahl vor und nach einer einzelnen Sitzung habe ich deshalb nicht gebaut. Aus demselben Grund kann die App auch keine fünf Teststufen gegeneinander auswerten.",
+      ],
+    },
+  ]}
+  howTo={{
+    name: 'Resonanzfrequenz zu Hause schätzen',
+    description: 'Eine Treppe aus fünf langsamen Tempi, je zwei Minuten, während ein Brustgurt jeden Herzschlag aufzeichnet. Rechne mit etwa 20 Minuten.',
+    totalTime: 'PT20M',
+    tools: ['Ein Brustgurt, dessen App jeden einzelnen Herzschlag aufzeichnet', 'Ein Taktgeber, der jede Phase in Halbsekundenschritten einstellt'],
+    steps: [
+      { name: 'Brustgurt anlegen', text: 'Mit seiner App koppeln. Bequem hinsetzen und eine Minute normal atmen.' },
+      { name: 'Zwei Minuten pro Stufe atmen', text: 'Arbeite die Tabelle ab: 4,5, 5,0, 5,5, 6,0 und 6,5 Sekunden pro Phase, also etwa 6,7 bis 4,6 Atemzüge pro Minute. Stell die Runden laut Tabelle ein, damit jede Stufe etwa zwei Minuten dauert.' },
+      { name: 'Zwischen den Stufen ein bis zwei Minuten Pause', text: 'Normal atmen. Wenn dir schwindelig wird oder du das Gefühl hast, zu viel zu atmen, hör auf.' },
+      { name: 'Stufen vergleichen', text: 'Such in der App des Brustgurts das Tempo, bei dem der Puls am regelmäßigsten mit jedem Atemzug steigt und fällt und der Abstand zwischen Spitze und Tal am größten ist. Das ist deine Schätzung.' },
+      { name: 'An einem anderen Tag wiederholen', text: 'Innerhalb von ein, zwei Wochen ein- oder zweimal wiederholen. Gewinnt dasselbe Tempo öfter, nimm es. Springt das Ergebnis jedes Mal, bleib bei 5,5 bis 6.' },
+    ],
+  }}
+  faqs={[
+    {
+      q: 'Was ist Resonanzatmung?',
+      a: 'Langsames, gleichmäßiges Atmen im persönlichen Tempo, bei dem der Puls mit jedem Atemzug am stärksten steigt und fällt. Bei den meisten Erwachsenen liegt es zwischen 4,5 und 7 Atemzügen pro Minute, im Schnitt bei etwa 5,5. In diesem Tempo wird beim HRV-Biofeedback geatmet.',
+    },
+    {
+      q: 'Wie finde ich meine Resonanzfrequenz?',
+      a: 'Du atmest je zwei Minuten in mehreren langsamen Tempi, meist von 6,5 bis 4,5 Atemzügen pro Minute in Schritten von 0,5, mit Pausen dazwischen. Ein Brustgurt zeichnet dabei jeden Herzschlag auf. Das Tempo mit der größten und regelmäßigsten Pulsschwankung ist deine Schätzung. Wiederhole den Test an einem anderen Tag.',
+    },
+    {
+      q: 'Ist Resonanzatmung dasselbe wie kohärentes Atmen?',
+      a: 'Fast. Kohärentes Atmen nutzt ein festes Tempo für alle, meist 5,5 oder 6 Atemzüge pro Minute. Resonanzatmung misst zuerst dein eigenes Tempo. Eine randomisierte Studie von 2026 fand nach vier Wochen keinen nennenswerten Unterschied zwischen beiden, die Autoren halten eine größere Studie für nötig.',
+    },
+    {
+      q: 'Reicht eine Apple Watch für den Test?',
+      a: 'Nein. Die Watch erfasst HRV nur in einzelnen Messungen, für den Test braucht es aber jeden Herzschlag innerhalb jeder Stufe. Das schafft ein Brustgurt, der die Abstände zwischen den Schlägen mitschreibt. Die Watch kann in Refresher den Puls vor und nach einer Sitzung zeigen.',
+    },
+    {
+      q: 'Kann ich den Stufentest in Refresher kostenlos machen?',
+      a: 'Einmal, ja. Die ersten fünf Sitzungen ab einer Minute laufen mit Tempo-Regler ohne Abo, das sind genau die fünf Stufen. Für die Wiederholung an einem anderen Tag brauchst du Premium, das du 7 Tage kostenlos testen kannst. Die Rundenzahl bleibt immer kostenlos.',
+    },
+  ]}
+  siblings={[
+    { slug: 'kohaerentes-atmen', anchor: 'Kohärentes Atmen im festen Takt von 5,5 Sekunden' },
+    { slug: 'box-atmung-app', anchor: 'Box-Atmung im festen 4-4-4-4-Takt mit Halten nach Ein- und Ausatmen' },
+  ]}
+  sources={[
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4104929/', supports: 'Lehrer und Gevirtz 2014: Resonanzfrequenz zuerst bei etwa 0,1 Hz, später im Mittel bei etwa 5,5 Atemzügen pro Minute, von Person zu Person verschieden' },
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5575449/', supports: 'Steffen und Kollegen 2017: individuelle Resonanzfrequenz meist 4,5 bis 7 Atemzüge pro Minute' },
+    { url: 'https://www.frontiersin.org/articles/10.3389/fnins.2020.570400/full', supports: 'Shaffer und Meehan 2020: Treppe von 6,5 bis 4,5 Atemzügen pro Minute in halben Schritten, je zwei Minuten; sechs gewichtete Kriterien; Wiederholbarkeit bei 21 Personen über zwei Wochen (Fuller und Kollegen 2011)' },
+    { url: 'https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/heartratevariabilitysdnn', supports: 'Apple: HRV in HealthKit ist SDNN, die Standardabweichung der Abstände zwischen normalen Herzschlägen; die Apple Watch zeichnet die Messungen selbst auf' },
+    { url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8052415/', supports: 'Capdevila und Kollegen 2021: 21 Personen nach sechs bis acht Tagen erneut getestet, Resonanzfrequenz bei 66,7 % verändert' },
+    { url: 'https://www.nature.com/articles/s41598-026-53333-6', supports: 'Sumińska, Rynkiewicz und Szulczewski 2026: randomisiert, 88 Personen, gemessene Frequenz gegen feste sechs Atemzüge pro Minute gegen Wartegruppe, vier Wochen, weniger Stress in beiden Atemgruppen, kein nennenswerter Unterschied zwischen ihnen' },
+  ]}
+  closeH2="Fünf Tempi, je zwei Minuten."
+  closeP="Stell die Sekunden pro Phase ein, Refresher zählt die Runden. Die ersten fünf Sitzungen ab einer Minute mit Tempo-Regler sind kostenlos, genug für einen Durchgang."
+/>

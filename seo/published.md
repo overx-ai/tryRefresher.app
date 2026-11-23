@@ -17,6 +17,7 @@
 | https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | hold (2026-11-02: "Crawled - currently not indexed"; inbound 1 -> 3 via cross-locale links; judge 81) |
 | https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 89) |
 | https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 80) |
+| https://tryrefresher.app/de/resonanzatmung | Resonanzatmung (de) | 2026-11-23 | hold (new; weekly run; judge 84 PASS, fixes applied; inbound from /resonance-frequency-breathing via TOPIC_PEERS and the siblings of /de/kohaerentes-atmen and /de/box-atmung-app) |
 | https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (new; weekly run; judge 86; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app) |
 | https://tryrefresher.app/5-minute-box-breathing | 5 minute box breathing | 2026-11-18 | hold (new; spec 002, first video page; judge 77 -> 85; inbound from /box-breathing-app, /4-7-8-breathing-app, /paced-breathing) |
 | https://tryrefresher.app/4-7-8-breathing-for-sleep | 4-7-8 breathing for sleep | 2026-11-18 | hold (new; spec 002; judge 85; inbound from /4-7-8-breathing-app, /5-minute-box-breathing, /paced-breathing) |

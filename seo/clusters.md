@@ -60,6 +60,7 @@ Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.
 |---|---|---|
 | `/de/kohaerentes-atmen` | kohärentes Atmen | live 2026-10-26 (judge 74 → 84) |
 | `/de/box-atmung-app` | Box-Atmung App | live 2026-10-26 (judge 81) |
+| `/de/resonanzatmung` | Resonanzatmung | live 2026-11-23 (weekly run, judge 84; personal-rate explainer, the how-to stays on kohaerentes-atmen; TOPIC_PEERS with /resonance-frequency-breathing) |
 
 - Inbound links: **limit fixed 2026-11-02.** `siblings` still resolve in the page's own locale, but `TOPIC_PEERS` in `src/site-pages.ts` now links every page to its topic equivalents in the other locales (en ↔ de ↔ es), labelled with the target's own H1 and language name. Not hreflang: each page stays self-canonical. Each de/es pilot page went from 1 inbound link to 3. A new de/es page joins an existing `TOPIC_PEERS` group (or starts one with its en equivalent) and adds itself to the same-locale pages' `siblings`.
 
