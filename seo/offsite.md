@@ -28,3 +28,4 @@ Playbook and log for answers placed on other platforms. Drafted by `/seo offsite
 | Platform | Locale | Target query | Draft | Status | Live URL | Links to | Date | 4-week result |
 |---|---|---|---|---|---|---|---|---|
 | LinkedIn | en | 5 technique articles | META_STATE/copy/2026-10-linkedin-refresher-articles.md | draft | | technique pages | | |
+| YouTube | en | 7 embedded sessions: query-first titles | seo/offsite/youtube/batch-1.md (titles only; descriptions and tags drafted, judge 84, not applied) | live | 7 videos, see batch-1-before.md for IDs and old titles | 4 session pages | 2026-11-23 | |
