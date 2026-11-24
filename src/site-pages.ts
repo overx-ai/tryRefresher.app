@@ -16,17 +16,17 @@ export const DEFAULT_LOCALE: Locale = 'en';
 export interface SitePage { slug: string; lastmod: string; locale?: Locale }
 
 export const SITE_PAGES = [
-  { slug: '',                       lastmod: '2026-09-02' },
+  { slug: '',                       lastmod: '2026-11-24' },
   { slug: 'support',                lastmod: '2026-09-02' },
   { slug: 'privacy',                lastmod: '2026-09-03' },
   { slug: 'terms',                  lastmod: '2026-09-03' },
   { slug: 'press',                  lastmod: '2026-10-19' },
   { slug: 'community',              lastmod: '2026-10-19' },
   { slug: 'box-breathing-app',      lastmod: '2026-11-18' },
-  { slug: 'coherent-breathing-app', lastmod: '2026-11-16' },
+  { slug: 'coherent-breathing-app', lastmod: '2026-11-24' },
   { slug: 'hrv-breathing-app',      lastmod: '2026-11-16' },
   { slug: '4-7-8-breathing-app',    lastmod: '2026-11-18' },
-  { slug: 'ice-and-fire-power-breathing-app',  lastmod: '2026-11-21' },
+  { slug: 'ice-and-fire-power-breathing-app',  lastmod: '2026-11-24' },
   { slug: 'resonance-frequency-breathing', lastmod: '2026-11-23' },
   { slug: 'paced-breathing',        lastmod: '2026-11-18' },
   { slug: 'apple-watch-breathing-heart-rate', lastmod: '2026-11-16' },

@@ -28,6 +28,14 @@ const evidence = [
   ['No account needed.', 'Nothing to create and nothing to log into. No ads and no ad SDKs. Purchases are handled by Apple.'],
 ];
 
+// Session pages carry a full-length video of the pattern; the homepage links each so crawlers reach them.
+const sessions = [
+  { href: '/5-minute-box-breathing', name: '5 minute box breathing', body: '18 rounds at 4-4-4-4, start to finish on video.' },
+  { href: '/4-7-8-breathing-for-sleep', name: '4-7-8 breathing for sleep', body: 'A 10-minute session for lights out.' },
+  { href: '/4-2-6-2-breathing', name: '4-2-6-2 breathing', body: 'A 14-second round with a long exhale.' },
+  { href: '/paced-breathing', name: 'Paced breathing at 6 a minute', body: 'One steady pace, counted in seconds.' },
+];
+
 // Answers stay under 60 words: short enough for an AI engine to lift whole.
 const faqs = [
   {
@@ -197,6 +205,22 @@ const howToSchema = {
         <span><i style="background: var(--phase-pause)"></i>Pause</span>
         <span class="scale">Bars show relative phase length</span>
       </div>
+    </div>
+  </section>
+
+  <!-- SESSIONS ON VIDEO -->
+  <section class="sec container" id="sessions">
+    <div class="sec-head">
+      <span class="lbl">Sessions on video</span>
+      <h2>Five to thirty minutes, on video.</h2>
+    </div>
+    <div class="plat">
+      {sessions.map((v) => (
+        <div>
+          <h3><a href={v.href}>{v.name}</a></h3>
+          <p>{v.body}</p>
+        </div>
+      ))}
     </div>
   </section>
 
