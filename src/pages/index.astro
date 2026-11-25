@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import Orb from '../components/Orb.astro';
 import { APP, TECHNIQUES } from '../app';
+import { DEFAULT_LOCALE, LANGUAGE_NAMES, LOCALES, TOPIC_PEERS, registeredPath, type Locale } from '../site-pages';
 import { appSchema as sharedAppSchema, faqSchema as sharedFaqSchema } from '../schema';
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tryrefresher.app';
@@ -34,6 +35,15 @@ const sessions = [
   { href: '/4-7-8-breathing-for-sleep', name: '4-7-8 breathing for sleep', body: 'A 10-minute session for lights out.' },
   { href: '/4-2-6-2-breathing', name: '4-2-6-2 breathing', body: 'A 14-second round with a long exhale.' },
   { href: '/paced-breathing', name: 'Paced breathing at 6 a minute', body: 'One steady pace, counted in seconds.' },
+];
+
+// The home page passes the most authority, so it links every page that has few other inbound links.
+const reading = [
+  { href: registeredPath('apple-watch-breathing-heart-rate', DEFAULT_LOCALE), name: 'Apple Watch breathing heart rate' },
+  { href: registeredPath('resonance-frequency-breathing', DEFAULT_LOCALE), name: 'Resonance frequency breathing' },
+  ...TOPIC_PEERS.flatMap((group) => (Object.keys(group) as Locale[])
+    .filter((l) => l !== DEFAULT_LOCALE)
+    .map((l) => ({ href: registeredPath(group[l]!.slug, l), name: `${group[l]!.title} (${LANGUAGE_NAMES[l]})`, lang: LOCALES[l] }))),
 ];
 
 // Answers stay under 60 words: short enough for an AI engine to lift whole.
@@ -222,6 +232,9 @@ const howToSchema = {
         </div>
       ))}
     </div>
+    <ul class="reading">
+      {reading.map((r) => <li><a href={r.href} lang={r.lang}>{r.name}</a></li>)}
+    </ul>
   </section>
 
   <!-- THE NUMBER AT THE END -->
@@ -408,6 +421,8 @@ const howToSchema = {
   .spine .d-in { fill: var(--phase-inhale); }
   .spine .d-ho { fill: var(--phase-hold); }
   .spine .d-ex { fill: var(--phase-exhale); }
+
+  .reading { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: var(--space-lg) 0 0; padding: 0; list-style: none; font-size: 14px; }
 
   /* --- phase strip --- */
   .phases {

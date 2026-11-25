@@ -14,7 +14,7 @@ Supporting pages (all judged ≥80 before publish):
 | `/hrv-breathing-app` | hrv breathing app | live 2026-09-02 |
 | `/box-breathing-app` | box breathing app | live 2026-09-02 |
 | `/4-7-8-breathing-app` | 4-7-8 breathing app | live 2026-09-02 |
-| `/wim-hof-breathing-app` | wim hof breathing app | live 2026-09-23 (judge: 76 → 86) |
+| `/ice-and-fire-power-breathing-app` (was /wim-hof-breathing-app) | power breathing app | live 2026-09-23 (judge: 76 → 86) |
 
 ## Cluster: technique explainers
 Informational intent, feeds the pillar. Rendered through `TechniqueLayout` with the `article`
@@ -53,6 +53,13 @@ plus the arithmetic of the length. The `... app` pages keep app intent and link 
   first sentence that names product, platforms and the number. Applied to /hrv-breathing-app on
   2026-11-02 in part: the title now names iPhone and Apple Watch, the words in its one visible
   query; the 5.5 spec stays in the description and short answer. Re-check its CTR in four weeks.
+- **Learn, 2026-11-25:** /coherent-breathing-app went from position 16.6 to 6.1 (3.9 in the last
+  7 days), 39 impressions, 1 click. Its best query is "5.5 breathing app" (10 impressions, position 4.3): the
+  number in the title is itself searched. Keep putting the spec in the title.
+- **Video indexing, 2026-11-25:** Google indexed the video on /4-7-8-breathing-for-sleep and
+  /4-2-6-2-breathing, and called it supplementary on /5-minute-box-breathing and /paced-breathing.
+  Same layout; the two that passed name the session or video in their title. A guess, under test
+  on /5-minute-box-breathing.
 
 ## de pilot (spec 001)
 Native German technique pages at `/de/{slug}`, self-canonical, no hreflang.

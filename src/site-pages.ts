@@ -16,7 +16,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 export interface SitePage { slug: string; lastmod: string; locale?: Locale }
 
 export const SITE_PAGES = [
-  { slug: '',                       lastmod: '2026-11-24' },
+  { slug: '',                       lastmod: '2026-11-25' },
   { slug: 'support',                lastmod: '2026-09-02' },
   { slug: 'privacy',                lastmod: '2026-09-03' },
   { slug: 'terms',                  lastmod: '2026-09-03' },
@@ -30,7 +30,7 @@ export const SITE_PAGES = [
   { slug: 'resonance-frequency-breathing', lastmod: '2026-11-23' },
   { slug: 'paced-breathing',        lastmod: '2026-11-18' },
   { slug: 'apple-watch-breathing-heart-rate', lastmod: '2026-11-16' },
-  { slug: '5-minute-box-breathing', lastmod: '2026-11-18' },
+  { slug: '5-minute-box-breathing', lastmod: '2026-11-25' },
   { slug: '4-7-8-breathing-for-sleep', lastmod: '2026-11-18' },
   { slug: '4-2-6-2-breathing', lastmod: '2026-11-18' },
   { slug: 'kohaerentes-atmen',      lastmod: '2026-11-23', locale: 'de' },

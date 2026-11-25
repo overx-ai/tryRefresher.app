@@ -2,31 +2,33 @@
 
 | URL | Target keyword | Published | Last GSC verdict |
 |---|---|---|---|
-| https://tryrefresher.app/ | breathing pacer app | 2026-09-02 | hold (2026-11-02: 16 imp, 0 clicks, pos 5.4) |
-| https://tryrefresher.app/support | brand + support | 2026-09-02 | hold (2026-11-02: no impressions) |
-| https://tryrefresher.app/privacy | brand + privacy | 2026-09-02 | hold (2026-11-02: 3 imp, pos 5.3) |
-| https://tryrefresher.app/terms | brand + terms | 2026-09-02 | hold (2026-11-02: no impressions) |
-| https://tryrefresher.app/press | brand + press kit | 2026-09-02 | hold (2026-11-02: 3 imp, pos 4.3) |
-| https://tryrefresher.app/box-breathing-app | box breathing app | 2026-09-02 | hold (2026-11-02: 3 imp, pos 8.3, too little data) |
-| https://tryrefresher.app/coherent-breathing-app | coherent breathing app | 2026-09-02 | learn (2026-11-02: 20 imp, 2 clicks, CTR 10%, pos 16.6; see clusters.md Notes) |
-| https://tryrefresher.app/hrv-breathing-app | hrv breathing app | 2026-09-02 | refresh done 2026-11-02 (16 imp, 0 clicks, pos 14.6; judge 0 (hard fail) -> 86) |
+| https://tryrefresher.app/ | breathing pacer app | 2026-09-02 | hold (2026-11-25: 10 imp, 0 clicks, pos 3.0) |
+| https://tryrefresher.app/support | brand + support | 2026-09-02 | hold (2026-11-25: not in the top 10 pages; listed as discovered, not inspected) |
+| https://tryrefresher.app/privacy | brand + privacy | 2026-09-02 | hold (2026-11-25: 3 imp, pos 2.3) |
+| https://tryrefresher.app/terms | brand + terms | 2026-09-02 | hold (2026-11-25: 3 imp, pos 3.3) |
+| https://tryrefresher.app/press | brand + press kit | 2026-09-02 | hold (2026-11-25: 3 imp, pos 4.3) |
+| https://tryrefresher.app/community | brand + community | 2026-10-19 | hold (2026-11-25: unknown to Google; no search value) |
+| https://tryrefresher.app/box-breathing-app | box breathing app | 2026-09-02 | hold (2026-11-25: 4 imp, pos 6.5, too little data) |
+| https://tryrefresher.app/coherent-breathing-app | coherent breathing app | 2026-09-02 | learn (2026-11-25: 39 imp, 1 click, CTR 2.6%, pos 6.1, was 16.6; see clusters.md Notes) |
+| https://tryrefresher.app/hrv-breathing-app | hrv breathing app | 2026-09-02 | hold (2026-11-25: 15 imp, 0 clicks, pos 10.0, was 14.6; refreshed 2026-11-02, judge 86) |
 | https://tryrefresher.app/4-7-8-breathing-app | 4-7-8 breathing app | 2026-09-02 | hold (2026-11-02: 2 imp, pos 9.5, too little data) |
-| https://tryrefresher.app/wim-hof-breathing-app | wim hof breathing app | 2026-09-23 | hold (2026-11-02: 17 imp, 1 click, pos 19.4) |
-| https://tryrefresher.app/resonance-frequency-breathing | resonance frequency breathing | 2026-10-09 | hold (2026-11-02: 10 imp, pos 26.4; judge 86) |
-| https://tryrefresher.app/de/kohaerentes-atmen | kohärentes Atmen (de) | 2026-10-26 | hold (2026-11-02: "Crawled - currently not indexed"; inbound 1 -> 3 via cross-locale links; judge 74 -> 84) |
-| https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | hold (2026-11-02: "Crawled - currently not indexed"; inbound 1 -> 3 via cross-locale links; judge 81) |
-| https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 89) |
-| https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (new; inbound 1 -> 3 via cross-locale links; judge 80) |
-| https://tryrefresher.app/de/resonanzatmung | Resonanzatmung (de) | 2026-11-23 | hold (new; weekly run; judge 84 PASS, fixes applied; inbound from /resonance-frequency-breathing via TOPIC_PEERS and the siblings of /de/kohaerentes-atmen and /de/box-atmung-app) |
-| https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (new; weekly run; judge 86; inbound from /coherent-breathing-app, /resonance-frequency-breathing, /hrv-breathing-app) |
-| https://tryrefresher.app/5-minute-box-breathing | 5 minute box breathing | 2026-11-18 | hold (new; spec 002, first video page; judge 77 -> 85; inbound from /box-breathing-app, /4-7-8-breathing-app, /paced-breathing) |
-| https://tryrefresher.app/4-7-8-breathing-for-sleep | 4-7-8 breathing for sleep | 2026-11-18 | hold (new; spec 002; judge 85; inbound from /4-7-8-breathing-app, /5-minute-box-breathing, /paced-breathing) |
-| https://tryrefresher.app/4-2-6-2-breathing | 4-2-6-2 breathing | 2026-11-18 | hold (new; spec 002; judge 82; inbound from /box-breathing-app, /5-minute-box-breathing, /paced-breathing) |
-| https://tryrefresher.app/apple-watch-breathing-heart-rate | apple watch breathing heart rate | 2026-11-16 | hold (new; weekly run; judge 85; inbound from /hrv-breathing-app, /coherent-breathing-app, /paced-breathing) |
+| https://tryrefresher.app/ice-and-fire-power-breathing-app | power breathing app | 2026-09-23 | hold (2026-11-25: indexed; the old /wim-hof-breathing-app URL, now a 308 here, had 40 imp, 1 click, pos 23.1 and should fade after the trademark rename) |
+| https://tryrefresher.app/resonance-frequency-breathing | resonance frequency breathing | 2026-10-09 | hold (2026-11-25: 8 imp, pos 7.0, was 26.4; too little data to refresh) |
+| https://tryrefresher.app/de/kohaerentes-atmen | kohärentes Atmen (de) | 2026-10-26 | hold (2026-11-25: crawled 10-29, not indexed; home link added) |
+| https://tryrefresher.app/de/box-atmung-app | Box-Atmung App (de) | 2026-10-26 | hold (2026-11-25: crawled 10-29, not indexed; home link added) |
+| https://tryrefresher.app/es/respiracion-coherente | respiración coherente (es) | 2026-11-02 | hold (2026-11-25: indexed) |
+| https://tryrefresher.app/es/respiracion-cuadrada | respiración cuadrada / de caja (es) | 2026-11-02 | hold (2026-11-25: crawled 11-02, not indexed; home link added) |
+| https://tryrefresher.app/de/resonanzatmung | Resonanzatmung (de) | 2026-11-23 | hold (2026-11-25: crawled 11-24, not indexed; home link added) |
+| https://tryrefresher.app/paced-breathing | paced breathing | 2026-11-09 | hold (2026-11-25: indexed; video not indexed, "not on a watch page") |
+| https://tryrefresher.app/5-minute-box-breathing | 5 minute box breathing | 2026-11-18 | hold (2026-11-25: indexed; video not indexed, "not on a watch page"; title now says video) |
+| https://tryrefresher.app/4-7-8-breathing-for-sleep | 4-7-8 breathing for sleep | 2026-11-18 | hold (2026-11-25: page and video indexed) |
+| https://tryrefresher.app/4-2-6-2-breathing | 4-2-6-2 breathing | 2026-11-18 | hold (2026-11-25: page and video indexed) |
+| https://tryrefresher.app/apple-watch-breathing-heart-rate | apple watch breathing heart rate | 2026-11-16 | hold (2026-11-25: discovered, never crawled; home link added) |
 
-Verdicts from `gsc.py perf sc-domain:tryrefresher.app 28 page,query` on 2026-11-02. Most
-queries are anonymised at this volume; every page except /coherent-breathing-app is under 20
-impressions, so most verdicts are hold.
+Verdicts of 2026-11-25 were read in the Search Console browser UI (the API returns 403 from the
+owner's network): 28 days to 2026-11-23, 2 clicks, 103 impressions. The 2026-11-02 verdicts are in
+git. Only the top 10 of 12 pages were read, so /4-7-8-breathing-app keeps its 2026-11-02 verdict. Pages in the 5-15 band with under 20 impressions are hold, not refresh. Home links to 7
+weakly linked pages were added on 2026-11-25; to revert, drop `reading` in `src/pages/index.astro`.
 
 ## Sources for external claims (homepage)
 
