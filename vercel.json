@@ -9,6 +9,7 @@
   ],
   "redirects": [
     { "source": "/download", "destination": "https://apps.apple.com/app/id6759679041", "permanent": false },
+    { "source": "/go/:ct([A-Za-z0-9-]{1,40})", "destination": "https://apps.apple.com/app/id6759679041", "permanent": false },
     { "source": "/share/:id", "destination": "/download", "permanent": false },
     { "source": "/start/:technique", "destination": "/download", "permanent": false },
     { "source": "/wim-hof-breathing-app", "destination": "/ice-and-fire-power-breathing-app", "permanent": true },
